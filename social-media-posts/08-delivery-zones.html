@@ -2,46 +2,46 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>08 / Delivery zones</title>
+<title>08 / delivery zones</title>
 <link rel="stylesheet" href="_brand.css">
 <style>
-  .post { padding: 0; background: var(--paper); }
-  .map { position: absolute; inset: 0 0 34% 0; }
-  .map img { width: 100%; height: 100%; object-fit: cover; border-bottom: 8px solid var(--ink); filter: saturate(0.85) contrast(1.05); }
-  .pin { position: absolute; top: 130px; left: 50%; transform: translateX(-50%) rotate(-4deg); background: var(--red); color: var(--paper); border: 5px solid var(--ink); box-shadow: 10px 10px 0 rgba(29,27,22,0.8); padding: 18px 26px; font: 700 30px "Archivo Black", "Arial Black", sans-serif; }
-  .zones { position: absolute; inset: 66% 54px 54px 54px; background: var(--paper); border: 6px solid var(--ink); box-shadow: 14px 14px 0 var(--ink); padding: 30px 36px; }
-  .zrow { display: flex; justify-content: space-between; align-items: baseline; padding: 14px 0; border-bottom: 3px dashed rgba(29,27,22,0.4); font: 700 27px "Courier New", monospace; letter-spacing: 0.06em; }
-  .zrow:last-child { border-bottom: none; }
-  .zrow .d { color: var(--red); white-space: nowrap; }
-  .zhead { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .post { padding: 66px 60px 150px; }
+  h1 { font-size: 92px; }
+  .zones { margin-top: 42px; display: grid; gap: 16px; }
+  .zone {
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(250,246,238,.07); border-radius: 999px; padding: 22px 34px;
+    font: 700 27px "Quicksand", sans-serif;
+  }
+  .zone .eta { color: var(--amber); }
+  .zone.hot { background: var(--turf); color: var(--bone); }
+  .zone.hot .eta { color: var(--bone); }
+  .note { margin-top: 30px; font: 600 23px/1.65 "Nunito", sans-serif; color: rgba(250,246,238,.75); max-width: 800px; }
+  .note b { color: var(--bone); }
 </style>
 </head>
 <body>
-<div class="post">
-  <div class="map">
-    <img src="../website/public/images/shop/storefront.jpg" alt="">
-  </div>
-  <div class="pin">WE START HERE</div>
+<div class="post fur-dark">
+  <span class="label" style="color:var(--smoke)">Riders on two wheels, all day</span>
+  <h1 class="display">We deliver.</h1>
 
   <div class="zones">
-    <div class="zhead">
-      <span class="tag">Delivery zones</span>
-      <span class="mono" style="font-size:20px; color:var(--steel)">Rs 200 to 400 by area</span>
-    </div>
-    <div class="zrow"><span>G-10, G-10/1 to 4</span><span class="d">SAME DAY, 2 HRS</span></div>
-    <div class="zrow"><span>G-9, G-11, F-10</span><span class="d">SAME DAY</span></div>
-    <div class="zrow"><span>Rest of Islamabad</span><span class="d">NEXT MORNING</span></div>
-    <div class="zrow"><span>Rawalpindi, Saddar and beyond</span><span class="d">NEXT DAY</span></div>
+    <div class="zone hot"><span>G-10, G-10/1 to G-10/4</span><span class="eta">SAME DAY · OFTEN IN 2 HOURS</span></div>
+    <div class="zone"><span>G-11, F-10 and F-11</span><span class="eta">SAME DAY IF BEFORE 6 PM</span></div>
+    <div class="zone"><span>Rest of Islamabad and Rawalpindi</span><span class="eta">NEXT MORNING</span></div>
   </div>
 
-  <div class="footerlock" style="background:var(--paper); height:120px">
+  <p class="note"><b>Free over Rs 3,000</b> inside G-10. Cash on delivery. The shop confirms
+  stock before the rider leaves, so the bag that arrives is the bag you ordered.</p>
+
+  <div class="footerlock">
     <div class="mark">
-      <svg viewBox="0 0 64 64" width="46" height="46"><rect width="64" height="64" fill="#D6342C"/><path d="M14 44 C10 34 16 24 26 24 C32 24 36 28 36 34 C36 39 32 42 28 42" fill="none" stroke="#F5EFDF" stroke-width="5" stroke-linecap="round"/><path d="M36 18 L42 12 L44 20 C52 22 54 30 50 36 L52 44 C44 50 34 48 30 40 C26 32 30 22 36 18 Z" fill="#F5EFDF"/><circle cx="41" cy="30" r="2.6" fill="#1D1B16"/></svg>
-      <span class="wordmark" style="font-size:28px">HAPPY<span>TAILS</span></span>
+      <img src="../website/public/brand/logo-mark.svg" alt="">
+      <span class="wordmark">Happy <img src="../website/public/brand/script-tails.svg" alt="Tails"></span>
     </div>
-    <div class="contact" style="font-size:17px">WHATSAPP YOUR LIST<br>0313 1495287</div>
+    <div class="contact">ORDER ON WHATSAPP<br>0313 1495287</div>
   </div>
 </div>
-<p class="hint">08 / delivery zones / swap map crop per season / export 1080x1080</p>
+<p class="hint">08 / delivery zones / export 1080x1080</p>
 </body>
 </html>

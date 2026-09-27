@@ -2,49 +2,44 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>02 / Weekend price slash</title>
+<title>02 / weekend deal</title>
 <link rel="stylesheet" href="_brand.css">
 <style>
-  .post { background: var(--ink); color: var(--paper); padding: 60px; }
-  .slash {
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(115deg, transparent 0 46%, var(--red) 46% 54%, transparent 54% 62%, var(--mustard) 62% 65%, transparent 65%);
-    opacity: 0.14;
-  }
-  .band { position: absolute; left: -40px; top: 96px; transform: rotate(-6deg); background: var(--red); color: var(--paper); font: 700 30px "Courier New", monospace; letter-spacing: 0.3em; padding: 16px 60px; text-transform: uppercase; box-shadow: 10px 10px 0 rgba(245,239,223,0.15); }
-  .deal { position: absolute; top: 300px; left: 60px; right: 60px; }
-  .was { text-decoration: line-through; color: rgba(245,239,223,0.55); font: 700 54px "Courier New", monospace; }
-  .now { font-size: 300px; color: var(--mustard); }
-  .item { font-size: 64px; }
-  .terms { position: absolute; left: 60px; bottom: 150px; right: 60px; font: 20px/1.7 "Courier New", monospace; letter-spacing: 0.12em; color: rgba(245,239,223,0.75); text-transform: uppercase; }
-  .footerlock { border-top-color: var(--mustard); }
-  .footerlock .wordmark { color: var(--paper); }
+  .post { background: var(--night); color: var(--bone); padding: 70px 60px 150px; }
+  .kicker { color: var(--amber); }
+  .deal { margin-top: 26px; font-size: 100px; }
+  .strike { position: relative; color: var(--smoke); }
+  .strike:after { content: ""; position: absolute; left: -6px; right: -6px; top: 54%; height: 8px; background: var(--collar); border-radius: 6px; transform: rotate(-4deg); }
+  .now { color: var(--amber); }
+  .photo { position: absolute; right: -70px; top: 380px; width: 520px; transform: rotate(-4deg); }
+  .photo img { height: 480px; }
+  .terms { position: absolute; left: 60px; top: 640px; font: 600 22px/1.7 "Nunito", sans-serif; color: rgba(250,246,238,.75); max-width: 420px; }
+  .terms b { color: var(--amber); }
 </style>
 </head>
 <body>
-<div class="post">
-  <div class="slash"></div>
-  <span class="band">Weekend only / Fri to Sun</span>
+<div class="post fur-dark">
+  <span class="label kicker">Weekend only · Sat and Sun</span>
+  <h1 class="display deal">Kitten starter kits<br><span class="strike">Rs 9,800</span><br><span class="now">Rs 7,900</span></h1>
+  <svg class="swiggle" width="260" height="42" viewBox="0 0 100 40" preserveAspectRatio="none" style="margin-top:8px"><path d="M2 12 C 34 2 58 36 98 6" fill="none" stroke="var(--amber)" stroke-width="8" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
 
-  <div class="deal">
-    <p class="mono" style="font-size:26px; color:var(--mustard)">Top load pet carrier</p>
-    <p class="item display" style="margin-top:16px">HARD-SHELL CARRIER,<br>UP TO 6 KG.</p>
-    <p style="margin-top:26px"><span class="was">Rs 3,900</span></p>
-    <p class="now display">RS 3,400</p>
+  <div class="terms">
+    <b>In the kit:</b> 1.5 kg kitten food, litter tray, two bowls, a teaser wand,
+    and the first vaccine check on us. Say "weekend kit" at the counter.
   </div>
 
-  <p class="terms">Cash on delivery inside G-10 / call to reserve, we hold for 24 hours</p>
+  <div class="photo">
+    <img src="../website/public/images/pets/kitten-1.jpg" alt="Kitten">
+  </div>
 
-  <div class="footerlock" style="background:var(--ink)">
+  <div class="footerlock">
     <div class="mark">
-      <svg viewBox="0 0 64 64" width="52" height="52"><rect width="64" height="64" fill="#D6342C"/><path d="M14 44 C10 34 16 24 26 24 C32 24 36 28 36 34 C36 39 32 42 28 42" fill="none" stroke="#F5EFDF" stroke-width="5" stroke-linecap="round"/><path d="M36 18 L42 12 L44 20 C52 22 54 30 50 36 L52 44 C44 50 34 48 30 40 C26 32 30 22 36 18 Z" fill="#F5EFDF"/><circle cx="41" cy="30" r="2.6" fill="#1D1B16"/></svg>
-      <span class="wordmark">HAPPY<span style="color:var(--red)">TAILS</span></span>
+      <img src="../website/public/brand/logo-mark.svg" alt="">
+      <span class="wordmark">Happy <img src="../website/public/brand/script-tails.svg" alt="Tails"></span>
     </div>
-    <div class="contact" style="color:var(--paper)">0313 1495287<br>WHATSAPP THE SAME NUMBER</div>
+    <div class="contact">0313 1495287<br>RAMNA PLAZA, G-10</div>
   </div>
 </div>
-<p class="hint">02 / weekend price slash / export at 1080x1080</p>
+<p class="hint">02 / weekend deal / export 1080x1080</p>
 </body>
 </html>

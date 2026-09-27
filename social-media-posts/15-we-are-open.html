@@ -2,40 +2,36 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>15 / We are open sign</title>
+<title>15 / we are open</title>
 <link rel="stylesheet" href="_brand.css">
 <style>
-  .post { background: var(--paper); padding: 0; }
-  .sign { position: absolute; inset: 60px; border: 10px solid var(--ink); background: var(--paper); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 60px; }
-  .sign::before { content: ""; position: absolute; inset: 18px; border: 3px dashed rgba(29,27,22,0.45); }
-  .bulbs { position: absolute; top: -26px; left: 0; right: 0; display: flex; justify-content: center; gap: 26px; }
-  .bulb { width: 34px; height: 34px; background: var(--mustard); border: 5px solid var(--ink); }
-  .bulb:nth-child(even) { background: var(--red); }
-  .open { font-size: 220px; letter-spacing: -0.02em; }
-  .hours { margin-top: 20px; font: 700 34px "Courier New", monospace; letter-spacing: 0.3em; text-transform: uppercase; }
-  .sub { margin-top: 26px; max-width: 640px; font: 26px/1.6 Archivo, Arial, sans-serif; }
-  .tailsvg { margin-top: 8px; }
-  .signfoot { position: absolute; bottom: 44px; left: 0; right: 0; display: flex; justify-content: center; gap: 40px; font: 700 26px "Courier New", monospace; letter-spacing: 0.18em; text-transform: uppercase; }
-  .signfoot span { border-bottom: 5px solid var(--red); padding-bottom: 6px; }
+  .post { padding: 80px 60px 150px; text-align: center; }
+  h1 { font-size: 150px; }
+  h1 .grn { color: var(--turf); }
+  .eid { font: 600 30px/1.6 "Nunito", sans-serif; color: rgba(250,246,238,.85); max-width: 720px; margin: 26px auto 0; }
+  .open { display: inline-block; margin-top: 40px; background: var(--turf); color: var(--bone); border-radius: 999px; padding: 24px 54px; font: 800 44px "Baloo 2", sans-serif; box-shadow: 0 18px 40px rgba(47,160,90,.4); }
+  .cat { position: absolute; width: 420px; left: 50%; top: 54%; transform: translateX(-50%); opacity: .16; }
+  .phone { margin-top: 34px; font: 700 30px "Quicksand", sans-serif; letter-spacing: .12em; color: var(--amber); }
 </style>
 </head>
 <body>
-<div class="post">
-  <div class="sign">
-    <div class="bulbs"><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span></div>
+<div class="post fur-dark">
+  <img class="cat" src="../website/public/brand/cat-silhouette.svg" alt="" style="filter:invert(1)">
+  <span class="label" style="color:var(--smoke)">Eid, Sunday, 3 a.m., any day</span>
+  <h1 class="display">WE ARE<br><span class="grn">OPEN.</span></h1>
+  <p class="eid">The one shop in Markaz where the lights stay on. Kitten food at midnight,
+  vaccines before your flight, a vet who picks up.</p>
+  <span class="open">Walk in, we are here</span>
+  <p class="phone">0313 1495287</p>
 
-    <svg class="tailsvg" viewBox="0 0 64 64" width="110" height="110"><rect width="64" height="64" fill="#D6342C"/><path d="M14 44 C10 34 16 24 26 24 C32 24 36 28 36 34 C36 39 32 42 28 42" fill="none" stroke="#F5EFDF" stroke-width="5" stroke-linecap="round"/><path d="M36 18 L42 12 L44 20 C52 22 54 30 50 36 L52 44 C44 50 34 48 30 40 C26 32 30 22 36 18 Z" fill="#F5EFDF"/><circle cx="41" cy="30" r="2.6" fill="#1D1B16"/></svg>
-
-    <h1 class="display open">YES,<br><span style="color:var(--red)">WE'RE OPEN.</span></h1>
-    <p class="hours">Right now / 24 hours</p>
-    <p class="sub">
-      Eid night, rain, load shedding, New Year traffic. If your pet needs us, the door is
-      unlocked and the kettle works.
-    </p>
-
-    <div class="signfoot"><span>0313 1495287</span><span>Ramna Plaza, G-10 Markaz</span></div>
+  <div class="footerlock">
+    <div class="mark">
+      <img src="../website/public/brand/logo-mark.svg" alt="">
+      <span class="wordmark">Happy <img src="../website/public/brand/script-tails.svg" alt="Tails"></span>
+    </div>
+    <div class="contact">RAMNA PLAZA · G-10 MARKAZ</div>
   </div>
 </div>
-<p class="hint">15 / we are open sign / post on holidays and late nights / export 1080x1080</p>
+<p class="hint">15 / we are open / export 1080x1080</p>
 </body>
 </html>

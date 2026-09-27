@@ -5,37 +5,40 @@
 <title>04 / 24-7 night shift</title>
 <link rel="stylesheet" href="_brand.css">
 <style>
-  .post { background: var(--ink); color: var(--paper); padding: 70px 60px; }
-  .clock { position: absolute; top: 64px; right: 60px; font: 700 30px "Courier New", monospace; letter-spacing: 0.3em; color: var(--mustard); }
-  .huge { font-size: 380px; letter-spacing: -0.05em; color: var(--mustard); }
-  .huge .slash { color: var(--red); }
-  .line2 { font-size: 92px; color: var(--paper); }
-  .sched { margin-top: 44px; border: 4px solid rgba(245,239,223,0.35); }
-  .row { display: flex; justify-content: space-between; padding: 22px 30px; border-bottom: 3px dashed rgba(245,239,223,0.3); font: 700 26px "Courier New", monospace; letter-spacing: 0.14em; }
-  .row:last-child { border-bottom: none; }
-  .row .t { color: var(--mustard); }
-  .footerlock { border-top-color: var(--mustard); }
+  .post { padding: 70px 60px 150px; }
+  .huge { font-size: 300px; color: var(--bone); }
+  .huge .slash { color: var(--collar); }
+  .line2 { font-size: 72px; color: var(--amber); }
+  .sched { margin-top: 40px; display: grid; gap: 12px; }
+  .row {
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(250,246,238,0.06); border-radius: 999px;
+    padding: 18px 32px; font: 700 25px "Quicksand", sans-serif; letter-spacing: 0.06em;
+  }
+  .row .t { color: var(--amber); }
+  .row.emergency { background: var(--collar); color: var(--bone); }
+  .row.emergency .t { color: var(--bone); }
 </style>
 </head>
 <body>
-<div class="post">
-  <span class="clock">OPEN NOW</span>
+<div class="post fur-dark">
+  <span class="label" style="color:var(--smoke)">Open now · every day of the year</span>
   <h1 class="display huge">24<span class="slash">/</span>7</h1>
-  <p class="display line2">THE LIGHTS DO NOT<br>GO OFF. NEITHER<br>DO WE.</p>
+  <p class="display line2">The lights do not go off. Neither do we.</p>
 
   <div class="sched">
-    <div class="row"><span>9 AM, KITTEN VACCINES</span><span class="t">WALK IN</span></div>
-    <div class="row"><span>4 PM, FOOD BAGS DELIVERED</span><span class="t">SAME DAY</span></div>
-    <div class="row"><span>11 PM, PUPPY ATE CHOCOLATE</span><span class="t">COME NOW</span></div>
-    <div class="row"><span>3 AM, THE PHONE STILL ANSWERS</span><span class="t">0313 1495287</span></div>
+    <div class="row"><span>9 AM · KITTEN VACCINES</span><span class="t">WALK IN</span></div>
+    <div class="row"><span>4 PM · FOOD BAGS DELIVERED</span><span class="t">SAME DAY</span></div>
+    <div class="row emergency"><span>11 PM · PUPPY ATE CHOCOLATE</span><span class="t">COME NOW</span></div>
+    <div class="row"><span>3 AM · THE PHONE STILL ANSWERS</span><span class="t">0313 1495287</span></div>
   </div>
 
-  <div class="footerlock" style="background:var(--ink)">
+  <div class="footerlock">
     <div class="mark">
-      <svg viewBox="0 0 64 64" width="52" height="52"><rect width="64" height="64" fill="#D6342C"/><path d="M14 44 C10 34 16 24 26 24 C32 24 36 28 36 34 C36 39 32 42 28 42" fill="none" stroke="#F5EFDF" stroke-width="5" stroke-linecap="round"/><path d="M36 18 L42 12 L44 20 C52 22 54 30 50 36 L52 44 C44 50 34 48 30 40 C26 32 30 22 36 18 Z" fill="#F5EFDF"/><circle cx="41" cy="30" r="2.6" fill="#1D1B16"/></svg>
-      <span class="wordmark" style="color:var(--paper)">HAPPY<span style="color:var(--red)">TAILS</span></span>
+      <img src="../website/public/brand/logo-mark.svg" alt="">
+      <span class="wordmark">Happy <img src="../website/public/brand/script-tails.svg" alt="Tails"></span>
     </div>
-    <div class="contact" style="color:var(--paper)">A VET WHO PICKS UP<br>AT 3 A.M.</div>
+    <div class="contact">A VET WHO PICKS UP<br>AT 3 A.M.</div>
   </div>
 </div>
 <p class="hint">04 / 24-7 night shift / export 1080x1080</p>

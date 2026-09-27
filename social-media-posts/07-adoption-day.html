@@ -2,47 +2,50 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>07 / Adoption day open house</title>
+<title>07 / adoption day</title>
 <link rel="stylesheet" href="_brand.css">
 <style>
-  .post { background: var(--red); color: var(--paper); padding: 64px 56px; }
-  .post .stripes { position: absolute; inset: auto 0 190px 0; height: 30px; opacity: 0.25; }
-  .mega { font-size: 150px; }
-  .mega span { color: var(--ink); }
-  .box { position: absolute; left: 56px; right: 56px; top: 470px; background: var(--paper); color: var(--ink); border: 6px solid var(--ink); box-shadow: 16px 16px 0 rgba(29,27,22,0.85); padding: 38px 40px; }
-  .box .when { display: flex; gap: 40px; font: 700 30px "Courier New", monospace; letter-spacing: 0.12em; }
-  .box .when b { color: var(--red); }
-  .box p { margin-top: 18px; font: 24px/1.6 Archivo, Arial, sans-serif; max-width: 60ch; }
-  .halo { position: absolute; top: -30px; right: -30px; width: 220px; height: 220px; border: 8px dashed rgba(245,239,223,0.6); border-radius: 50% !important; }
+  .post { padding: 60px; text-align: center; }
+  h1 { font-size: 110px; margin-top: 10px; }
+  h1 .script { height: 60px; vertical-align: -4px; }
+  .sub { font: 600 26px/1.5 "Nunito", sans-serif; color: var(--smoke); max-width: 700px; margin: 14px auto 0; }
+  .strip { display: flex; gap: 22px; justify-content: center; margin-top: 36px; }
+  .strip .photo { width: 300px; }
+  .strip .photo:nth-child(1) { transform: rotate(-3deg); }
+  .strip .photo:nth-child(2) { transform: rotate(2deg) translateY(14px); }
+  .strip .photo:nth-child(3) { transform: rotate(-1deg); }
+  .strip img { height: 300px; }
+  .when { margin-top: 40px; display: flex; gap: 16px; justify-content: center; }
 </style>
 </head>
 <body>
-<div class="post">
-  <div class="halo"></div>
-  <span class="tag mustard">One day only / free entry</span>
-  <h1 class="display mega" style="margin-top:34px">ADOPTION<br><span>DAY</span> AT<br>THE SHOP.</h1>
+<div class="post fur">
+  <span class="label smoke">This saturday · all day</span>
+  <h1 class="display">Adoption day.</h1>
+  <svg class="swiggle" width="220" height="38" viewBox="0 0 100 40" preserveAspectRatio="none" style="margin:6px auto 0"><path d="M2 10 C 30 2 66 34 98 8" fill="none" stroke="var(--amber)" stroke-width="8" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
+  <p class="sub">Every animal leaves with a vaccine card, a deworming record, and our
+  number for the rest of its life.</p>
 
-  <div class="box">
-    <div class="when">
-      <span>SAT / <b>10 AM TO 10 PM</b></span>
-      <span>RAMNA PLAZA, <b>G-10 MARKAZ</b></span>
-    </div>
-    <p>
-      Six kittens, three puppies and Bruno the rescued desi dog, all checked by the vet and all
-      waiting to meet you. First bag of starter food is on the house with every adoption.
-    </p>
+  <div class="strip">
+    <div class="photo"><img src="../website/public/images/pets/kitten-1.jpg" alt=""></div>
+    <div class="photo"><img src="../website/public/images/pets/puppy-1.jpg" alt=""></div>
+    <div class="photo"><img src="../website/public/images/pets/kitten-2.jpg" alt=""></div>
   </div>
 
-  <div class="stripes"></div>
+  <div class="when">
+    <span class="chip turf">Walk in, any hour</span>
+    <span class="chip">Ramna Plaza, G-10</span>
+    <span class="chip amber">No fee to visit</span>
+  </div>
 
-  <div class="footerlock" style="background:var(--red); border-top-color:var(--ink)">
+  <div class="footerlock light-foot">
     <div class="mark">
-      <svg viewBox="0 0 64 64" width="52" height="52"><rect width="64" height="64" fill="#F5EFDF"/><path d="M14 44 C10 34 16 24 26 24 C32 24 36 28 36 34 C36 39 32 42 28 42" fill="none" stroke="#D6342C" stroke-width="5" stroke-linecap="round"/><path d="M36 18 L42 12 L44 20 C52 22 54 30 50 36 L52 44 C44 50 34 48 30 40 C26 32 30 22 36 18 Z" fill="#D6342C"/><circle cx="41" cy="30" r="2.6" fill="#1D1B16"/></svg>
-      <span class="wordmark" style="color:var(--paper)">HAPPY<span style="color:var(--ink)">TAILS</span></span>
+      <img src="../website/public/brand/logo-mark.svg" alt="">
+      <span class="wordmark">Happy <img src="../website/public/brand/script-tails.svg" alt="Tails"></span>
     </div>
-    <div class="contact" style="color:var(--paper)">0313 1495287<br>COME AND SIT WITH THEM</div>
+    <div class="contact">0313 1495287</div>
   </div>
 </div>
-<p class="hint">07 / adoption day open house / update date and count / export 1080x1080</p>
+<p class="hint">07 / adoption day / export 1080x1080</p>
 </body>
 </html>

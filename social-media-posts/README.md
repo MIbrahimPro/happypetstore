@@ -1,7 +1,8 @@
 # Happy Tails social media templates
 
 Fifteen standing post templates, one per post type. Each file is a complete 1080 by 1080
-design built on the brand system in `/branding`. No two templates share a layout.
+design built on the soft brand system in `/branding` and the traced logo art in
+`/website/public/brand/`. No two templates share a layout.
 
 ## How to use
 
@@ -20,28 +21,31 @@ chrome --headless=new --screenshot=post.png --window-size=1080,1080 \
 
 | # | File | Post type | Layout idea |
 |---|------|-----------|-------------|
-| 01 | 01-new-stock-receipt.html | New stock | Till receipt with dashed lines and FRESH stamp |
-| 02 | 02-weekend-deal-price-slash.html | Weekend deal | Ink poster, giant mustard price, diagonal slash |
-| 03 | 03-kitten-of-the-week-window-card.html | Animal of the week | Shop-window polaroid with fact card |
-| 04 | 04-24-7-night-shift.html | 24/7 statement | Day-in-the-night schedule table on ink |
-| 05 | 05-food-shelf-stack.html | Food range | Split editorial, price rows against a photo |
-| 06 | 06-vet-tip-chocolate.html | Vet education | Numbered tip with do / do-not panels |
-| 07 | 07-adoption-day.html | Event | Sign-red poster with paper detail box |
-| 08 | 08-delivery-zones.html | Delivery info | Map pin photo with zones board |
-| 09 | 09-grooming-before-after.html | Before / after | Twin tilted photos, center arrow |
-| 10 | 10-toys-under-thousand.html | Price roundup | Three-toy grid on mustard, dashed frame |
-| 11 | 11-customer-story.html | Review / story | Serif pull quote, avatar, star row |
-| 12 | 12-behind-the-counter.html | Trust / process | Full-bleed photo, overlapping paper panel |
-| 13 | 13-kitten-starter-checklist.html | Checklist | Numbered boxes on sage, halftone base |
-| 14 | 14-pharmacy-shelf-guide.html | Pharmacy | Ruled prescription top, three medicine rows |
-| 15 | 15-we-are-open.html | Holiday hours | Marquee sign with bulbs and YES, WE'RE OPEN |
+| 01 | 01-new-stock-receipt.html | New stock | White card rows, amber price pills, FRESH badge |
+| 02 | 02-weekend-deal-price-slash.html | Weekend deal | Night fur, struck price, tilted photo |
+| 03 | 03-kitten-of-the-week-window-card.html | Animal of the week | Big polaroid, script name, fact pills |
+| 04 | 04-24-7-night-shift.html | 24/7 statement | Rounded schedule rows, one red emergency row |
+| 05 | 05-food-shelf-stack.html | Food range | Shelf cards with photo, blurb, price |
+| 06 | 06-vet-tip-chocolate.html | Vet education | Turf do / dashed do-not panels, red callout |
+| 07 | 07-adoption-day.html | Event | Tilted photo strip on bone fur |
+| 08 | 08-delivery-zones.html | Delivery info | Zone pills, turf same-day row |
+| 09 | 09-grooming-before-after.html | Before / after | Two tilted mats, +1 WASH badge |
+| 10 | 10-toys-under-thousand.html | Price roundup | Amber feature block, three white tiles |
+| 11 | 11-customer-story.html | Review / story | Big Baloo quote, round avatar, paw row |
+| 12 | 12-behind-the-counter.html | Trust / process | Full-bleed photo, night note card, cat stamp |
+| 13 | 13-kitten-starter-checklist.html | Checklist | Turf panel, numbered pills with prices |
+| 14 | 14-pharmacy-shelf-guide.html | Pharmacy | Medicine rows, turf price chips |
+| 15 | 15-we-are-open.html | Holiday hours | Night fur, leaping cat ghost, open badge |
 
 ## Rules that keep them on brand
 
-- Colours only from the palette: paper, ink, sign red, mustard, bone, sage, slate, steel.
-- Square corners everywhere. Borders are 3 to 10 px ink.
-- Photos sit on white sticker mats with hard offset shadows, tilt under 2 degrees.
-- Mono caps for labels and prices. Archivo Black for headlines. Serif only in template 11.
-- No gradients, no exclamation marks, no em dashes, no rounded pills, ever.
+- Colors only from the six: night, bone, collar red, turf, tag amber, marble smoke.
+- Everything round: cards 24 to 40px, photos 18px inside white mats, chips fully rounded.
+- Shadows are soft and night-tinted. No hard offsets, no sharp corners, no gradients
+  (the footer fades are legibility scrims, not decoration).
+- Labels in Quicksand caps, headlines in Baloo 2, body in Nunito.
+- The "Tails" script is the client's own lettering, traced; never retype it in a font.
+- Red owns urgency only: emergency rows, CTAs, the 3 a.m. lines.
+- Amber never sits on bone as text; amber carries night text instead.
 
 Open `index.html` for a contact sheet of all fifteen.

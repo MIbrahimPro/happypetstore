@@ -2,53 +2,41 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>11 / Customer story</title>
+<title>11 / customer story</title>
 <link rel="stylesheet" href="_brand.css">
 <style>
-  .post { padding: 60px 56px; background: var(--paper); }
-  .quoteglyph { position: absolute; top: 30px; right: 60px; font: 700 260px Georgia, "Times New Roman", serif; color: var(--red); opacity: 0.18; line-height: 1; }
-  .quote { font: 700 62px/1.25 Georgia, "Times New Roman", serif; max-width: 900px; margin-top: 30px; }
-  .quote .hl { background: var(--mustard); padding: 0 10px; }
-  .who { margin-top: 40px; display: flex; align-items: center; gap: 24px; }
-  .avatar { width: 110px; height: 110px; border: 5px solid var(--ink); overflow: hidden; background: #fff; padding: 6px; box-shadow: 8px 8px 0 var(--ink); }
-  .avatar img { width: 100%; height: 100%; object-fit: cover; border: 3px solid var(--ink); }
-  .who .nm { font: 700 30px "Archivo Black", "Arial Black", sans-serif; }
-  .who .sub { font: 22px "Courier New", monospace; letter-spacing: 0.14em; text-transform: uppercase; color: var(--steel); margin-top: 6px; }
-  .starline { position: absolute; left: 56px; bottom: 200px; display: flex; gap: 10px; }
-  .star { width: 40px; height: 40px; background: var(--ink); color: var(--mustard); display: flex; align-items: center; justify-content: center; font-size: 24px; }
+  .post { padding: 70px 64px 150px; }
+  .qmark { font: 800 170px/0.6 "Baloo 2", sans-serif; color: var(--amber); }
+  blockquote { font: 800 58px/1.18 "Baloo 2", sans-serif; margin-top: 8px; letter-spacing: -0.01em; }
+  blockquote em { font-style: normal; color: var(--turf); }
+  .who { display: flex; align-items: center; gap: 22px; margin-top: 44px; }
+  .who img { width: 110px; height: 110px; border-radius: 999px; object-fit: cover; box-shadow: 0 10px 24px rgba(11,11,12,.18); }
+  .who .n { font: 800 32px "Baloo 2", sans-serif; }
+  .who .s { font: 600 23px "Nunito", sans-serif; color: var(--smoke); margin-top: 2px; }
+  .paws { position: absolute; right: 60px; top: 66px; font-size: 44px; letter-spacing: 14px; color: var(--amber); }
 </style>
 </head>
 <body>
-<div class="post graphbg">
-  <div class="quoteglyph">"</div>
-  <span class="tag">Customer story / no. 08</span>
-
-  <p class="quote">
-    "I called at 2 in the morning when Bilal swallowed a <span class="hl">chicken bone</span>. The
-    vet was waiting at the door when we arrived. He is fine, and he still tries to steal
-    sandals."
-  </p>
-
+<div class="post fur">
+  <div class="paws" aria-hidden="true">🐾🐾🐾🐾🐾</div>
+  <div class="qmark">“</div>
+  <blockquote>The night driver answered in two rings and had medicine ready by the time I reached Ramna Plaza. <em>Who else picks up at 2 a.m.?</em></blockquote>
   <div class="who">
-    <div class="avatar"><img src="../website/public/images/pets/puppy-2.jpg" alt=""></div>
+    <img src="../website/public/images/pets/puppy-2.jpg" alt="Customer's dog">
     <div>
-      <p class="nm">Hamza and Bilal</p>
-      <p class="sub">G-11/2 / German Shepherd, 2 years</p>
+      <div class="n">Bilal and Rex</div>
+      <div class="s">German Shepherd, 3 years, G-10/2</div>
     </div>
   </div>
 
-  <div class="starline">
-    <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-  </div>
-
-  <div class="footerlock" style="background:var(--paper)">
+  <div class="footerlock light-foot">
     <div class="mark">
-      <svg viewBox="0 0 64 64" width="52" height="52"><rect width="64" height="64" fill="#D6342C"/><path d="M14 44 C10 34 16 24 26 24 C32 24 36 28 36 34 C36 39 32 42 28 42" fill="none" stroke="#F5EFDF" stroke-width="5" stroke-linecap="round"/><path d="M36 18 L42 12 L44 20 C52 22 54 30 50 36 L52 44 C44 50 34 48 30 40 C26 32 30 22 36 18 Z" fill="#F5EFDF"/><circle cx="41" cy="30" r="2.6" fill="#1D1B16"/></svg>
-      <span class="wordmark">HAPPY<span>TAILS</span></span>
+      <img src="../website/public/brand/logo-mark.svg" alt="">
+      <span class="wordmark">Happy <img src="../website/public/brand/script-tails.svg" alt="Tails"></span>
     </div>
-    <div class="contact">REAL CALLS, REAL NIGHTS<br>0313 1495287</div>
+    <div class="contact">REAL CALLS, REAL 3 A.M.</div>
   </div>
 </div>
-<p class="hint">11 / customer story / one quote per post, ask permission first / export 1080x1080</p>
+<p class="hint">11 / customer story / export 1080x1080</p>
 </body>
 </html>

@@ -2,77 +2,51 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>01 / New stock receipt</title>
+<title>01 / new stock</title>
 <link rel="stylesheet" href="_brand.css">
 <style>
-  .post { padding: 54px; }
-  .head { display: flex; justify-content: space-between; align-items: baseline; }
-  .receipt {
-    margin-top: 40px;
-    background: #fff;
-    border: 5px solid var(--ink);
-    box-shadow: 16px 16px 0 var(--ink);
-    padding: 44px 40px;
-    position: relative;
+  .post { padding: 64px 60px 150px; }
+  .head { display: flex; justify-content: space-between; align-items: flex-start; }
+  h1 { font-size: 88px; margin-top: 10px; }
+  .sub { font-size: 26px; color: var(--smoke); margin-top: 12px; max-width: 520px; }
+  .rows { margin-top: 40px; display: grid; gap: 16px; }
+  .row {
+    background: #fff; border-radius: 24px; padding: 22px 30px;
+    display: flex; align-items: center; justify-content: space-between;
+    box-shadow: 0 10px 24px rgba(11,11,12,0.08);
   }
-  .receipt::after {
-    content: "";
-    position: absolute;
-    right: -20px;
-    top: 40px;
-    width: 14px;
-    height: 120px;
-    background: var(--mustard);
-    transform: rotate(4deg);
-  }
-  .line { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 20px 0; border-bottom: 3px dashed rgba(29,27,22,0.5); }
-  .line:last-of-type { border-bottom: none; }
-  .line .nm { font: 700 40px "Archivo Black", "Arial Black", sans-serif; letter-spacing: -0.01em; }
-  .line .pr { font: 700 38px "Courier New", monospace; white-space: nowrap; }
-  .line .un { display: block; font: 20px "Courier New", monospace; letter-spacing: 0.18em; text-transform: uppercase; color: var(--steel); margin-top: 8px; }
-  .stamp {
-    position: absolute;
-    right: 34px;
-    bottom: 96px;
-    transform: rotate(-12deg);
-    border: 6px solid var(--red);
-    color: var(--red);
-    font: 700 34px "Courier New", monospace;
-    letter-spacing: 0.2em;
-    padding: 12px 22px;
-    text-transform: uppercase;
-    opacity: 0.9;
-  }
-  .total { display: flex; justify-content: space-between; border-top: 6px solid var(--ink); margin-top: 26px; padding-top: 22px; font: 700 30px "Courier New", monospace; letter-spacing: 0.1em; }
+  .row .name { font: 800 30px "Baloo 2", sans-serif; }
+  .row .meta { font: 600 20px "Nunito", sans-serif; color: var(--smoke); margin-top: 2px; }
+  .price { background: var(--amber); color: var(--night); border-radius: 999px; font: 800 28px "Baloo 2", sans-serif; padding: 12px 24px; }
+  .fresh { position: absolute; top: 66px; right: 60px; background: var(--turf); color: var(--bone); border-radius: 999px; padding: 14px 28px; font: 800 24px "Quicksand", sans-serif; letter-spacing: 0.12em; transform: rotate(3deg); box-shadow: 0 10px 22px rgba(47,160,90,.35); }
 </style>
 </head>
 <body>
-<div class="post graphbg">
+<div class="post fur">
   <div class="head">
-    <span class="tag red">New stock / this week</span>
-    <span class="mono" style="font-size:22px">HT-2026-40</span>
-  </div>
-
-  <h1 class="display" style="font-size:96px; margin-top:44px">THE SHELF<br>GOT <span style="color:var(--red)">RESTOCKED.</span></h1>
-
-  <div class="receipt">
-    <p class="mono" style="font-size:20px; color:var(--steel)">Happy Tails / G-10 Markaz / Till 01</p>
-    <div style="height:18px"></div>
-    <div class="line"><div><span class="nm">Royal Canin Persian 2 kg</span><span class="un">6 in stock</span></div><div class="pr">Rs 7,400</div></div>
-    <div class="line"><div><span class="nm">Josera Kitten 10 kg</span><span class="un">3 in stock</span></div><div class="pr">Rs 18,900</div></div>
-    <div class="line"><div><span class="nm">Covid Litter 10 L</span><span class="un">14 in stock</span></div><div class="pr">Rs 1,450</div></div>
-    <div class="total"><span>26 NEW UNITS</span><span>SHELF 03</span></div>
-    <div class="stamp">Fresh</div>
-  </div>
-
-  <div class="footerlock" style="background:var(--paper)">
-    <div class="mark">
-      <svg viewBox="0 0 64 64" width="52" height="52"><rect width="64" height="64" fill="#D6342C"/><path d="M14 44 C10 34 16 24 26 24 C32 24 36 28 36 34 C36 39 32 42 28 42" fill="none" stroke="#F5EFDF" stroke-width="5" stroke-linecap="round"/><path d="M36 18 L42 12 L44 20 C52 22 54 30 50 36 L52 44 C44 50 34 48 30 40 C26 32 30 22 36 18 Z" fill="#F5EFDF"/><circle cx="41" cy="30" r="2.6" fill="#1D1B16"/></svg>
-      <span class="wordmark">HAPPY<span>TAILS</span></span>
+    <div>
+      <span class="label smoke">Just landed on the shelves</span>
+      <h1 class="display">New this<br>week.</h1>
+      <svg class="swiggle" width="240" height="40" viewBox="0 0 100 40" preserveAspectRatio="none"><path d="M2 10 C 30 2 66 34 98 8" fill="none" stroke="var(--amber)" stroke-width="8" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
     </div>
-    <div class="contact">0313 1495287<br>RAMNA PLAZA, G-10 MARKAZ</div>
+    <span class="fresh">FRESH ✓</span>
+  </div>
+
+  <div class="rows">
+    <div class="row"><div><div class="name">Royal Canin Persian 2 kg</div><div class="meta">Almond kibble, adults 1 to 7</div></div><span class="price">Rs 7,400</span></div>
+    <div class="row"><div><div class="name">Josera Grain Free Cat 7 kg</div><div class="meta">Salmon first, no corn</div></div><span class="price">Rs 17,500</span></div>
+    <div class="row"><div><div class="name">Catnip mouse, pack of 2</div><div class="meta">Expect possession disputes</div></div><span class="price">Rs 350</span></div>
+    <div class="row"><div><div class="name">Nylabone Dura Chew</div><div class="meta">For the serious chewers</div></div><span class="price">Rs 1,600</span></div>
+  </div>
+
+  <div class="footerlock">
+    <div class="mark">
+      <img src="../website/public/brand/logo-mark.svg" alt="">
+      <span class="wordmark">Happy <img src="../website/public/brand/script-tails.svg" alt="Tails"></span>
+    </div>
+    <div class="contact">0313 1495287<br>G-10 MARKAZ</div>
   </div>
 </div>
-<p class="hint">01 / new stock receipt / export at 1080x1080</p>
+<p class="hint">01 / new stock / export 1080x1080</p>
 </body>
 </html>
