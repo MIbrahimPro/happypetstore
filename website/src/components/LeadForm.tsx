@@ -34,45 +34,48 @@ export default function LeadForm({ kind, defaultSlot }: { kind: "adoption" | "ve
 
   if (state === "done") {
     return (
-      <div className="border-2 border-ink bg-white p-4 font-mono text-sm">
-        <p className="font-display text-lg">NOTED. ✓</p>
-        <p className="mt-1 text-ink/75">
+      <div className="softcard p-5 font-round text-sm">
+        <p className="font-display text-xl font-bold text-turf">Noted, thank you. ✓</p>
+        <p className="mt-1 text-night/75">
           We will call you from 0313 1495287. If it is urgent, call us first.
         </p>
       </div>
     );
   }
 
+  const field =
+    "mt-1 w-full rounded-2xl border-2 border-night/10 bg-white px-3.5 py-2.5 font-round text-sm outline-none transition-colors focus:border-amber";
+
   return (
     <form onSubmit={submit} className="space-y-3">
       <div className="grid gap-3 sm:grid-cols-2">
         <label className="block">
-          <span className="font-mono text-xs uppercase tracking-widest">Your name *</span>
+          <span className="caption font-round text-xs uppercase">Your name *</span>
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="mt-1 w-full border-2 border-ink bg-paper px-3 py-2 font-mono text-sm outline-none focus:bg-mustard/20"
+            className={field}
             placeholder="Ayesha"
           />
         </label>
         <label className="block">
-          <span className="font-mono text-xs uppercase tracking-widest">Phone *</span>
+          <span className="caption font-round text-xs uppercase">Phone *</span>
           <input
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             inputMode="tel"
-            className="mt-1 w-full border-2 border-ink bg-paper px-3 py-2 font-mono text-sm outline-none focus:bg-mustard/20"
+            className={field}
             placeholder="03001234567"
           />
         </label>
       </div>
       {kind === "vet" && (
         <label className="block">
-          <span className="font-mono text-xs uppercase tracking-widest">Preferred slot</span>
+          <span className="caption font-round text-xs uppercase">Preferred slot</span>
           <select
             value={slot}
             onChange={(e) => setSlot(e.target.value)}
-            className="mt-1 w-full border-2 border-ink bg-paper px-3 py-2 font-mono text-sm outline-none focus:bg-mustard/20"
+            className={field}
           >
             <option value="">Any time, day or night</option>
             <option>Morning (8 to 12)</option>
@@ -83,14 +86,14 @@ export default function LeadForm({ kind, defaultSlot }: { kind: "adoption" | "ve
         </label>
       )}
       <label className="block">
-        <span className="font-mono text-xs uppercase tracking-widest">
+        <span className="caption font-round text-xs uppercase">
           {kind === "vet" ? "What is going on with the pet" : "Anything we should know"}
         </span>
         <textarea
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           rows={3}
-          className="mt-1 w-full border-2 border-ink bg-paper px-3 py-2 font-mono text-sm outline-none focus:bg-mustard/20"
+          className={field}
           placeholder={
             kind === "vet"
               ? "Kitten not eating since morning, 4 months old"
@@ -99,14 +102,14 @@ export default function LeadForm({ kind, defaultSlot }: { kind: "adoption" | "ve
         />
       </label>
       {state === "error" && (
-        <p className="border-2 border-red-dark bg-red/10 px-3 py-2 font-mono text-sm text-red-dark">{error}</p>
+        <p className="rounded-2xl bg-collar/10 px-3.5 py-2.5 font-round text-sm font-semibold text-collar">{error}</p>
       )}
       <button
         type="submit"
         disabled={state === "sending"}
-        className="border-2 border-ink bg-red px-5 py-2.5 font-display text-paper hover:bg-ink disabled:opacity-60"
+        className="btn-soft bg-collar text-bone hover:bg-collardeep disabled:opacity-60"
       >
-        {state === "sending" ? "SENDING…" : kind === "vet" ? "REQUEST THE VET" : "SEND"}
+        {state === "sending" ? "Sending…" : kind === "vet" ? "Request the vet" : "Send"}
       </button>
     </form>
   );

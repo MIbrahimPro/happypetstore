@@ -5,28 +5,50 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#1D1B16",
-        paper: "#F5EFDF",
-        bone: "#EAE1C9",
-        red: "#D6342C",
-        "red-dark": "#9E241E",
-        mustard: "#E8A33D",
-        sage: "#6B7A5A",
-        "sage-dark": "#4C5B3E",
-        slate: "#3F4A56",
-        steel: "#5B6770",
+        night: "#0B0B0C",
+        bone: "#FAF6EE",
+        collar: "#E12D20",
+        collardeep: "#B31F14",
+        turf: "#2FA05A",
+        amber: "#F2A83B",
+        smoke: "#8A8378",
       },
       fontFamily: {
-        display: ["var(--font-display)", "Arial Black", "sans-serif"],
-        sans: ["var(--font-sans)", "Arial", "sans-serif"],
-        mono: ["var(--font-mono)", "Courier New", "monospace"],
-        stamp: ["var(--font-stamp)", "monospace"],
+        display: ["var(--font-display)", "Trebuchet MS", "sans-serif"],
+        sans: ["var(--font-sans)", "Segoe UI", "sans-serif"],
+        round: ["var(--font-round)", "Verdana", "sans-serif"],
       },
-      backgroundImage: {
-        grid: "linear-gradient(to right, rgba(29,27,22,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(29,27,22,0.05) 1px, transparent 1px)",
+      borderRadius: {
+        blob: "2rem",
       },
-      backgroundSize: {
-        grid: "28px 28px",
+      boxShadow: {
+        soft: "0 12px 32px rgba(11, 11, 12, 0.10)",
+        softer: "0 6px 18px rgba(11, 11, 12, 0.08)",
+      },
+      keyframes: {
+        breathe: {
+          "0%, 100%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.015)" },
+        },
+        sway: {
+          "0%, 100%": { transform: "rotate(-1.2deg)" },
+          "50%": { transform: "rotate(1.2deg)" },
+        },
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        tailwig: {
+          "0%, 100%": { transform: "rotate(0deg)" },
+          "25%": { transform: "rotate(6deg)" },
+          "75%": { transform: "rotate(-6deg)" },
+        },
+      },
+      animation: {
+        breathe: "breathe 5s ease-in-out infinite",
+        sway: "sway 6s ease-in-out infinite",
+        marquee: "marquee 30s linear infinite",
+        tailwig: "tailwig 0.9s ease-in-out infinite",
       },
     },
   },

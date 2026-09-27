@@ -25,20 +25,20 @@ export default function AddToCart({ item, disabled, withQty, maxQty }: Props) {
   return (
     <div className="flex items-center gap-2">
       {withQty && (
-        <div className="flex items-center border-2 border-ink">
+        <div className="flex items-center rounded-full bg-night/5">
           <button
             type="button"
             onClick={() => setQty((q) => Math.max(1, q - 1))}
-            className="px-2.5 py-1 font-mono text-sm hover:bg-ink hover:text-paper"
+            className="rounded-full px-2.5 py-1 font-round text-sm font-bold hover:bg-night hover:text-bone"
             aria-label="Decrease quantity"
           >
             −
           </button>
-          <span className="w-8 text-center font-mono text-sm">{qty}</span>
+          <span className="w-7 text-center font-round text-sm font-bold">{qty}</span>
           <button
             type="button"
             onClick={() => setQty((q) => (maxQty ? Math.min(maxQty, q + 1) : q + 1))}
-            className="px-2.5 py-1 font-mono text-sm hover:bg-ink hover:text-paper"
+            className="rounded-full px-2.5 py-1 font-round text-sm font-bold hover:bg-night hover:text-bone"
             aria-label="Increase quantity"
           >
             +
@@ -50,12 +50,12 @@ export default function AddToCart({ item, disabled, withQty, maxQty }: Props) {
         onClick={handleAdd}
         disabled={disabled}
         className={
-          "border-2 border-ink px-3 py-1.5 font-display text-sm uppercase tracking-wide " +
+          "btn-soft px-4 py-1.5 text-sm " +
           (disabled
-            ? "cursor-not-allowed bg-bone text-steel"
+            ? "cursor-not-allowed bg-night/10 text-smoke"
             : done
-            ? "bg-sage-dark text-paper"
-            : "bg-mustard hover:bg-ink hover:text-paper")
+            ? "bg-turf text-bone"
+            : "bg-amber text-night hover:brightness-105")
         }
       >
         {disabled ? "Call" : done ? "Added ✓" : "Add"}

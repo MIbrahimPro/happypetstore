@@ -3,97 +3,163 @@
 @tailwind utilities;
 
 :root {
-  --paper: #f5efdf;
-  --ink: #1d1b16;
-  --red: #d6342c;
-  --mustard: #e8a33d;
-  --bone: #eae1c9;
+  --night: #0b0b0c;
+  --bone: #faf6ee;
+  --collar: #e12d20;
+  --turf: #2fa05a;
+  --amber: #f2a83b;
+  --smoke: #8a8378;
 }
 
 html {
-  background: var(--paper);
+  background: var(--bone);
+  scroll-behavior: smooth;
 }
 
 body {
-  color: var(--ink);
+  color: var(--night);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
 ::selection {
-  background: var(--red);
-  color: var(--paper);
+  background: var(--amber);
+  color: var(--night);
 }
 
-/* no rounded corners anywhere; sharp is the brand */
-* {
-  border-radius: 0 !important;
+/* --------------------------------------------------------------- fur ---- */
+/* Directional fur strokes. Two overlapping repeats offset by half a cell   */
+/* kill the wallpaper feel; tilt the whole block a touch so it reads as     */
+/* combed fur rather than a grid. On dark surfaces use .fur-dark.           */
+.fur {
+  background-color: var(--bone);
+  background-image:
+    repeating-linear-gradient(
+      100deg,
+      rgba(11, 11, 12, 0.035) 0 1.5px,
+      transparent 1.5px 26px
+    ),
+    repeating-linear-gradient(
+      100deg,
+      rgba(11, 11, 12, 0.03) 0 1.5px,
+      transparent 1.5px 34px
+    );
+  background-position: 0 0, 13px 9px;
+  background-size: auto, auto;
 }
 
-/* ruled receipt paper, used sparingly */
-.ruled {
-  background-image: repeating-linear-gradient(
-    to bottom,
-    transparent 0 27px,
-    rgba(29, 27, 22, 0.08) 27px 28px
-  );
+.fur-dark {
+  background-color: var(--night);
+  background-image:
+    repeating-linear-gradient(
+      100deg,
+      rgba(250, 246, 238, 0.045) 0 1.5px,
+      transparent 1.5px 26px
+    ),
+    repeating-linear-gradient(
+      100deg,
+      rgba(250, 246, 238, 0.035) 0 1.5px,
+      transparent 1.5px 34px
+    );
+  background-position: 0 0, 13px 9px;
 }
 
-/* graph paper block for hero and section backdrops */
-.graph {
-  background-color: var(--paper);
-  background-image: linear-gradient(to right, rgba(29, 27, 22, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(29, 27, 22, 0.06) 1px, transparent 1px);
-  background-size: 28px 28px;
+/* --------------------------------------------------------------- ink ---- */
+/* smoke-on-bone text, captions and labels */
+.caption {
+  color: var(--smoke);
+  letter-spacing: 0.14em;
 }
 
-/* dashed cut line, like a coupon you can cut out */
-.cutline {
-  background-image: repeating-linear-gradient(
-    to right,
-    var(--ink) 0 8px,
-    transparent 8px 16px
-  );
-  height: 2px;
+/* soft card: bone surface, night text, rounded, gentle shadow */
+.softcard {
+  background: #fffdf8;
+  border-radius: 1.5rem;
+  box-shadow: 0 12px 32px rgba(11, 11, 12, 0.1);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.softcard:hover {
+  transform: translateY(-4px) rotate(-0.4deg);
+  box-shadow: 0 20px 44px rgba(11, 11, 12, 0.14);
 }
 
-/* sticker look: white sticker border, no drop-shadow glow */
-.sticker {
-  background: #ffffff;
-  padding: 6px;
-  box-shadow: 3px 3px 0 rgba(29, 27, 22, 0.9);
+/* pill button, the only shape we ship */
+.btn-soft {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.7rem 1.6rem;
+  font-weight: 700;
+  transition: transform 0.25s ease, background-color 0.25s ease,
+    color 0.25s ease, box-shadow 0.25s ease;
+}
+.btn-soft:active {
+  transform: scale(0.97);
 }
 
-/* hard offset shadow, print style */
-.hardshadow {
-  box-shadow: 4px 4px 0 var(--ink);
-}
-.hardshadow-red {
-  box-shadow: 4px 4px 0 var(--red);
-}
-
-/* underline links like a felt pen */
-.penlink {
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
-  text-decoration-color: var(--red);
-}
-.penlink:hover {
-  background: var(--red);
-  color: var(--paper);
+/* ambery underline that grows from the left on hover */
+.warm-link {
   text-decoration: none;
+  background-image: linear-gradient(var(--amber), var(--amber));
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  background-position: 0 100%;
+  transition: background-size 0.3s ease;
+  padding-bottom: 2px;
+}
+.warm-link:hover {
+  background-size: 100% 2px;
 }
 
-/* scrollbar, keep it ink */
+/* paw-print trail layer (mouse-follow), sits above bg, below content */
+#paw-trail {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 30;
+}
+#paw-trail .paw {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  opacity: 0.85;
+  animation: pawfade 1.1s ease-out forwards;
+}
+@keyframes pawfade {
+  0% {
+    transform: scale(0.6) rotate(var(--paw-rot, 0deg));
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.05) rotate(var(--paw-rot, 0deg));
+    opacity: 0;
+  }
+}
+
+/* ---------------------------------------------------------- scrollbar --- */
 ::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--paper);
+  background: var(--bone);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--ink);
-  border: 3px solid var(--paper);
+  background: var(--smoke);
+  border-radius: 9999px;
+  border: 2px solid var(--bone);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -30,21 +30,21 @@ const CAT_LABEL: Record<string, string> = {
 export default function ProductCard({ p }: Props) {
   const out = p.stock <= 0;
   return (
-    <article className="group border-2 border-ink bg-white hardshadow hover:bg-bone/40 transition-colors">
-      <Link href={`/product/${p.slug}`} className="block border-b-2 border-ink">
-        <div className="relative aspect-4/3 overflow-hidden bg-bone">
+    <article className="softcard group overflow-hidden">
+      <Link href={`/product/${p.slug}`} className="block">
+        <div className="relative aspect-4/3 overflow-hidden bg-[#efe9dc]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={p.image}
             alt={p.name}
             loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
           />
-          <span className="absolute left-0 top-3 bg-ink px-2 py-0.5 font-mono text-[11px] uppercase tracking-widest text-paper">
+          <span className="absolute left-3 top-3 rounded-full bg-night/85 px-2.5 py-1 font-round text-[11px] font-semibold text-bone">
             {CAT_LABEL[p.category] ?? p.category}
           </span>
           {out && (
-            <span className="absolute right-0 top-3 bg-ink px-2 py-0.5 font-mono text-[11px] uppercase tracking-widest text-paper">
+            <span className="absolute right-3 top-3 rounded-full bg-collar px-2.5 py-1 font-round text-[11px] font-bold text-bone">
               Ask us
             </span>
           )}
@@ -52,24 +52,22 @@ export default function ProductCard({ p }: Props) {
       </Link>
 
       <div className="p-4">
-        <p className="font-mono text-[11px] uppercase tracking-widest text-steel">{p.brand}</p>
-        <h3 className="mt-1 font-display text-lg leading-tight">
-          <Link href={`/product/${p.slug}`} className="hover:text-red">
+        <p className="caption font-round text-[11px] uppercase">{p.brand}</p>
+        <h3 className="mt-1 font-round text-lg font-bold leading-snug">
+          <Link href={`/product/${p.slug}`} className="hover:text-turf">
             {p.name}
           </Link>
         </h3>
-        {p.blurb && <p className="mt-1.5 text-sm text-ink/70">{p.blurb}</p>}
+        {p.blurb && <p className="mt-1 text-sm text-night/65">{p.blurb}</p>}
 
         <div className="mt-3 flex items-end justify-between gap-2">
           <div>
-            <p className="font-display text-xl">
+            <p className="font-display text-xl font-bold text-night">
               {formatPKR(p.price)}
-              <span className="ml-1 font-mono text-[11px] uppercase tracking-widest text-steel">
-                / {p.unit}
-              </span>
+              <span className="caption ml-1 font-round text-[11px] uppercase">/ {p.unit}</span>
             </p>
             {p.oldPrice && p.oldPrice > p.price ? (
-              <p className="font-mono text-xs text-steel line-through">{formatPKR(p.oldPrice)}</p>
+              <p className="font-round text-xs text-smoke line-through">{formatPKR(p.oldPrice)}</p>
             ) : null}
           </div>
           <AddToCart
@@ -83,7 +81,7 @@ export default function ProductCard({ p }: Props) {
             disabled={out}
           />
         </div>
-        <p className="mt-2 font-mono text-[11px] uppercase tracking-widest text-steel">
+        <p className="caption mt-2 font-round text-[11px] uppercase">
           {out ? "Order on call, lands in 1 day" : p.stock <= 3 ? `Only ${p.stock} left` : `${p.stock} in stock`}
         </p>
       </div>
