@@ -200,13 +200,30 @@ cat_cut.crop((x0, y0, x1, y1)).save(f"{OUT}/cat-leap.png")
 print(f"   cat-leap.svg/.png + silhouette written ({cw}x{ch})")
 
 # ==================================================== wordmark (hand-drawn) =
-# "Happy" in Nunito 900 caps + "Tails" traced from the art's script letters.
-# Script letters: the white glyphs right of the head (x > 45%) minus the tail.
-script = white.copy()
-script[:, : int(W * 0.45)] = False
-# the long tail stroke crosses the text area; drop thin diagonal component by
-# keeping only the biggest connected blob region via row-density: simplest is
-# to use the full white right side (script + tail flourish reads as one word).
+# The script "Tails" + eagle badge. Letters sit in a row below the head
+# (component y-start >= 53% H); the eagle circle rides higher just right of
+# center; the final S is fused with the tail flourish (comp starting y=21%)
+# so we cut its lower half out of that component.
+script = np.zeros_like(art)
+for i, slb in enumerate(sl_all, start=1):
+    if slb is None:
+        continue
+    ys, xs = slb
+    comp = art_lab == i
+    if ys.start >= H * 0.53 and xs.start >= W * 0.15:
+        script |= comp                      # letters row: T a i l, swashes
+    elif ys.start >= H * 0.39 and xs.start >= W * 0.40:
+        script |= comp                      # eagle badge over the i
+# tail+S component: identified as the big one right of 60% W starting high
+for i, slb in enumerate(sl_all, start=1):
+    if slb is None:
+        continue
+    ys, xs = slb
+    if xs.start >= W * 0.60 and ys.start < H * 0.38 and int((art_lab == i).sum()) > 20000:
+        comp = art_lab == i
+        cut = np.zeros_like(comp)
+        cut[int(H * 0.50):, :] = True
+        script |= comp & cut                # keep the S, drop the tail sweep
 script = grow(script, 2)
 sx0, sy0, sx1, sy1 = bbox_of(script, 4)
 sls = (slice(sy0, sy1), slice(sx0, sx1))
