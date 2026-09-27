@@ -65,7 +65,7 @@ export default function AdminLoginPage() {
           {busy ? "CHECKING…" : "OPEN THE BOOK"}
         </button>
         <p className="mt-4 font-mono text-[11px] text-paper/40">
-          Default login is admin / happytails247. Change it in .env before going live.
+          Logins are set by the shop in .env (ADMIN_USER, ADMIN_PASS). Ask the owner for yours.
         </p>
       </form>
     </div>
