@@ -54,25 +54,36 @@ export default async function ShopPage({
               Live stock counts — if something shows zero, call and it usually lands within a day.
             </p>
           </div>
-          <form action="/shop" className="flex w-full items-center gap-2 sm:w-auto">
-            <input
-              type="search"
-              name="q"
-              defaultValue={q}
-              placeholder="Search food, leash, litter…"
-              className="w-full min-w-0 rounded-full border-2 border-night/10 bg-white px-4 py-2.5 font-round text-sm outline-none placeholder:text-ink focus:border-amber sm:w-56"
-            />
-            <button className="btn-soft bg-night px-5 py-2.5 text-sm text-bone hover:bg-night/85">
-              Find
-            </button>
+          <form action="/shop" className="flex w-full items-center sm:w-auto">
+            <div className="flex w-full min-w-0 items-center rounded-full border-2 border-night/10 bg-white pl-4 focus-within:border-amber">
+              <input
+                type="search"
+                name="q"
+                defaultValue={q}
+                placeholder="Search food, leash, litter…"
+                className="w-full min-w-0 bg-transparent py-2.5 font-round text-sm outline-none placeholder:text-ink"
+              />
+              <button
+                className="m-1 inline-flex h-9 w-11 shrink-0 items-center justify-center rounded-full bg-night text-bone active:scale-95"
+                aria-label="Search"
+              >
+                <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" aria-hidden="true">
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m20 20-3.5-3.5" />
+                </svg>
+              </button>
+            </div>
           </form>
         </div>
 
-        <div className="mt-8 flex flex-wrap gap-2">
+        {/* category rail: swipeable on phones, wraps on desktop */}
+        <div
+          className="no-scrollbar -mx-4 mt-6 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0"
+        >
           <Link
             href="/shop"
-            className={`rounded-full px-4 py-2 font-round text-sm font-bold transition-colors ${
-              cat === "all" ? "bg-night text-bone" : "bg-white text-night/75 hover:bg-night/10 shadow-softer"
+            className={`nav-pill shrink-0 px-4 py-2.5 font-round text-sm font-bold sm:py-2 ${
+              cat === "all" ? "active" : ""
             }`}
           >
             All ({products.length})
@@ -83,8 +94,8 @@ export default async function ShopPage({
               <Link
                 key={c.id}
                 href={`/shop?cat=${c.id}`}
-                className={`rounded-full px-4 py-2 font-round text-sm font-bold transition-colors ${
-                  cat === c.id ? "bg-night text-bone" : "bg-white text-night/75 hover:bg-night/10 shadow-softer"
+                className={`nav-pill shrink-0 px-4 py-2.5 font-round text-sm font-bold sm:py-2 ${
+                  cat === c.id ? "active" : ""
                 }`}
               >
                 {c.label} ({n})
@@ -92,6 +103,10 @@ export default async function ShopPage({
             );
           })}
         </div>
+        <p className="mt-4 font-round text-xs font-semibold uppercase tracking-wider text-ink">
+          {filtered.length} {filtered.length === 1 ? "item" : "items"}
+          {q ? ` matching “${q}”` : ""}
+        </p>
 
         {filtered.length === 0 ? (
           <div className="softcard mt-10 p-10 text-center">

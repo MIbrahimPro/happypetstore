@@ -5,7 +5,7 @@ import Logo from "@/components/Logo";
 import Wordmark from "@/components/Wordmark";
 import PawTrail from "@/components/PawTrail";
 import { CartProvider } from "@/components/CartProvider";
-import { StoreNavDesktop, StoreNavMobile } from "@/components/StoreNav";
+import { StoreNavDesktop, MobileMenu } from "@/components/StoreNav";
 import { NAV } from "@/lib/nav";
 
 export default function StoreLayout({ children }: { children: React.ReactNode }) {
@@ -41,10 +41,9 @@ export default function StoreLayout({ children }: { children: React.ReactNode })
                 Call any hour
               </a>
               <CartButton />
+              <MobileMenu />
             </div>
           </div>
-          {/* mobile nav */}
-          <StoreNavMobile />
         </header>
 
         <main className="flex-1">{children}</main>
