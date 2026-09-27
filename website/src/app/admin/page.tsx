@@ -49,11 +49,11 @@ export default async function AdminDashboard() {
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <h1 className="font-display text-3xl">THE COUNTER BOOK</h1>
-          <p className="font-mono text-xs uppercase tracking-widest text-paper/50">
+          <p className="font-round text-xs uppercase tracking-widest text-bone/50">
             Everything that moved today
           </p>
         </div>
-        <Link href="/admin/products/new" className="border-2 border-paper bg-red px-4 py-2 font-display text-sm text-paper hover:bg-red-dark">
+        <Link href="/admin/products/new" className="border-2 border-bone bg-collar px-4 py-2 font-display text-sm text-bone hover:bg-collardeep">
           + NEW PRODUCT
         </Link>
       </div>
@@ -66,29 +66,29 @@ export default async function AdminDashboard() {
           ["Products", data.counts.products, "/admin/products"],
           ["Bookings", data.counts.bookings, "/admin/bookings"],
         ].map(([label, n, href]) => (
-          <Link key={label as string} href={href as string} className="border-2 border-paper/30 p-4 hover:border-paper">
-            <p className="font-mono text-xs uppercase tracking-widest text-paper/50">{label}</p>
+          <Link key={label as string} href={href as string} className="border-2 border-bone/15 p-4 hover:border-bone">
+            <p className="font-round text-xs uppercase tracking-widest text-bone/50">{label}</p>
             <p className="mt-1 font-display text-4xl">{n}</p>
           </Link>
         ))}
       </div>
 
       <div className="mt-8 grid gap-6 lg:grid-cols-2">
-        <section className="border-2 border-paper/30">
-          <div className="flex items-center justify-between border-b-2 border-paper/30 px-4 py-2">
+        <section className="border-2 border-bone/15">
+          <div className="flex items-center justify-between border-b-2 border-bone/15 px-4 py-2">
             <p className="font-display text-lg">LOW STOCK, GO RESTOCK</p>
-            <Link href="/admin/stock" className="font-mono text-xs uppercase text-mustard">
+            <Link href="/admin/stock" className="font-round text-xs uppercase text-amber">
               Stock desk →
             </Link>
           </div>
           {data.lowStock.length === 0 ? (
-            <p className="px-4 py-6 font-mono text-sm text-paper/50">Everything is stocked up.</p>
+            <p className="px-4 py-6 font-round text-sm text-bone/50">Everything is stocked up.</p>
           ) : (
-            <ul className="divide-y divide-paper/15 font-mono text-sm">
+            <ul className="divide-y divide-paper/15 font-round text-sm">
               {data.lowStock.map((p: any) => (
                 <li key={String(p._id)} className="flex items-center justify-between px-4 py-2.5">
                   <span>{p.name}</span>
-                  <span className={p.stock === 0 ? "font-bold text-red" : "text-mustard"}>
+                  <span className={p.stock === 0 ? "font-bold text-collar" : "text-amber"}>
                     {p.stock} left / min {p.lowStockAt}
                   </span>
                 </li>
@@ -97,21 +97,21 @@ export default async function AdminDashboard() {
           )}
         </section>
 
-        <section className="border-2 border-paper/30">
-          <div className="flex items-center justify-between border-b-2 border-paper/30 px-4 py-2">
+        <section className="border-2 border-bone/15">
+          <div className="flex items-center justify-between border-b-2 border-bone/15 px-4 py-2">
             <p className="font-display text-lg">LATEST ORDERS</p>
-            <Link href="/admin/orders" className="font-mono text-xs uppercase text-mustard">
+            <Link href="/admin/orders" className="font-round text-xs uppercase text-amber">
               All orders →
             </Link>
           </div>
           {data.orders.length === 0 ? (
-            <p className="px-4 py-6 font-mono text-sm text-paper/50">No orders yet. Share the shop link on WhatsApp.</p>
+            <p className="px-4 py-6 font-round text-sm text-bone/50">No orders yet. Share the shop link on WhatsApp.</p>
           ) : (
-            <ul className="divide-y divide-paper/15 font-mono text-sm">
+            <ul className="divide-y divide-paper/15 font-round text-sm">
               {data.orders.map((o: any) => (
                 <li key={String(o._id)} className="flex items-center justify-between px-4 py-2.5">
                   <span>
-                    <span className="text-mustard">{o.ref}</span> {o.customerName}
+                    <span className="text-amber">{o.ref}</span> {o.customerName}
                   </span>
                   <span>
                     {formatPKR(o.total)} / {o.status}
@@ -122,31 +122,31 @@ export default async function AdminDashboard() {
           )}
         </section>
 
-        <section className="border-2 border-paper/30">
-          <div className="flex items-center justify-between border-b-2 border-paper/30 px-4 py-2">
+        <section className="border-2 border-bone/15">
+          <div className="flex items-center justify-between border-b-2 border-bone/15 px-4 py-2">
             <p className="font-display text-lg">FRESH LEADS</p>
-            <Link href="/admin/leads" className="font-mono text-xs uppercase text-mustard">
+            <Link href="/admin/leads" className="font-round text-xs uppercase text-amber">
               Lead desk →
             </Link>
           </div>
           {data.leads.length === 0 ? (
-            <p className="px-4 py-6 font-mono text-sm text-paper/50">No leads yet.</p>
+            <p className="px-4 py-6 font-round text-sm text-bone/50">No leads yet.</p>
           ) : (
-            <ul className="divide-y divide-paper/15 font-mono text-sm">
+            <ul className="divide-y divide-paper/15 font-round text-sm">
               {data.leads.map((l: any) => (
                 <li key={String(l._id)} className="flex items-center justify-between px-4 py-2.5">
                   <span>
-                    <span className="text-mustard uppercase">{l.kind}</span> {l.name}
+                    <span className="text-amber uppercase">{l.kind}</span> {l.name}
                   </span>
                   <span>{l.phone}</span>
                 </li>
               ))}
             </ul>
           )}
-        </section>        <section className="border-2 border-paper/30 p-4">
+        </section>        <section className="border-2 border-bone/15 p-4">
           <p className="font-display text-lg">STOCK VALUE ON SHELF</p>
-          <p className="mt-2 font-display text-3xl text-mustard">{formatPKR(data.stockValue)}</p>
-          <p className="mt-1 font-mono text-xs uppercase tracking-widest text-paper/50">price x stock, all products</p>
+          <p className="mt-2 font-display text-3xl text-amber">{formatPKR(data.stockValue)}</p>
+          <p className="mt-1 font-round text-xs uppercase tracking-widest text-bone/50">price x stock, all products</p>
         </section>
       </div>
     </div>

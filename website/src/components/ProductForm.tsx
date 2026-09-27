@@ -73,23 +73,23 @@ export default function ProductForm({ initial }: { initial: ProductFormValues })
   }
 
   return (
-    <form onSubmit={submit} className="max-w-2xl space-y-4 font-mono text-sm">
+    <form onSubmit={submit} className="max-w-2xl space-y-4 font-round text-sm">
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="block sm:col-span-2">
-          <span className="text-xs uppercase tracking-widest text-paper/60">Name *</span>
+          <span className="text-xs uppercase tracking-widest text-bone/60">Name *</span>
           <input
             value={v.name}
             onChange={(e) => set("name", e.target.value)}
-            className="mt-1 w-full border-2 border-paper/40 bg-transparent px-3 py-2 text-paper outline-none focus:border-paper"
+            className="mt-1 w-full border-2 border-bone/25 bg-transparent px-3 py-2 text-bone outline-none focus:border-bone"
             required
           />
         </label>
         <label className="block">
-          <span className="text-xs uppercase tracking-widest text-paper/60">Shelf (category) *</span>
+          <span className="text-xs uppercase tracking-widest text-bone/60">Shelf (category) *</span>
           <select
             value={v.category}
             onChange={(e) => set("category", e.target.value)}
-            className="mt-1 w-full border-2 border-paper/40 bg-[#141311] px-3 py-2 text-paper outline-none focus:border-paper"
+            className="mt-1 w-full border-2 border-bone/25 bg-[#141311] px-3 py-2 text-bone outline-none focus:border-bone"
           >
             {CATEGORIES.map((c) => (
               <option key={c} value={c}>
@@ -99,87 +99,87 @@ export default function ProductForm({ initial }: { initial: ProductFormValues })
           </select>
         </label>
         <label className="block">
-          <span className="text-xs uppercase tracking-widest text-paper/60">Brand</span>
+          <span className="text-xs uppercase tracking-widest text-bone/60">Brand</span>
           <input
             value={v.brand}
             onChange={(e) => set("brand", e.target.value)}
-            className="mt-1 w-full border-2 border-paper/40 bg-transparent px-3 py-2 text-paper outline-none focus:border-paper"
+            className="mt-1 w-full border-2 border-bone/25 bg-transparent px-3 py-2 text-bone outline-none focus:border-bone"
           />
         </label>
         <label className="block">
-          <span className="text-xs uppercase tracking-widest text-paper/60">Price (PKR) *</span>
+          <span className="text-xs uppercase tracking-widest text-bone/60">Price (PKR) *</span>
           <input
             type="number"
             min={0}
             value={v.price}
             onChange={(e) => set("price", Number(e.target.value))}
-            className="mt-1 w-full border-2 border-paper/40 bg-transparent px-3 py-2 text-paper outline-none focus:border-paper"
+            className="mt-1 w-full border-2 border-bone/25 bg-transparent px-3 py-2 text-bone outline-none focus:border-bone"
             required
           />
         </label>
         <label className="block">
-          <span className="text-xs uppercase tracking-widest text-paper/60">Old price (for strike-through)</span>
+          <span className="text-xs uppercase tracking-widest text-bone/60">Old price (for strike-through)</span>
           <input
             type="number"
             min={0}
             value={v.oldPrice ?? ""}
             onChange={(e) => set("oldPrice", e.target.value ? Number(e.target.value) : null)}
-            className="mt-1 w-full border-2 border-paper/40 bg-transparent px-3 py-2 text-paper outline-none focus:border-paper"
+            className="mt-1 w-full border-2 border-bone/25 bg-transparent px-3 py-2 text-bone outline-none focus:border-bone"
           />
         </label>
         <label className="block">
-          <span className="text-xs uppercase tracking-widest text-paper/60">Unit label</span>
+          <span className="text-xs uppercase tracking-widest text-bone/60">Unit label</span>
           <input
             value={v.unit}
             onChange={(e) => set("unit", e.target.value)}
             placeholder="2 kg bag"
-            className="mt-1 w-full border-2 border-paper/40 bg-transparent px-3 py-2 text-paper outline-none focus:border-paper"
+            className="mt-1 w-full border-2 border-bone/25 bg-transparent px-3 py-2 text-bone outline-none focus:border-bone"
           />
         </label>
         <label className="block">
-          <span className="text-xs uppercase tracking-widest text-paper/60">Slug (URL, leave blank to auto)</span>
+          <span className="text-xs uppercase tracking-widest text-bone/60">Slug (URL, leave blank to auto)</span>
           <input
             value={v.slug}
             onChange={(e) => set("slug", e.target.value)}
-            className="mt-1 w-full border-2 border-paper/40 bg-transparent px-3 py-2 text-paper outline-none focus:border-paper"
+            className="mt-1 w-full border-2 border-bone/25 bg-transparent px-3 py-2 text-bone outline-none focus:border-bone"
           />
         </label>
         <label className="block sm:col-span-2">
-          <span className="text-xs uppercase tracking-widest text-paper/60">One line about it</span>
+          <span className="text-xs uppercase tracking-widest text-bone/60">One line about it</span>
           <input
             value={v.blurb}
             onChange={(e) => set("blurb", e.target.value)}
-            className="mt-1 w-full border-2 border-paper/40 bg-transparent px-3 py-2 text-paper outline-none focus:border-paper"
+            className="mt-1 w-full border-2 border-bone/25 bg-transparent px-3 py-2 text-bone outline-none focus:border-bone"
           />
         </label>
         <label className="block">
-          <span className="text-xs uppercase tracking-widest text-paper/60">Stock on shelf *</span>
+          <span className="text-xs uppercase tracking-widest text-bone/60">Stock on shelf *</span>
           <input
             type="number"
             min={0}
             value={v.stock}
             onChange={(e) => set("stock", Number(e.target.value))}
-            className="mt-1 w-full border-2 border-paper/40 bg-transparent px-3 py-2 text-paper outline-none focus:border-paper"
+            className="mt-1 w-full border-2 border-bone/25 bg-transparent px-3 py-2 text-bone outline-none focus:border-bone"
             required
           />
-          <span className="mt-1 block text-[11px] text-paper/40">
+          <span className="mt-1 block text-[11px] text-bone/40">
             Changes here are logged as a stock movement. Prefer the Stock desk for daily changes.
           </span>
         </label>
         <label className="block">
-          <span className="text-xs uppercase tracking-widest text-paper/60">Low stock alert at</span>
+          <span className="text-xs uppercase tracking-widest text-bone/60">Low stock alert at</span>
           <input
             type="number"
             min={0}
             value={v.lowStockAt}
             onChange={(e) => set("lowStockAt", Number(e.target.value))}
-            className="mt-1 w-full border-2 border-paper/40 bg-transparent px-3 py-2 text-paper outline-none focus:border-paper"
+            className="mt-1 w-full border-2 border-bone/25 bg-transparent px-3 py-2 text-bone outline-none focus:border-bone"
           />
         </label>
       </div>
 
       <fieldset>
-        <legend className="text-xs uppercase tracking-widest text-paper/60">For which pets</legend>
+        <legend className="text-xs uppercase tracking-widest text-bone/60">For which pets</legend>
         <div className="mt-2 flex flex-wrap gap-4">
           {PETS.map((pet) => (
             <label key={pet} className="flex items-center gap-2">
@@ -199,14 +199,14 @@ export default function ProductForm({ initial }: { initial: ProductFormValues })
         </div>
       </fieldset>
 
-      <div className="border-2 border-paper/30 p-4">
-        <span className="text-xs uppercase tracking-widest text-paper/60">Photo</span>
+      <div className="border-2 border-bone/15 p-4">
+        <span className="text-xs uppercase tracking-widest text-bone/60">Photo</span>
         <div className="mt-2 flex items-center gap-4">
           {v.image ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={v.image} alt="" className="h-20 w-20 border-2 border-paper/40 object-cover" />
+            <img src={v.image} alt="" className="h-20 w-20 border-2 border-bone/25 object-cover" />
           ) : (
-            <div className="flex h-20 w-20 items-center justify-center border-2 border-dashed border-paper/40 text-paper/40">
+            <div className="flex h-20 w-20 items-center justify-center border-2 border-dashed border-bone/25 text-bone/40">
               none
             </div>
           )}
@@ -215,14 +215,14 @@ export default function ProductForm({ initial }: { initial: ProductFormValues })
               type="file"
               accept="image/*"
               onChange={(e) => e.target.files?.[0] && uploadImage(e.target.files[0])}
-              className="text-paper/80"
+              className="text-bone/80"
             />
-            {uploading && <p className="mt-1 text-mustard">Uploading to Cloudinary…</p>}
+            {uploading && <p className="mt-1 text-amber">Uploading to Cloudinary…</p>}
             <input
               value={v.image}
               onChange={(e) => set("image", e.target.value)}
               placeholder="or paste an image URL"
-              className="mt-2 w-full border-2 border-paper/40 bg-transparent px-3 py-2 text-paper outline-none focus:border-paper"
+              className="mt-2 w-full border-2 border-bone/25 bg-transparent px-3 py-2 text-bone outline-none focus:border-bone"
             />
           </div>
         </div>
@@ -234,23 +234,23 @@ export default function ProductForm({ initial }: { initial: ProductFormValues })
           checked={v.active}
           onChange={(e) => set("active", e.target.checked)}
         />
-        <span className="text-xs uppercase tracking-widest text-paper/60">Visible on the site</span>
+        <span className="text-xs uppercase tracking-widest text-bone/60">Visible on the site</span>
       </label>
 
-      {error && <p className="border-2 border-red px-3 py-2 text-red">{error}</p>}
+      {error && <p className="border-2 border-collar px-3 py-2 text-collar">{error}</p>}
 
       <div className="flex gap-3">
         <button
           type="submit"
           disabled={busy}
-          className="border-2 border-paper bg-red px-6 py-2.5 font-display text-paper hover:bg-red-dark disabled:opacity-60"
+          className="border-2 border-bone bg-collar px-6 py-2.5 font-display text-bone hover:bg-collardeep disabled:opacity-60"
         >
           {busy ? "SAVING…" : "SAVE PRODUCT"}
         </button>
         <button
           type="button"
           onClick={() => router.push("/admin/products")}
-          className="border-2 border-paper/40 px-6 py-2.5 font-display hover:bg-paper/10"
+          className="border-2 border-bone/25 px-6 py-2.5 font-display hover:bg-bone/10"
         >
           Cancel
         </button>

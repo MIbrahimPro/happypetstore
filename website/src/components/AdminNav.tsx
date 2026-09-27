@@ -26,15 +26,15 @@ export default function AdminNav({ authed }: { authed: boolean }) {
   if (!authed) return null;
 
   return (
-    <nav className="flex flex-wrap gap-0 px-2 py-3 lg:flex-col">
+    <nav className="flex flex-wrap gap-1 px-3 py-3 lg:flex-col">
       {LINKS.map((l) => {
         const active = l.href === "/admin" ? path === "/admin" : path.startsWith(l.href);
         return (
           <Link
             key={l.href}
             href={l.href}
-            className={`px-3 py-2 font-mono text-sm uppercase tracking-widest ${
-              active ? "bg-red text-paper" : "text-paper/70 hover:bg-paper/10"
+            className={`rounded-full px-3.5 py-2 font-round text-sm font-semibold ${
+              active ? "bg-amber text-night" : "text-bone/70 hover:bg-bone/10"
             }`}
           >
             {l.label}
@@ -43,7 +43,7 @@ export default function AdminNav({ authed }: { authed: boolean }) {
       })}
       <button
         onClick={logout}
-        className="mt-2 px-3 py-2 text-left font-mono text-xs uppercase tracking-widest text-paper/40 hover:text-red"
+        className="mt-2 rounded-full px-3.5 py-2 text-left font-round text-xs font-semibold uppercase tracking-widest text-bone/40 hover:text-collar"
       >
         Log out
       </button>

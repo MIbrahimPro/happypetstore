@@ -22,7 +22,7 @@ export default async function AdminLeadsPage() {
   return (
     <div className="px-4 py-6 sm:px-8">
       <h1 className="font-display text-3xl">LEAD DESK</h1>
-      <p className="font-mono text-xs uppercase tracking-widest text-paper/50">
+      <p className="font-round text-xs uppercase tracking-widest text-bone/50">
         Adoption and vet enquiries. Call, then move the card.
       </p>
 
@@ -30,25 +30,25 @@ export default async function AdminLeadsPage() {
         {STATUSES.map((status) => {
           const list = leads.filter((l: any) => l.status === status);
           return (
-            <section key={status} className="border-2 border-paper/30">
-              <div className="flex items-center justify-between border-b-2 border-paper/30 px-3 py-2">
-                <p className="font-mono text-xs uppercase tracking-widest text-mustard">{status}</p>
-                <p className="font-mono text-xs text-paper/60">{list.length}</p>
+            <section key={status} className="border-2 border-bone/15">
+              <div className="flex items-center justify-between border-b-2 border-bone/15 px-3 py-2">
+                <p className="font-round text-xs uppercase tracking-widest text-amber">{status}</p>
+                <p className="font-round text-xs text-bone/60">{list.length}</p>
               </div>
               {list.length === 0 ? (
-                <p className="px-3 py-4 font-mono text-xs text-paper/40">Empty</p>
+                <p className="px-3 py-4 font-round text-xs text-bone/40">Empty</p>
               ) : (
                 <ul className="divide-y divide-paper/15">
                   {list.map((l: any) => (
                     <li key={String(l._id)} className="px-3 py-3">
-                      <p className="font-mono text-[11px] uppercase tracking-widest text-paper/40">{l.kind}</p>
+                      <p className="font-round text-[11px] uppercase tracking-widest text-bone/40">{l.kind}</p>
                       <p className="font-display text-lg leading-tight">{l.name}</p>
-                      <p className="mt-1 font-mono text-xs">
+                      <p className="mt-1 font-round text-xs">
                         <a href={`tel:+92${String(l.phone).replace(/^0/, "")}`} className="underline">
                           {l.phone}
                         </a>
                       </p>
-                      {l.message && <p className="mt-1 font-mono text-xs text-paper/60">{l.message}</p>}
+                      {l.message && <p className="mt-1 font-round text-xs text-bone/60">{l.message}</p>}
                       <LeadStatusControls id={String(l._id)} status={l.status} />
                     </li>
                   ))}

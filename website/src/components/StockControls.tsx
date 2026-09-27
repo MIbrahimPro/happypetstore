@@ -23,7 +23,7 @@ export default function StockControls({ id }: { id: string }) {
       <button
         onClick={() => move("restock", 5)}
         disabled={busy}
-        className="border border-paper/40 px-2 py-1 font-mono text-[11px] uppercase hover:bg-paper hover:text-ink disabled:opacity-50"
+        className="border border-bone/25 px-2 py-1 font-round text-[11px] uppercase hover:bg-bone hover:text-bone disabled:opacity-50"
         title="Add 5 to shelf"
       >
         +5 restock
@@ -31,7 +31,7 @@ export default function StockControls({ id }: { id: string }) {
       <button
         onClick={() => move("damage", -1)}
         disabled={busy}
-        className="border border-paper/40 px-2 py-1 font-mono text-[11px] uppercase hover:bg-paper hover:text-ink disabled:opacity-50"
+        className="border border-bone/25 px-2 py-1 font-round text-[11px] uppercase hover:bg-bone hover:text-bone disabled:opacity-50"
         title="Remove 1 as damaged"
       >
         −1 damage

@@ -9,7 +9,7 @@ export default function AdminGate({ ok }: { ok: boolean }) {
     if (!ok) router.replace("/admin/login");
   }, [ok, router]);
   return (
-    <div className="px-8 py-16 font-mono text-sm text-paper/60">
+    <div className="px-8 py-16 font-round text-sm text-bone/60">
       Checking the keyring…
     </div>
   );

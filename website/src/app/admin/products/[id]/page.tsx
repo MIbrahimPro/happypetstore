@@ -14,7 +14,7 @@ export default async function EditProductPage({ params }: { params: Promise<{ id
   await connectDB();
   const doc: any = await Product.findById(id).lean();
   if (!doc) {
-    return <div className="px-8 py-10 font-mono text-sm">Product not found.</div>;
+    return <div className="px-8 py-10 font-round text-sm">Product not found.</div>;
   }
 
   const initial: ProductFormValues = {

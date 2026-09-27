@@ -33,7 +33,7 @@ export default function LeadStatusControls({ id, status }: { id: string; status:
           key={n}
           onClick={() => set(n)}
           disabled={busy}
-          className="border border-paper/40 px-2 py-1 font-mono text-[11px] uppercase tracking-widest hover:bg-paper hover:text-ink disabled:opacity-50"
+          className="border border-bone/25 px-2 py-1 font-round text-[11px] uppercase tracking-widest hover:bg-bone hover:text-bone disabled:opacity-50"
         >
           {n === "lost" ? "✕ lost" : `→ ${n}`}
         </button>
