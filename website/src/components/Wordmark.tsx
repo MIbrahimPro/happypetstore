@@ -1,3 +1,4 @@
+import { asset } from "@/lib/base";
 /**
  * The wordmark rebuilt to match the real signboard lockup:
  * the traced script "Tails" (their own lettering) sits on top with the dog,
@@ -23,7 +24,7 @@ export default function Wordmark({
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/brand/script-tails.svg"
+        src={asset("/brand/script-tails.svg")}
         alt=""
         style={{ height: scriptHeight, width: "auto" }}
         className={onNight ? "invert" : ""}

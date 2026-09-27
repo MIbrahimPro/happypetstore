@@ -1,4 +1,5 @@
 "use client";
+import { BASE } from "@/lib/base";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -40,7 +41,7 @@ export default function ProductForm({ initial }: { initial: ProductFormValues })
     try {
       const fd = new FormData();
       fd.append("file", file);
-      const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
+      const res = await fetch(BASE + "/api/admin/upload", { method: "POST", body: fd });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Upload failed");
       set("image", data.url);

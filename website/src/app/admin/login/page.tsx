@@ -1,4 +1,5 @@
 "use client";
+import { BASE } from "@/lib/base";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -15,7 +16,7 @@ export default function AdminLoginPage() {
     e.preventDefault();
     setBusy(true);
     setError("");
-    const res = await fetch("/api/admin/login", {
+    const res = await fetch(BASE + "/api/admin/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password }),

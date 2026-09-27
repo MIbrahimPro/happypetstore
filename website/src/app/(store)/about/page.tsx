@@ -1,3 +1,4 @@
+import { asset } from "@/lib/base";
 import { SITE, telLink, waLink } from "@/lib/site";
 
 export const metadata = { title: "Visit us in G-10" };
@@ -24,7 +25,7 @@ export default function AboutPage() {
         </div>
         <div className="animate-sway rotate-1 self-start overflow-hidden rounded-blob bg-white p-2.5 shadow-soft">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/shop/storefront.jpg" alt="Happy Tails shopfront at night" className="h-72 w-full rounded-[1.2rem] object-cover" />
+          <img src={asset("/images/shop/storefront.jpg")} alt="Happy Tails shopfront at night" className="h-72 w-full rounded-[1.2rem] object-cover" />
           <p className="caption py-2 text-center font-round text-[11px] uppercase">
             Ramna Plaza after closing time everywhere else
           </p>

@@ -1,4 +1,5 @@
 "use client";
+import { BASE } from "@/lib/base";
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -18,7 +19,7 @@ export default function AdminNav({ authed }: { authed: boolean }) {
   const router = useRouter();
 
   async function logout() {
-    await fetch("/api/admin/login", { method: "DELETE" });
+    await fetch(BASE + "/api/admin/login", { method: "DELETE" });
     router.push("/admin");
     router.refresh();
   }

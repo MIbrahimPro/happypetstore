@@ -1,3 +1,4 @@
+import { asset } from "@/lib/base";
 import { SITE, telLink, waLink } from "@/lib/site";
 import LeadForm from "@/components/LeadForm";
 import Swiggle from "@/components/Swiggle";
@@ -75,7 +76,7 @@ export default function ClinicPage() {
           </div>
           <div className="mt-6 -rotate-1 overflow-hidden rounded-blob bg-white p-2.5 shadow-soft">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/shop/clinic-counter.jpg" alt="Clinic counter" className="h-56 w-full rounded-[1.2rem] object-cover" />
+            <img src={asset("/images/shop/clinic-counter.jpg")} alt="Clinic counter" className="h-56 w-full rounded-[1.2rem] object-cover" />
             <p className="caption py-2 text-center font-round text-[11px] uppercase">
               The clinic counter, stocked like a pharmacy
             </p>

@@ -1,3 +1,4 @@
+import { asset } from "@/lib/base";
 import Link from "next/link";
 import { formatPKR } from "@/lib/utils";
 import AddToCart from "@/components/AddToCart";
@@ -36,7 +37,7 @@ export default function ProductCard({ p }: Props) {
         <div className="relative h-44 overflow-hidden bg-[#efe9dc]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={p.image}
+            src={asset(p.image)}
             alt={p.name}
             loading="lazy"
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"

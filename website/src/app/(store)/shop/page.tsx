@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BASE } from "@/lib/base";
 import { connectDB } from "@/lib/mongo";
 import { Product } from "@/lib/models";
 import ProductCard from "@/components/ProductCard";
@@ -54,7 +55,7 @@ export default async function ShopPage({
               Live stock counts — if something shows zero, call and it usually lands within a day.
             </p>
           </div>
-          <form action="/shop" className="flex w-full items-center sm:w-auto">
+          <form action={`${BASE}/shop`} className="flex w-full items-center sm:w-auto">
             <div className="flex w-full min-w-0 items-center rounded-full border-2 border-night/10 bg-white pl-4 focus-within:border-amber">
               <input
                 type="search"

@@ -1,4 +1,5 @@
 "use client";
+import { BASE } from "@/lib/base";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -9,7 +10,7 @@ export default function StockControls({ id }: { id: string }) {
 
   async function move(kind: "restock" | "damage" | "adjust", qty: number) {
     setBusy(true);
-    await fetch("/api/admin/stock", {
+    await fetch(BASE + "/api/admin/stock", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ productId: id, kind, qty, note: kind === "damage" ? "Damaged/unsellable" : "" }),

@@ -1,4 +1,5 @@
 "use client";
+import { BASE } from "@/lib/base";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -28,7 +29,7 @@ export default function CartPage() {
     }
     setSending(true);
     try {
-      const res = await fetch("/api/orders", {
+      const res = await fetch(BASE + "/api/orders", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

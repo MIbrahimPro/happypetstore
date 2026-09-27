@@ -1,4 +1,5 @@
 "use client";
+import { BASE } from "@/lib/base";
 
 import { useState } from "react";
 
@@ -19,7 +20,7 @@ export default function LeadForm({ kind, defaultSlot }: { kind: "adoption" | "ve
     }
     setState("sending");
     try {
-      const res = await fetch("/api/leads", {
+      const res = await fetch(BASE + "/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ kind, name, phone, message, slot }),

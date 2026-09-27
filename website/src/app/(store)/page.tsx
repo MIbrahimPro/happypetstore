@@ -1,3 +1,4 @@
+import { asset } from "@/lib/base";
 import Link from "next/link";
 import { connectDB } from "@/lib/mongo";
 import { Product, Lead } from "@/lib/models";
@@ -74,7 +75,7 @@ export default async function HomePage() {
                 {/* the client's own logo art, background removed, on a night tile */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/brand/logo-lockup.svg"
+                  src={asset("/brand/logo-lockup.svg")}
                   alt="Happy Tails: leaping dog over the script Tails wordmark"
                   className="w-full"
                 />
@@ -88,7 +89,7 @@ export default async function HomePage() {
         {/* leaping cat, night on bone, padding the fur */}
         <div className="pointer-events-none absolute -left-6 bottom-2 w-28 opacity-[0.07] sm:w-36">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/brand/cat-silhouette.svg" alt="" className="w-full" />
+          <img src={asset("/brand/cat-silhouette.svg")} alt="" className="w-full" />
         </div>
       </section>
 
@@ -217,7 +218,7 @@ export default async function HomePage() {
           <div className="flex items-center justify-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/brand/cat-leap.svg"
+              src={asset("/brand/cat-leap.svg")}
               alt="The leaping cat from the shop signboard"
               className="mx-auto w-44 max-w-sm rotate-2 drop-shadow-[0_16px_24px_rgba(11,11,12,0.15)] sm:w-full"
             />

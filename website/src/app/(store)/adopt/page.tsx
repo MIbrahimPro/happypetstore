@@ -1,3 +1,4 @@
+import { asset } from "@/lib/base";
 import { connectDB } from "@/lib/mongo";
 import { Lead } from "@/lib/models";
 import LeadForm from "@/components/LeadForm";
@@ -86,7 +87,7 @@ export default async function AdoptPage() {
         </div>
         <div className="animate-sway self-start rounded-blob bg-white p-2.5 shadow-soft -rotate-1">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={CAT_IMG} alt="Persian kitten at the shop" className="h-64 w-full rounded-[1.2rem] object-cover" />
+          <img src={asset(CAT_IMG)} alt="Persian kitten at the shop" className="h-64 w-full rounded-[1.2rem] object-cover" />
           <p className="caption py-2 text-center font-round text-[11px] uppercase">
             The window shelf, most mornings
           </p>
@@ -121,7 +122,7 @@ export default async function AdoptPage() {
           <div className="softcard flex h-full flex-col overflow-hidden">
             <div className="flex items-center gap-3 bg-night px-4 py-2.5 text-bone">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={CAT_IMG} alt="" className="h-8 w-8 rounded-full object-cover" />
+              <img src={asset(CAT_IMG)} alt="" className="h-8 w-8 rounded-full object-cover" />
               <p className="font-display text-xl font-bold">Cats</p>
               <span className="ml-auto rounded-full bg-night/70 px-2.5 py-1 font-round text-[11px] font-bold uppercase tracking-wider text-bone">
                 {cats.length} waiting
@@ -144,7 +145,7 @@ export default async function AdoptPage() {
           <div className="softcard flex h-full flex-col overflow-hidden">
             <div className="flex items-center gap-3 bg-turfdeep px-4 py-2.5 text-bone">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={DOG_IMG} alt="" className="h-8 w-8 rounded-full object-cover" />
+              <img src={asset(DOG_IMG)} alt="" className="h-8 w-8 rounded-full object-cover" />
               <p className="font-display text-xl font-bold">Dogs</p>
               <span className="ml-auto rounded-full bg-night/70 px-2.5 py-1 font-round text-[11px] font-bold uppercase tracking-wider text-bone">
                 {dogs.length} waiting
@@ -182,7 +183,7 @@ export default async function AdoptPage() {
         <div>
           <div className="rotate-1 overflow-hidden rounded-blob bg-white p-2.5 shadow-soft">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={DOG_IMG} alt="Puppy at the shop" className="h-72 w-full rounded-[1.2rem] object-cover" />
+            <img src={asset(DOG_IMG)} alt="Puppy at the shop" className="h-72 w-full rounded-[1.2rem] object-cover" />
           </div>
           <p className="mt-5 font-round text-sm leading-relaxed text-ink">
             The shop is open 24/7, but most litters are awake and playful before noon. Address:{" "}

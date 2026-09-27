@@ -1,3 +1,4 @@
+import { asset } from "@/lib/base";
 type Props = {
   images: { src: string; label?: string }[];
 };
@@ -16,7 +17,7 @@ export default function SlideGrid({ images }: Props) {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={img.src}
+            src={asset(img.src)}
             alt={img.label ?? "Shop photo"}
             loading="lazy"
             className="h-40 w-full rounded-[1.2rem] object-cover"
