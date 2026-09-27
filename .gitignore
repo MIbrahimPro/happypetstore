@@ -1,0 +1,13 @@
+# Freebuff workspace
+.freebuff/
+
+# env files: never commit keys
+.env
+.env*.local
+
+# OS / editor
+.DS_Store
+Thumbs.db
+
+# node
+node_modules/
