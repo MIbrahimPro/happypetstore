@@ -3,337 +3,271 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Happy Tails Brand Guidelines v1.0</title>
+<title>Happy Tails brand guidelines · soft system</title>
 <style>
   :root{
-    --ink:#1D1B16; --paper:#F5EFDF; --bone:#EAE1C9; --red:#D6342C; --red-dark:#9E241E;
-    --mustard:#E8A33D; --sage:#6B7A5A; --sage-dark:#4C5B3E; --slate:#3F4A56; --steel:#5B6770;
+    --night:#0B0B0C; --bone:#FAF6EE; --collar:#E12D20; --turf:#2FA05A;
+    --amber:#F2A83B; --smoke:#8A8378;
   }
-  *{box-sizing:border-box; border-radius:0 !important;}
-  html{background:var(--paper);}
-  body{margin:0; color:var(--ink); font:15px/1.6 "Courier New", monospace;}
-  .display{font-family:"Arial Black","Archivo Black",sans-serif; letter-spacing:-0.5px; line-height:1.02;}
-  .page{max-width:880px; margin:0 auto; padding:48px 40px; border-bottom:2px solid var(--ink);}
-  .kicker{font-size:11px; letter-spacing:0.32em; text-transform:uppercase; color:var(--steel);}
-  h1{font-size:56px; margin:12px 0 8px;}
-  h2{font-size:30px; margin:0 0 6px;}
-  h3{font-size:18px; margin:0 0 8px;}
-  p{max-width:64ch;}
-  .rule2{border-top:2px solid var(--ink); margin:28px 0;}
-  .grid{display:grid; gap:16px;}
-  .g2{grid-template-columns:1fr 1fr;}
-  .g3{grid-template-columns:1fr 1fr 1fr;}
-  .g4{grid-template-columns:repeat(4,1fr);}
-  .chip{border:2px solid var(--ink); padding:14px;}
-  .swatch{height:86px; border:2px solid var(--ink);}
-  .mono-xs{font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--steel);}
-  .btn{display:inline-block; border:2px solid var(--ink); padding:10px 18px; font-family:"Arial Black",sans-serif; text-decoration:none; color:var(--ink); background:var(--paper);}
-  .btn-red{background:var(--red); color:var(--paper);}
-  .btn-mustard{background:var(--mustard);}
-  .btn-sage{background:var(--sage); color:var(--paper);}
-  .do{border:2px solid var(--ink); background:#fff; padding:16px;}
-  .dont{border:2px dashed var(--red-dark); padding:16px;}
-  .tag{display:inline-block; background:var(--ink); color:var(--paper); font-size:11px; letter-spacing:0.2em; padding:3px 8px; text-transform:uppercase;}
-  .tag-red{background:var(--red);}
-  table{width:100%; border-collapse:collapse; font-size:13px;}
-  th,td{border:1px solid var(--ink); padding:8px 10px; text-align:left; vertical-align:top;}
-  th{background:var(--bone); font-size:11px; letter-spacing:0.14em; text-transform:uppercase;}
-  .logo-box{border:2px solid var(--ink); background:#fff; display:flex; align-items:center; justify-content:center; padding:22px;}
-  .logo-box.paper{background:var(--paper);}
-  .logo-box.ink{background:var(--ink);}
-  .logo-box.red{background:var(--red);}
-  ul{padding-left:20px;} li{margin:4px 0;}
-  .footer{font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--steel); display:flex; justify-content:space-between;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{background:var(--bone)}
+  body{
+    color:var(--night);
+    font-family:"Baloo 2","Nunito","Segoe UI",Verdana,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .sheet{max-width:820px;margin:0 auto;padding:34px 40px}
+  .page{border-radius:26px;overflow:hidden;margin:0 0 26px;box-shadow:0 14px 34px rgba(11,11,12,.12);background:var(--bone)}
+  .pad{padding:28px 32px}
+  .fur{
+    background-color:var(--bone) !important;
+    background-image:
+      repeating-linear-gradient(100deg, rgba(11,11,12,.035) 0 1.5px, transparent 1.5px 26px),
+      repeating-linear-gradient(100deg, rgba(11,11,12,.03) 0 1.5px, transparent 1.5px 34px);
+    background-position:0 0,13px 9px;
+  }
+  .fur-dark{
+    background-color:var(--night) !important;
+    background-image:
+      repeating-linear-gradient(100deg, rgba(250,246,238,.045) 0 1.5px, transparent 1.5px 26px),
+      repeating-linear-gradient(100deg, rgba(250,246,238,.035) 0 1.5px, transparent 1.5px 34px);
+    background-position:0 0,13px 9px;
+    color:var(--bone);
+  }
+  h1{font-size:40px;line-height:1.05;font-weight:800}
+  h2{font-size:23px;font-weight:800;margin:0 0 10px}
+  h3{font-size:14px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--smoke)}
+  p{font-size:12.5px;line-height:1.55}
+  .lead{font-size:15px}
+  .kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--smoke);font-weight:700}
+  .swatchrow{display:flex;gap:12px;margin-top:14px}
+  .swatch{flex:1;border-radius:18px;padding:12px 14px;min-height:120px;display:flex;flex-direction:column;justify-content:flex-end}
+  .swatch small{font-size:10px;letter-spacing:.08em;opacity:.75}
+  .swatch b{font-size:14px}
+  .swatch code{font-size:10.5px;opacity:.8}
+  .mixbars{display:flex;height:34px;border-radius:12px;overflow:hidden;margin-top:12px}
+  .mixbars div{display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700}
+  .ledger{width:100%;border-collapse:collapse;margin-top:10px;font-size:12px}
+  .ledger td,.ledger th{padding:7px 10px;text-align:left;border-bottom:1px solid rgba(11,11,12,.08)}
+  .ledger th{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--smoke)}
+  .pass{color:var(--turf);font-weight:700}
+  .large{color:var(--amber);font-weight:700}
+  .fail{color:var(--collar);font-weight:700}
+  .chip{display:inline-block;border-radius:999px;padding:6px 14px;font-size:12px;font-weight:700;margin:0 6px 6px 0}
+  .typeRow{margin:10px 0 18px}
+  .logoRow{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:14px}
+  .logoCard{border-radius:20px;padding:16px;display:flex;align-items:center;justify-content:center}
+  .swiggle{display:block;width:150px;height:26px;margin-top:6px}
+  .two{display:flex;gap:22px}
+  .two>div{flex:1}
+  ul.rules{list-style:none;margin-top:8px}
+  ul.rules li{padding:7px 0 7px 24px;position:relative;font-size:12.5px;line-height:1.45}
+  ul.rules li:before{content:"";position:absolute;left:2px;top:12px;width:11px;height:9px;
+    background:var(--smoke);border-radius:50% 50% 50% 50%/60% 60% 40% 40%}
+  ul.rules li.bad:before{background:var(--collar);border-radius:50%}
+  .foot{display:flex;justify-content:space-between;font-size:10.5px;color:var(--smoke);padding:4px 8px 0}
+  .wordmark{font-weight:800;font-size:30px;letter-spacing:-.01em}
+  .script-note{font-size:11px;color:var(--smoke)}
   @media print{
-    .page{padding:36px 32px;}
-    body{font-size:12px;}
-    h1{font-size:44px;}
-    a{color:inherit;}
+    @page{size:A4;margin:10mm}
+    body{background:#fff}
+    .sheet{max-width:none;padding:0}
+    .page{break-inside:avoid;margin-bottom:8mm}
   }
-  @page{ size:A4; margin:0; }
 </style>
 </head>
 <body>
+<div class="sheet">
 
-<!-- COVER -->
-<section class="page" style="background:var(--paper)">
-  <p class="kicker">Happy Tails Pet Store and Clinic / Islamabad</p>
-  <h1 class="display">BRAND<br>GUIDELINES</h1>
-  <p class="tag tag-red">VERSION 1.0 / SEPTEMBER 2026</p>
-  <div class="rule2"></div>
-  <p style="font-size:17px">
-    This document is the single source of truth for the Happy Tails brand: the voice of a
-    shopkeeper who never sleeps, the ink-and-paper look of the signboard on Bela Road, and the
-    rules that keep every poster, post and pixel consistent.
-  </p>
-  <p class="mono-xs">Plot 14-B, Ramna Plaza, Bela Rd, G-10 Markaz, Islamabad 44000 / 0313 1495287 / Open 24 hours</p>
-</section>
-
-<!-- 01 STORY -->
-<section class="page">
-  <p class="kicker">01 / The story</p>
-  <h2 class="display">THE SHOP THAT NEVER CLOSES.</h2>
-  <div class="rule2"></div>
-  <p>
-    Happy Tails began as a weekend counter in Ramna Plaza and grew into the shop Islamabad's pet
-    owners call at 3 a.m. Three counters share one room: the store (food, litter, accessories,
-    toys), the clinic (vaccines, medicines, the vet), and the front window (kittens and dogs,
-    including rescues). The brand must always feel like that room: honest, stocked, awake.
-  </p>
-  <div class="grid g3" style="margin-top:18px">
-    <div class="chip"><h3 class="display">HONEST</h3><p>Real stock counts, real price bands, no inflated claims. Say "two left" when there are two.</p></div>
-    <div class="chip"><h3 class="display">AWAKE</h3><p>24/7 is not a slogan, it is the operation. The brand speaks like someone on night duty.</p></div>
-    <div class="chip"><h3 class="display">HANDS-ON</h3><p>Animals are held, not shipped. Advice is given over the counter, in plain language.</p></div>
-  </div>
-</section>
-
-<!-- 02 LOGO -->
-<section class="page">
-  <p class="kicker">02 / Logo</p>
-  <h2 class="display">THE RED MARK.</h2>
-  <div class="rule2"></div>
-  <p>
-    The logo is a red plate carrying a cream dog head and a curled tail stroke, with the wordmark
-    set in a heavy grotesque. HAPPY in ink, TAILS in red. The mark is drawn from the shop's
-    signboard: the leaping cat and dog against the sky.
-  </p>
-  <div class="grid g4" style="margin-top:16px">
-    <div class="logo-box">
-      <svg viewBox="0 0 250 64" width="150"><rect width="64" height="64" fill="#D6342C"/><path d="M13 45 C9 35 15 25 25 25 C31 25 35 29 35 35 C35 40 31 43 27 43" fill="none" stroke="#F5EFDF" stroke-width="5" stroke-linecap="round"/><path d="M36 18 L42 11 L44.5 19.5 C52.5 21.5 55 30 51 36 L53.5 44.5 C45 50.5 34.5 48.5 30.5 40 C26.5 31.5 30.5 21.5 36 18 Z" fill="#F5EFDF"/><circle cx="41" cy="30" r="2.6" fill="#1D1B16"/><path d="M44 36 q3 2.5 6 0" fill="none" stroke="#1D1B16" stroke-width="2.2" stroke-linecap="round"/><text x="74" y="44" font-family="Arial Black" font-size="26" fill="#1D1B16">HA<tspan fill="#D6342C">PPY</tspan> </text><text x="74" y="44" font-family="Arial Black" font-size="26" fill="#1D1B16">HAPPY</text><text x="158" y="44" font-family="Arial Black" font-size="26" fill="#D6342C">TAILS</text></svg>
-    </div>
-    <div class="logo-box paper">
-      <svg viewBox="0 0 64 64" width="72"><rect width="64" height="64" fill="#D6342C"/><path d="M14 44 C10 34 16 24 26 24 C32 24 36 28 36 34 C36 39 32 42 28 42" fill="none" stroke="#F5EFDF" stroke-width="5" stroke-linecap="round"/><path d="M36 18 L42 12 L44 20 C52 22 54 30 50 36 L52 44 C44 50 34 48 30 40 C26 32 30 22 36 18 Z" fill="#F5EFDF"/><circle cx="41" cy="30" r="2.6" fill="#1D1B16"/></svg>
-    </div>
-    <div class="logo-box ink">
-      <svg viewBox="0 0 64 64" width="72"><rect width="64" height="64" fill="#D6342C"/><path d="M14 44 C10 34 16 24 26 24 C32 24 36 28 36 34 C36 39 32 42 28 42" fill="none" stroke="#F5EFDF" stroke-width="5" stroke-linecap="round"/><path d="M36 18 L42 12 L44 20 C52 22 54 30 50 36 L52 44 C44 50 34 48 30 40 C26 32 30 22 36 18 Z" fill="#F5EFDF"/><circle cx="41" cy="30" r="2.6" fill="#1D1B16"/></svg>
-    </div>
-    <div class="logo-box red">
-      <span class="display" style="color:var(--paper); font-size:26px">HAPPY<span style="color:var(--ink)">TAILS</span></span>
-    </div>
-  </div>
-  <div class="grid g2" style="margin-top:16px">
-    <div class="do">
-      <h3 class="display">DO</h3>
-      <ul>
-        <li>Keep clear space equal to the height of the H on all sides.</li>
-        <li>Use the mark alone for avatars, stamps and favicons.</li>
-        <li>Minimum size: 24 px mark, 90 px horizontal lockup.</li>
-      </ul>
-    </div>
-    <div class="dont">
-      <h3 class="display" style="color:var(--red-dark)">DON'T</h3>
-      <ul>
-        <li>Never add gradients, shadows, outlines or rounded corners.</li>
-        <li>Never recolour the dog or swap the red plate for another colour.</li>
-        <li>Never stretch, rotate or retype the wordmark in another font.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- 03 COLOR -->
-<section class="page">
-  <p class="kicker">03 / Colour</p>
-  <h2 class="display">INK, PAPER, SIGN RED.</h2>
-  <div class="rule2"></div>
-  <p>Five working colours and two support tones. Paper is the default surface; red is spent like money, deliberately and visibly.</p>
-  <div class="grid g4" style="margin-top:16px">
-    <div><div class="swatch" style="background:#D6342C"></div><p><b>Sign Red</b><br>#D6342C<br>Actions, TAILS, urgency</p></div>
-    <div><div class="swatch" style="background:#1D1B16"></div><p><b>Ink</b><br>#1D1B16<br>Text, borders, footer</p></div>
-    <div><div class="swatch" style="background:#F5EFDF"></div><p><b>Paper</b><br>#F5EFDF<br>Default background</p></div>
-    <div><div class="swatch" style="background:#E8A33D"></div><p><b>Mustard</b><br>#E8A33D<br>Accents, highlights</p></div>
-  </div>
-  <div class="grid g4" style="margin-top:8px">
-    <div><div class="swatch" style="background:#EAE1C9"></div><p><b>Bone</b><br>#EAE1C9<br>Panels, table heads</p></div>
-    <div><div class="swatch" style="background:#6B7A5A"></div><p><b>Sage</b><br>#6B7A5A<br>Success, WhatsApp</p></div>
-    <div><div class="swatch" style="background:#3F4A56"></div><p><b>Slate</b><br>#3F4A56<br>Cool support</p></div>
-    <div><div class="swatch" style="background:#5B6770"></div><p><b>Steel</b><br>#5B6770<br>Captions, meta</p></div>
-  </div>
-  <div class="rule2"></div>
-  <h3 class="display">RATIOS</h3>
-  <p>Paper and ink carry about 80 percent of any layout. Red is roughly 10 to 15 percent. Mustard, sage and steel share the rest. If a design looks "colourful", it is wrong.</p>
-</section>
-
-<!-- 04 TYPE -->
-<section class="page">
-  <p class="kicker">04 / Typography</p>
-  <h2 class="display">THREE FACES, NO MORE.</h2>
-  <div class="rule2"></div>
-  <div class="grid g3">
-    <div class="chip">
-      <p class="mono-xs">Display</p>
-      <p class="display" style="font-size:30px">Archivo Black</p>
-      <p>Headlines and buttons. Set in caps, tight leading, negative tracking. Never italic, never light.</p>
-    </div>
-    <div class="chip">
-      <p class="mono-xs">Text</p>
-      <p style="font-family:Archivo,Arial,sans-serif; font-size:18px">Archivo Regular</p>
-      <p>Body copy and product descriptions. Sentence case, generous line height.</p>
-    </div>
-    <div class="chip">
-      <p class="mono-xs">Data</p>
-      <p style="font-family:'Courier New',monospace; font-size:18px">Space Mono</p>
-      <p>Prices, stock counts, labels, captions. Always uppercase with wide tracking.</p>
-    </p></div>
-  </div>
-  <div class="rule2"></div>
-  <h3 class="display">SCALE</h3>
-  <table>
-    <tr><th>Use</th><th>Face</th><th>Size / Desktop</th><th>Notes</th></tr>
-    <tr><td>H1</td><td class="display">Display</td><td>56 to 72 px</td><td>Two lines max, one red word allowed</td></tr>
-    <tr><td>H2</td><td class="display">Display</td><td>30 to 40 px</td><td>Caps</td></tr>
-    <tr><td>Body</td><td style="font-family:Archivo,Arial">Text</td><td>16 to 18 px</td><td>Max 64 characters per line</td></tr>
-    <tr><td>Label</td><td style="font-family:'Courier New'">Data</td><td>11 to 12 px</td><td>Uppercase, 0.18em tracking</td></tr>
-  </table>
-</section>
-
-<!-- 05 GRAPHIC LANGUAGE -->
-<section class="page">
-  <p class="kicker">05 / Graphic language</p>
-  <h2 class="display">COUNTER-TOP GRAPHICS.</h2>
-  <div class="rule2"></div>
-  <p>Devices borrowed from the physical shop. Use at least one per layout, never all at once.</p>
-  <div class="grid g2" style="margin-top:14px">
-    <div class="chip">
-      <h3 class="display">2 px ink borders</h3>
-      <p>Every box is drawn with a hard 2 px ink rule. Corners are always square.</p>
-      <div style="border:2px solid var(--ink); padding:12px; background:#fff">Boxed content, 2 px rule</div>
-    </div>
-    <div class="chip">
-      <h3 class="display">Offset hard shadow</h3>
-      <p>Shadows are flat ink blocks, offset 4 px. No blur, ever.</p>
-      <div style="border:2px solid var(--ink); background:var(--mustard); padding:12px; box-shadow:4px 4px 0 var(--ink); width:200px">4 px ink block</div>
-    </div>
-    <div class="chip">
-      <h3 class="display">Dashed cut lines</h3>
-      <p>Sections separate like coupon edges.</p>
-      <div style="background-image:repeating-linear-gradient(to right, var(--ink) 0 8px, transparent 8px 16px); height:2px; margin-top:14px"></div>
-    </div>
-    <div class="chip">
-      <h3 class="display">Sticker photos</h3>
-      <p>Photos sit on white sticker mats, tilted at most 2 degrees.</p>
-      <div style="background:#fff; padding:8px; box-shadow:3px 3px 0 rgba(29,27,22,0.9); width:150px; transform:rotate(-1.5deg)"><div style="border:2px solid var(--ink); height:70px; background:var(--bone)"></div></div>
-    </div>
-    <div class="chip">
-      <h3 class="display">Tape labels</h3>
-      <p>Category tags are ink or red rectangles with mono caps, butted to the photo edge.</p>
-      <div><span class="tag">FOOD</span> <span class="tag tag-red">PHARMACY</span></div>
-    </div>
-    <div class="chip">
-      <h3 class="display">Ruled and graph paper</h3>
-      <p>Backgrounds may carry faint 28 px grid or receipt ruling. Text sits on plain zones.</p>
-      <div style="border:1px solid var(--ink); height:56px; background-image:linear-gradient(to right, rgba(29,27,22,0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(29,27,22,0.08) 1px, transparent 1px); background-size:14px 14px"></div>
-    </div>
-  </div>
-</section>
-
-<!-- 06 VOICE -->
-<section class="page">
-  <p class="kicker">06 / Voice</p>
-  <h2 class="display">TALK LIKE THE COUNTER.</h2>
-  <div class="rule2"></div>
-  <p>Plain, warm, exact. The brand speaks Urdu-hearted English the way Islamabad actually talks, without marketing varnish.</p>
-  <div class="grid g2" style="margin-top:14px">
-    <div class="do">
-      <h3 class="display">SAY</h3>
-      <ul>
-        <li>"Only two left, we restock Friday."</li>
-        <li>"Send the photo on WhatsApp, the vet will look first."</li>
-        <li>"Rs 1,400 a month for the spot-on course."</li>
-        <li>"Call before you drive over, we will keep it aside."</li>
-      </ul>
-    </div>
-    <div class="dont">
-      <h3 class="display" style="color:var(--red-dark)">NEVER SAY</h3>
-      <ul>
-        <li>"Elevate your pet's lifestyle with premium solutions."</li>
-        <li>"Unleash happiness today!"</li>
-        <li>"Best quality guaranteed 100 percent."</li>
-        <li>Any exclamation mark. The brand does not use them.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="rule2"></div>
-  <h3 class="display">MECHANICS</h3>
-  <ul>
-    <li>No em dashes. Use commas, colons, or full stops.</li>
-    <li>No exclamation marks anywhere in brand copy.</li>
-    <li>Numbers for everything countable: "2 kittens", "24/7", "Rs 6,900".</li>
-    <li>Urdu greetings welcome in scripts and captions: "Assalam o alaikum" opens WhatsApp orders.</li>
-  </ul>
-</section>
-
-<!-- 07 PHOTOGRAPHY -->
-<section class="page">
-  <p class="kicker">07 / Photography</p>
-  <h2 class="display">REAL ANIMALS, REAL SHELVES.</h2>
-  <div class="rule2"></div>
-  <div class="grid g2">
-    <div class="do">
-      <h3 class="display">USE</h3>
-      <ul>
-        <li>Daylight photos of animals looking at the camera or mid-play.</li>
-        <li>Shelf photos that show real stock and hand-written price tags.</li>
-        <li>Warm tones that sit near Paper and Bone. Photos must not fight the palette.</li>
-      </ul>
-    </div>
-    <div class="dont">
-      <h3 class="display" style="color:var(--red-dark)">AVOID</h3>
-      <ul>
-        <li>Studio-white pack shots floating on shadows.</li>
-        <li>Stock models holding puppies in cashmere.</li>
-        <li>Heavy filters, HDR halos, or any photo with a gradient wash.</li>
-      </ul>
-    </div>
-  </div>
-  <p class="mono-xs" style="margin-top:14px">Current site imagery is placeholder photography by Pexels and Pixabay photographers; replace with real shop photos as they are shot.</p>
-</section>
-
-<!-- 08 APPLICATIONS -->
-<section class="page">
-  <p class="kicker">08 / Applications</p>
-  <h2 class="display">IN THE WILD.</h2>
-  <div class="rule2"></div>
-  <div class="grid g2">
-    <div class="chip">
-      <h3 class="display">Buttons</h3>
-      <p style="margin:10px 0">
-        <a class="btn btn-red" href="#">BROWSE THE SHELVES</a>&nbsp;
-        <a class="btn" href="#">CALL 03131495287</a>
+  <!-- 1 · cover -->
+  <section class="page fur-dark">
+    <div class="pad" style="display:flex;flex-direction:column;min-height:400px">
+      <div class="kicker" style="color:var(--amber)">Brand guidelines · v2.0 · soft system</div>
+      <div style="flex:1;display:flex;align-items:center;justify-content:center">
+        <img src="../website/public/brand/logo-lockup.svg" alt="Happy Tails logo" style="width:330px;filter:drop-shadow(0 16px 26px rgba(0,0,0,.4))">
+      </div>
+      <h1>Happy Tails<span style="color:var(--amber)">.</span> Soft paws, sharp care.</h1>
+      <p class="lead" style="color:rgba(250,246,238,.8);max-width:430px;margin-top:8px">
+        A pet store and 24/7 clinic in G-10 Markaz, Islamabad. This book defines the soft
+        system: fur textures, one hand-drawn swiggle, six colors, and nothing sharp.
       </p>
-      <p class="mono-xs">Display face, caps, 2 px ink border, hard shadow on primary</p>
+      <div class="foot" style="color:rgba(250,246,238,.5)">
+        <span>Happy Tails Pet Store and Clinic</span><span>Plot 14-B Ramna Plaza, Bela Rd, G-10 Markaz</span>
+      </div>
     </div>
-    <div class="chip">
-      <h3 class="display">Price tag</h3>
-      <p class="display" style="font-size:26px; margin:8px 0">Rs 6,900 <span class="mono-xs">/ 1.5 KG BAG</span></p>
-      <p class="mono-xs">Space Mono for units, display for the number, strike-through for old price</p>
-    </div>
-    <div class="chip">
-      <h3 class="display">Signage</h3>
-      <p>Signboard keeps the hand-painted character of the original: cream field, red display caps, animal silhouettes allowed to break the border.</p>
-    </div>
-    <div class="chip">
-      <h3 class="display">Social</h3>
-      <p>Fifteen standing templates live in <b>/social-media-posts</b>, one per post type, all built on this system. Post 1080 by 1350 for feed, 1080 by 1920 for stories.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- CLOSING -->
-<section class="page" style="border-bottom:none">
-  <p class="kicker">Questions</p>
-  <h2 class="display">WHEN IN DOUBT, ASK THE COUNTER.</h2>
-  <div class="rule2"></div>
-  <p>
-    If a design decision is not covered here, choose the option that looks like it was made by
-    hand, priced honestly, and could survive a night shift. That is the brand.
-  </p>
-  <p class="mono-xs">0313 1495287 / WhatsApp same number / Ramna Plaza, G-10 Markaz, Islamabad</p>
-  <div class="footer" style="margin-top:40px">
-    <span>Happy Tails Pet Store and Clinic</span>
-    <span>Brand guidelines v1.0 / 2026</span>
-  </div>
-</section>
+  <!-- 2 · story + palette -->
+  <section class="page fur">
+    <div class="pad">
+      <div class="kicker">01 · The palette</div>
+      <h2 style="margin-top:6px">Six colors. Night owns the room, bone catches the light.</h2>
+      <div class="swatchrow">
+        <div class="swatch" style="background:var(--night);color:var(--bone)"><b>Night</b><code>#0B0B0C</code><small>brick, ceiling, quiet</small></div>
+        <div class="swatch" style="background:var(--bone);color:var(--night);box-shadow:inset 0 0 0 1.5px rgba(11,11,12,.12)"><b>Bone</b><code>#FAF6EE</code><small>the dog, paper, light</small></div>
+        <div class="swatch" style="background:var(--collar);color:var(--bone)"><b>Collar Red</b><code>#E12D20</code><small>urgency, 3 a.m.</small></div>
+        <div class="swatch" style="background:var(--turf);color:var(--bone)"><b>Turf</b><code>#2FA05A</code><small>counter grass, health</small></div>
+        <div class="swatch" style="background:var(--amber);color:var(--night)"><b>Tag Amber</b><code>#F2A83B</code><small>brass tags, highlights</small></div>
+        <div class="swatch" style="background:var(--smoke);color:var(--bone)"><b>Marble Smoke</b><code>#8A8378</code><small>captions, veins, calm</small></div>
+      </div>
+      <div class="mixbars">
+        <div style="flex:58;background:var(--night);color:var(--bone)">58 · NIGHT</div>
+        <div style="flex:30;background:var(--bone);color:var(--night);box-shadow:inset 0 0 0 1px rgba(11,11,12,.15)">30 · BONE</div>
+        <div style="flex:6;background:var(--collar);color:var(--bone)">6</div>
+        <div style="flex:4;background:var(--turf);color:var(--bone)">4</div>
+        <div style="flex:2;background:var(--amber)"></div>
+      </div>
+      <p style="margin-top:10px;color:var(--smoke)">
+        The mix is per screen, not per element: mostly night, generous bone, and red only
+        where a heart beats faster. Amber and smoke are seasoning, never surfaces.
+      </p>
+    </div>
+  </section>
 
+  <!-- 3 · contrast ledger -->
+  <section class="page">
+    <div class="pad">
+      <div class="kicker">02 · Contrast ledger</div>
+      <h2 style="margin-top:6px">The rules live here, not in opinions. WCAG 2.1.</h2>
+      <table class="ledger">
+        <tr><th>Pairing</th><th>Ratio</th><th>Verdict</th><th>Use</th></tr>
+        <tr><td>Bone on Night</td><td>17.9</td><td class="pass">AAA ✓</td><td>Body text on dark</td></tr>
+        <tr><td>Amber on Night</td><td>9.8</td><td class="pass">AAA ✓</td><td>Accents, prices, labels on dark</td></tr>
+        <tr><td>Turf on Night</td><td>5.9</td><td class="pass">AA ✓</td><td>Buttons, confirmations on dark</td></tr>
+        <tr><td>Smoke on Night</td><td>5.2</td><td class="pass">AA ✓</td><td>Captions on dark</td></tr>
+        <tr><td>Red on Night</td><td>4.3</td><td class="large">AA·LARGE</td><td>≥24px or 19px bold only</td></tr>
+        <tr><td>Red on Bone</td><td>4.2</td><td class="large">AA·LARGE</td><td>≥24px or 19px bold only</td></tr>
+        <tr><td>Smoke on Bone</td><td>3.5</td><td class="large">AA·LARGE</td><td>≥24px or 19px bold only</td></tr>
+        <tr><td>Turf on Bone</td><td>3.1</td><td class="large">AA·LARGE</td><td>Big buttons and graphics</td></tr>
+        <tr><td>Amber on Bone</td><td>1.9</td><td class="fail">FAIL ✕</td><td>Never ship. Amber carries night text instead.</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- 4 · logo -->
+  <section class="page">
+    <div class="pad">
+      <div class="kicker">03 · The logo</div>
+      <h2 style="margin-top:6px">Their own art, traced to SVG, backgrounds removed.</h2>
+      <div class="logoRow">
+        <div class="logoCard fur-dark" style="flex:1.4">
+          <img src="../website/public/brand/logo-lockup.svg" alt="Lockup" style="width:250px">
+        </div>
+        <div class="logoCard" style="flex:1;background:#fff;box-shadow:inset 0 0 0 1.5px rgba(11,11,12,.1)">
+          <img src="../website/public/brand/logo-mark.svg" alt="Mark" style="width:130px">
+        </div>
+        <div class="logoCard" style="flex:1;background:var(--night)">
+          <img src="../website/public/brand/cat-leap.svg" alt="Leaping cat" style="width:110px">
+        </div>
+      </div>
+      <div class="two" style="margin-top:16px">
+        <div>
+          <h3>Wordmark construction</h3>
+          <p class="wordmark" style="margin-top:8px">Happy
+            <img src="../website/public/brand/script-tails.svg" alt="Tails" style="height:30px;vertical-align:-6px">
+          </p>
+          <svg class="swiggle" viewBox="0 0 100 40" preserveAspectRatio="none"><path d="M2 10 C 30 4 62 34 98 8" fill="none" stroke="var(--amber)" stroke-width="7" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
+          <p class="script-note">"Happy" set in Baloo 2 ExtraBold. "Tails" is the client's own
+          script lettering, vectorized from the original art. Collar-red underline bar optional.</p>
+        </div>
+        <div>
+          <h3>Clear space and minimums</h3>
+          <p style="margin-top:8px">Keep clear space equal to the height of the dog's ear on all
+          sides. The mark never sits smaller than 28px tall on screens. The full lockup never
+          under 140px wide. On photos, use the night sticker version or drop a soft shadow.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · texture and motion -->
+  <section class="page fur">
+    <div class="pad">
+      <div class="kicker">04 · Fur, swiggle, motion</div>
+      <h2 style="margin-top:6px">Everything here has a coat.</h2>
+      <div class="two">
+        <div>
+          <h3>Fur texture</h3>
+          <p style="margin-top:8px">Directional 1.5px strokes at 100°, two layers offset by half
+          a cell, 4% opacity. Day fur on bone, night fur on night. It backgrounds sections; it
+          never sits under body paragraphs busier than captions.</p>
+          <div class="fur-dark" style="height:84px;border-radius:16px;margin-top:12px"></div>
+        </div>
+        <div>
+          <h3>The swiggle</h3>
+          <p style="margin-top:8px">One hand-drawn line that leans toward the mouse and settles
+          when it stops. Amber by default, turf for confirmations. It underlines headlines and
+          section titles. One per viewport at rest; it is a wink, not a wallpaper.</p>
+          <svg class="swiggle" viewBox="0 0 100 40" preserveAspectRatio="none" style="width:220px"><path d="M2 12 C 34 2 58 36 98 6" fill="none" stroke="var(--turf)" stroke-width="7" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
+        </div>
+      </div>
+      <div class="two" style="margin-top:18px">
+        <div>
+          <h3>Motion manners</h3>
+          <ul class="rules">
+            <li>Paw-print trail follows the cursor at a walking gait, fades in a second.</li>
+            <li>Cards lift 4px and tilt a third of a degree. No bouncing.</li>
+            <li>Photos sway ±1.2° over six seconds when idle. Nothing else breathes on a grid.</li>
+            <li>Respect prefers-reduced-motion: all of it switches off.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Never</h3>
+          <ul class="rules">
+            <li class="bad">No gradients, no glass blur panels, no neon glow.</li>
+            <li class="bad">No sharp corners. Radius lives at 1.5 to 2rem, pills at 999px.</li>
+            <li class="bad">No hard offset shadows; shadows are soft, night-tinted, low.</li>
+            <li class="bad">No amber text on bone. It fails at 1.9 and it always will.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · type + voice + applications -->
+  <section class="page">
+    <div class="pad">
+      <div class="kicker">05 · Type and voice</div>
+      <h2 style="margin-top:6px">Round faces, warm sentences.</h2>
+      <div class="two">
+        <div>
+          <div class="typeRow">
+            <h3>Display · Baloo 2 ExtraBold</h3>
+            <p style="font-size:30px;font-weight:800;line-height:1.1;margin-top:4px">The shop that never closes.</p>
+          </div>
+          <div class="typeRow">
+            <h3>Body · Nunito</h3>
+            <p style="font-size:13.5px;margin-top:4px">Kittens and dogs under one roof with food,
+            toys, and a vet who answers at 3 a.m.</p>
+          </div>
+          <div class="typeRow">
+            <h3>Labels · Quicksand SemiBold caps</h3>
+            <p style="font-size:11px;letter-spacing:.18em;margin-top:5px;color:var(--smoke)">OPEN 24 HOURS · G-10 MARKAZ · ISLAMABAD</p>
+          </div>
+        </div>
+        <div>
+          <h3>Voice</h3>
+          <ul class="rules">
+            <li>Warm and concrete. "Two left" means two left.</li>
+            <li>Urdu greetings welcome; English carries the facts.</li>
+            <li>Prices and hours are copy, not fine print.</li>
+            <li>Emergency language stays calm. Red is for the collar, the CTA, 3 a.m.</li>
+          </ul>
+          <h3 style="margin-top:16px">Buttons</h3>
+          <p style="margin-top:8px">
+            <span class="chip" style="background:var(--collar);color:var(--bone)">Browse the shelves</span>
+            <span class="chip" style="background:var(--night);color:var(--bone)">Call any hour</span>
+            <span class="chip" style="background:var(--turf);color:var(--bone)">WhatsApp us</span>
+            <span class="chip" style="background:var(--amber);color:var(--night)">Add to cart</span>
+          </p>
+        </div>
+      </div>
+      <div class="foot">
+        <span>Happy Tails · soft system v2.0</span><span>0313 1495287 · happypetstore</span>
+      </div>
+    </div>
+  </section>
+
+</div>
 </body>
 </html>
