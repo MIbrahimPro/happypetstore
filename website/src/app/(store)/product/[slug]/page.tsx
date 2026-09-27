@@ -1,3 +1,4 @@
+import { asset } from "@/lib/base";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { connectDB } from "@/lib/mongo";
@@ -52,7 +53,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           <div>
             <div className="overflow-hidden rounded-blob bg-white p-2.5 shadow-soft">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={p.image} alt={p.name} className="aspect-square w-full rounded-[1.2rem] object-cover" />
+              <img src={asset(p.image)} alt={p.name} className="aspect-square w-full rounded-[1.2rem] object-cover" />
             </div>
             <p className="caption mt-3 font-round text-[11px] uppercase">
               Placeholder photography. The real pack looks better; visit the shop or ask on WhatsApp.

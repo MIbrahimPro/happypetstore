@@ -1,3 +1,4 @@
+import { asset } from "@/lib/base";
 import Link from "next/link";
 import { connectDB } from "@/lib/mongo";
 import { Product } from "@/lib/models";
@@ -52,7 +53,7 @@ export default async function AdminProductsPage() {
                 <td className="px-3 py-2">
                   <div className="flex items-center gap-2">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={p.image} alt="" className="h-9 w-9 border border-bone/15 object-cover" />
+                    <img src={asset(p.image)} alt="" className="h-9 w-9 border border-bone/15 object-cover" />
                     <div>
                       <p className="font-display">{p.name}</p>
                       <p className="text-[11px] text-bone/80">{p.brand} / {p.unit}</p>

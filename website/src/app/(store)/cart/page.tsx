@@ -1,4 +1,5 @@
 "use client";
+import { asset } from "@/lib/base";
 import { BASE } from "@/lib/base";
 
 import { useState } from "react";
@@ -89,7 +90,7 @@ export default function CartPage() {
             <div key={i.slug} className="border-b border-night/10 px-4 py-3 last:border-b-0">
               <div className="flex items-center gap-3">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={i.image} alt={i.name} className="h-14 w-14 shrink-0 rounded-xl object-cover" />
+                <img src={asset(i.image)} alt={i.name} className="h-14 w-14 shrink-0 rounded-xl object-cover" />
                 <div className="min-w-0 flex-1">
                   <Link href={`/product/${i.slug}`} className="block truncate font-round font-bold leading-snug hover:text-turfdeep">
                     {i.name}
