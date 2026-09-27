@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>14 / Pharmacy shelf guide</title>
+<link rel="stylesheet" href="_brand.css">
+<style>
+  .post { padding: 56px; }
+  .post .rx { position: absolute; top: 0; left: 0; right: 0; height: 200px; background: var(--paper); border-bottom: 8px solid var(--ink); padding: 40px 56px 0; }
+  .rxline { position: absolute; left: 56px; right: 56px; top: 150px; height: 3px; background-image: repeating-linear-gradient(to right, rgba(29,27,22,0.4) 0 12px, transparent 12px 24px); }
+  .body { position: absolute; inset: 200px 0 0 0; background: #fff; padding: 40px 56px; }
+  .med { display: grid; grid-template-columns: 120px 1fr auto; gap: 26px; align-items: center; padding: 20px 0; border-bottom: 3px dashed rgba(29,27,22,0.35); }
+  .med:last-child { border-bottom: none; }
+  .med img { width: 120px; height: 120px; object-fit: cover; border: 4px solid var(--ink); }
+  .med .nm { font: 700 34px "Archivo Black", "Arial Black", sans-serif; }
+  .med .use { font: 22px/1.4 "Courier New", monospace; letter-spacing: 0.08em; text-transform: uppercase; color: var(--steel); margin-top: 6px; }
+  .med .pr { font: 700 34px "Courier New", monospace; color: var(--red-dark); white-space: nowrap; }
+  .warn { position: absolute; left: 56px; right: 56px; bottom: 130px; background: var(--bone); border: 5px solid var(--ink); padding: 20px 26px; font: 700 22px "Courier New", monospace; letter-spacing: 0.1em; text-transform: uppercase; }
+</style>
+</head>
+<body>
+<div class="post">
+  <div class="rx">
+    <span class="tag red">Pharmacy shelf / ask the counter</span>
+    <h1 class="display" style="font-size:74px; margin-top:16px">THE THREE WE<br>REACH FOR FIRST.</h1>
+  </div>
+  <div class="rxline"></div>
+
+  <div class="body">
+    <div class="med">
+      <img src="../website/public/images/pharmacy/dewormer-1.jpg" alt="">
+      <div><p class="nm">Deworming suspension</p><p class="use">Every 3 months / dose by weight</p></div>
+      <p class="pr">RS 950</p>
+    </div>
+    <div class="med">
+      <img src="../website/public/images/pharmacy/spoton-1.jpg" alt="">
+      <div><p class="nm">Tick and flea spot-on</p><p class="use">Monthly / 3 pipette pack</p></div>
+      <p class="pr">RS 1,400</p>
+    </div>
+    <div class="med">
+      <img src="../website/public/images/pharmacy/spray-1.jpg" alt="">
+      <div><p class="nm">Antiseptic wound spray</p><p class="use">Cuts and hot spots / not for deep wounds</p></div>
+      <p class="pr">RS 850</p>
+    </div>
+
+    <div class="warn">Show us the pet or a photo first. Right medicine, not the expensive one.</div>
+  </div>
+
+  <div class="footerlock" style="background:#fff">
+    <div class="mark">
+      <svg viewBox="0 0 64 64" width="52" height="52"><rect width="64" height="64" fill="#D6342C"/><path d="M14 44 C10 34 16 24 26 24 C32 24 36 28 36 34 C36 39 32 42 28 42" fill="none" stroke="#F5EFDF" stroke-width="5" stroke-linecap="round"/><path d="M36 18 L42 12 L44 20 C52 22 54 30 50 36 L52 44 C44 50 34 48 30 40 C26 32 30 22 36 18 Z" fill="#F5EFDF"/><circle cx="41" cy="30" r="2.6" fill="#1D1B16"/></svg>
+      <span class="wordmark">HAPPY<span>TAILS</span></span>
+    </div>
+    <div class="contact">CLINIC COUNTER, 24/7<br>G-10 MARKAZ</div>
+  </div>
+</div>
+<p class="hint">14 / pharmacy shelf guide / three medicines per post / export 1080x1080</p>
+</body>
+</html>

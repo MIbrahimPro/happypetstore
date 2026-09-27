@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>01 / New stock receipt</title>
+<link rel="stylesheet" href="_brand.css">
+<style>
+  .post { padding: 54px; }
+  .head { display: flex; justify-content: space-between; align-items: baseline; }
+  .receipt {
+    margin-top: 40px;
+    background: #fff;
+    border: 5px solid var(--ink);
+    box-shadow: 16px 16px 0 var(--ink);
+    padding: 44px 40px;
+    position: relative;
+  }
+  .receipt::after {
+    content: "";
+    position: absolute;
+    right: -20px;
+    top: 40px;
+    width: 14px;
+    height: 120px;
+    background: var(--mustard);
+    transform: rotate(4deg);
+  }
+  .line { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 20px 0; border-bottom: 3px dashed rgba(29,27,22,0.5); }
+  .line:last-of-type { border-bottom: none; }
+  .line .nm { font: 700 40px "Archivo Black", "Arial Black", sans-serif; letter-spacing: -0.01em; }
+  .line .pr { font: 700 38px "Courier New", monospace; white-space: nowrap; }
+  .line .un { display: block; font: 20px "Courier New", monospace; letter-spacing: 0.18em; text-transform: uppercase; color: var(--steel); margin-top: 8px; }
+  .stamp {
+    position: absolute;
+    right: 34px;
+    bottom: 96px;
+    transform: rotate(-12deg);
+    border: 6px solid var(--red);
+    color: var(--red);
+    font: 700 34px "Courier New", monospace;
+    letter-spacing: 0.2em;
+    padding: 12px 22px;
+    text-transform: uppercase;
+    opacity: 0.9;
+  }
+  .total { display: flex; justify-content: space-between; border-top: 6px solid var(--ink); margin-top: 26px; padding-top: 22px; font: 700 30px "Courier New", monospace; letter-spacing: 0.1em; }
+</style>
+</head>
+<body>
+<div class="post graphbg">
+  <div class="head">
+    <span class="tag red">New stock / this week</span>
+    <span class="mono" style="font-size:22px">HT-2026-40</span>
+  </div>
+
+  <h1 class="display" style="font-size:96px; margin-top:44px">THE SHELF<br>GOT <span style="color:var(--red)">RESTOCKED.</span></h1>
+
+  <div class="receipt">
+    <p class="mono" style="font-size:20px; color:var(--steel)">Happy Tails / G-10 Markaz / Till 01</p>
+    <div style="height:18px"></div>
+    <div class="line"><div><span class="nm">Royal Canin Persian 2 kg</span><span class="un">6 in stock</span></div><div class="pr">Rs 7,400</div></div>
+    <div class="line"><div><span class="nm">Josera Kitten 10 kg</span><span class="un">3 in stock</span></div><div class="pr">Rs 18,900</div></div>
+    <div class="line"><div><span class="nm">Covid Litter 10 L</span><span class="un">14 in stock</span></div><div class="pr">Rs 1,450</div></div>
+    <div class="total"><span>26 NEW UNITS</span><span>SHELF 03</span></div>
+    <div class="stamp">Fresh</div>
+  </div>
+
+  <div class="footerlock" style="background:var(--paper)">
+    <div class="mark">
+      <svg viewBox="0 0 64 64" width="52" height="52"><rect width="64" height="64" fill="#D6342C"/><path d="M14 44 C10 34 16 24 26 24 C32 24 36 28 36 34 C36 39 32 42 28 42" fill="none" stroke="#F5EFDF" stroke-width="5" stroke-linecap="round"/><path d="M36 18 L42 12 L44 20 C52 22 54 30 50 36 L52 44 C44 50 34 48 30 40 C26 32 30 22 36 18 Z" fill="#F5EFDF"/><circle cx="41" cy="30" r="2.6" fill="#1D1B16"/></svg>
+      <span class="wordmark">HAPPY<span>TAILS</span></span>
+    </div>
+    <div class="contact">0313 1495287<br>RAMNA PLAZA, G-10 MARKAZ</div>
+  </div>
+</div>
+<p class="hint">01 / new stock receipt / export at 1080x1080</p>
+</body>
+</html>

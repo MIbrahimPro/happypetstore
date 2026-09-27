@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>05 / Food shelf stack</title>
+<link rel="stylesheet" href="_brand.css">
+<style>
+  .post { padding: 0; }
+  .left { position: absolute; inset: 0 46% 0 0; background: var(--paper); padding: 56px 44px; border-right: 8px solid var(--ink); }
+  .right { position: absolute; inset: 0 0 0 54%; }
+  .right img { width: 100%; height: 100%; object-fit: cover; border-left: 8px solid var(--ink); }
+  .label { position: absolute; left: 54%; top: 60px; transform: translateX(-50%); z-index: 2; }
+  .rows { margin-top: 34px; }
+  .r { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 21px 0; border-bottom: 3px solid var(--ink); }
+  .r:last-child { border-bottom: 8px solid var(--ink); }
+  .r .nm { font: 700 34px "Archivo Black", "Arial Black", sans-serif; }
+  .r .kg { font: 700 26px "Courier New", monospace; color: var(--red); white-space: nowrap; }
+  .stripes-foot { position: absolute; left: 0; bottom: 0; width: 46%; height: 26px; }
+</style>
+</head>
+<body>
+<div class="post">
+  <div class="left">
+    <span class="tag">Pet food / in stock</span>
+    <h1 class="display" style="font-size:84px; margin-top:30px">BAGS FROM<br>1.5 TO <span style="color:var(--red)">13 KG.</span></h1>
+    <div class="rows">
+      <div class="r"><span class="nm">Munchos Adult</span><span class="kg">10 KG / RS 9,800</span></div>
+      <div class="r"><span class="nm">Josera Puppy</span><span class="kg">12.5 KG / RS 19,750</span></div>
+      <div class="r"><span class="nm">Whiskas Chicken</span><span class="kg">13 KG / RS 21,500</span></div>
+      <div class="r"><span class="nm">Purina ONE Lamb</span><span class="kg">3 KG / RS 6,200</span></div>
+    </div>
+    <div class="stripes-foot stripes"></div>
+  </div>
+  <div class="right">
+    <img src="../website/public/images/food/dog-food-2.jpg" alt="">
+  </div>
+  <span class="label tag mustard">Shelf 01 and 02</span>
+
+  <div class="footerlock" style="background:var(--paper); right: 46%; width: 54%; border-top: 8px solid var(--ink); left: auto;">
+    <div class="mark">
+      <svg viewBox="0 0 64 64" width="46" height="46"><rect width="64" height="64" fill="#D6342C"/><path d="M14 44 C10 34 16 24 26 24 C32 24 36 28 36 34 C36 39 32 42 28 42" fill="none" stroke="#F5EFDF" stroke-width="5" stroke-linecap="round"/><path d="M36 18 L42 12 L44 20 C52 22 54 30 50 36 L52 44 C44 50 34 48 30 40 C26 32 30 22 36 18 Z" fill="#F5EFDF"/><circle cx="41" cy="30" r="2.6" fill="#1D1B16"/></svg>
+      <span class="wordmark" style="font-size:28px">HAPPY<span>TAILS</span></span>
+    </div>
+    <div class="contact" style="font-size:17px">0313 1495287<br>CALL, WE HOLD IT</div>
+  </div>
+</div>
+<p class="hint">05 / food shelf stack / export 1080x1080</p>
+</body>
+</html>
