@@ -22,27 +22,27 @@ export default async function AdminCustomersPage() {
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <h1 className="font-display text-3xl">CUSTOMERS</h1>
-          <p className="font-round text-xs uppercase tracking-widest text-bone/50">
+          <p className="font-round text-xs uppercase tracking-widest text-bone/80">
             Built automatically from orders
           </p>
         </div>
         <a
           href="/api/admin/customers/export"
-          className="border-2 border-bone/25 px-4 py-2 font-round text-xs uppercase tracking-widest hover:bg-bone hover:text-bone"
+          className="border-2 border-bone/25 px-4 py-2 font-round text-xs uppercase tracking-widest hover:bg-bone hover:text-night"
         >
           Export CSV
         </a>
       </div>
 
       {customers.length === 0 ? (
-        <p className="mt-8 border-2 border-dashed border-bone/15 p-8 font-round text-sm text-bone/50">
+        <p className="mt-8 border-2 border-dashed border-bone/15 p-8 font-round text-sm text-bone/80">
           No customers yet. The first WhatsApp order creates one automatically.
         </p>
       ) : (
         <div className="mt-6 overflow-x-auto border-2 border-bone/15">
           <table className="w-full font-round text-sm">
             <thead>
-              <tr className="border-b-2 border-bone/15 text-left text-xs uppercase tracking-widest text-bone/50">
+              <tr className="border-b-2 border-bone/15 text-left text-xs uppercase tracking-widest text-bone/80">
                 <th className="px-4 py-2">Name</th>
                 <th className="px-4 py-2">Phone</th>
                 <th className="px-4 py-2">Orders</th>
@@ -70,10 +70,10 @@ export default async function AdminCustomersPage() {
                   </td>
                   <td className="px-4 py-2">{c.ordersCount}</td>
                   <td className="px-4 py-2">{formatPKR(c.totalSpent)}</td>
-                  <td className="px-4 py-2 text-bone/60">
+                  <td className="px-4 py-2 text-bone/85">
                     {c.lastOrderAt ? new Date(c.lastOrderAt).toLocaleDateString("en-GB") : "—"}
                   </td>
-                  <td className="px-4 py-2 text-bone/60">{c.address || "—"}</td>
+                  <td className="px-4 py-2 text-bone/85">{c.address || "—"}</td>
                 </tr>
               ))}
             </tbody>

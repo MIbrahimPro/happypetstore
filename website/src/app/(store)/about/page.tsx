@@ -8,9 +8,7 @@ export default function AboutPage() {
       <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
         <div>
           <h1 className="font-display text-4xl font-extrabold leading-tight sm:text-5xl">
-            The sign on Bela Road
-            <br />
-            <span className="text-collar">with the leaping cat.</span>
+            The sign on Bela Road with the leaping cat.
           </h1>
           <p className="mt-5 max-w-xl text-lg text-night/75">
             Happy Tails started as a weekend counter and turned into the shop that never locks.
@@ -43,18 +41,18 @@ export default function AboutPage() {
           <a href={telLink()} className="warm-link mt-2 inline-block font-round text-lg font-bold">
             {SITE.phone}
           </a>
-          <p className="mt-1 font-round text-xs text-smoke">Same number on WhatsApp</p>
+          <p className="mt-1 font-round text-xs text-ink">Same number on WhatsApp</p>
         </div>
         <div className="softcard p-5">
           <p className="caption font-round text-xs uppercase">Hours</p>
           <p className="mt-2 font-round text-lg font-bold">Open 24 hours</p>
-          <p className="mt-1 font-round text-xs text-smoke">Every day of the year</p>
+          <p className="mt-1 font-round text-xs text-ink">Every day of the year</p>
         </div>
       </section>
 
-      <section className="mt-10 overflow-hidden rounded-blob shadow-soft">
+      <section className="relative mt-10 overflow-hidden rounded-[2rem] shadow-soft">
         <iframe
-          src={SITE.mapEmbed}
+          src={SITE.mapEmbedPlain}
           width="100%"
           height="420"
           style={{ border: 0 }}
@@ -62,6 +60,19 @@ export default function AboutPage() {
           referrerPolicy="strict-origin-when-cross-origin"
           title="Map to Happy Tails Pet Store"
         />
+        <a
+          href={SITE.mapsLink}
+          target="_blank"
+          rel="noreferrer"
+          className="absolute left-4 top-4 flex max-w-[85%] items-center gap-2 rounded-full bg-bone/95 px-3.5 py-2 shadow-soft backdrop-blur transition-transform hover:scale-[1.02]"
+        >
+          <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-collar font-round text-[11px] font-bold text-white">
+            ↗
+          </span>
+          <span className="truncate font-round text-xs font-bold text-night">
+            {SITE.addressShort}
+          </span>
+        </a>
       </section>
 
       <section className="mt-10 grid gap-10 lg:grid-cols-2">
@@ -85,7 +96,7 @@ export default function AboutPage() {
             </a>
             <a
               href={waLink("Assalam o alaikum, quick question before I visit: ")}
-              className="btn-soft bg-turf text-sm text-bone hover:brightness-110"
+              className="btn-soft bg-turfdeep text-sm text-bone hover:brightness-110"
             >
               WhatsApp us
             </a>

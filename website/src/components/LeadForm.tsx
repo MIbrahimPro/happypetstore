@@ -35,7 +35,7 @@ export default function LeadForm({ kind, defaultSlot }: { kind: "adoption" | "ve
   if (state === "done") {
     return (
       <div className="softcard p-5 font-round text-sm">
-        <p className="font-display text-xl font-bold text-turf">Noted, thank you. ✓</p>
+        <p className="font-display text-xl font-bold text-turfdeep">Noted, thank you. ✓</p>
         <p className="mt-1 text-night/75">
           We will call you from 0313 1495287. If it is urgent, call us first.
         </p>
@@ -44,7 +44,7 @@ export default function LeadForm({ kind, defaultSlot }: { kind: "adoption" | "ve
   }
 
   const field =
-    "mt-1 w-full rounded-2xl border-2 border-night/10 bg-white px-3.5 py-2.5 font-round text-sm outline-none transition-colors focus:border-amber";
+    "mt-1 w-full rounded-2xl border-2 border-night/10 bg-white px-3.5 py-2.5 font-round text-sm outline-none transition-colors placeholder:text-ink/80 focus:border-amber";
 
   return (
     <form onSubmit={submit} className="space-y-3">
@@ -102,12 +102,12 @@ export default function LeadForm({ kind, defaultSlot }: { kind: "adoption" | "ve
         />
       </label>
       {state === "error" && (
-        <p className="rounded-2xl bg-collar/10 px-3.5 py-2.5 font-round text-sm font-semibold text-collar">{error}</p>
+        <p className="rounded-2xl bg-collar/10 px-3.5 py-2.5 font-round text-sm font-semibold text-collardeep">{error}</p>
       )}
       <button
         type="submit"
         disabled={state === "sending"}
-        className="btn-soft bg-collar text-bone hover:bg-collardeep disabled:opacity-60"
+        className="btn-soft bg-collardeep text-bone hover:brightness-110 disabled:opacity-60"
       >
         {state === "sending" ? "Sending…" : kind === "vet" ? "Request the vet" : "Send"}
       </button>

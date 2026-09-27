@@ -34,7 +34,7 @@ export default function AdminNav({ authed }: { authed: boolean }) {
             key={l.href}
             href={l.href}
             className={`rounded-full px-3.5 py-2 font-round text-sm font-semibold ${
-              active ? "bg-amber text-night" : "text-bone/70 hover:bg-bone/10"
+              active ? "bg-amber text-night" : "text-bone/85 hover:bg-bone/10 hover:text-bone"
             }`}
           >
             {l.label}
@@ -43,7 +43,7 @@ export default function AdminNav({ authed }: { authed: boolean }) {
       })}
       <button
         onClick={logout}
-        className="mt-2 rounded-full px-3.5 py-2 text-left font-round text-xs font-semibold uppercase tracking-widest text-bone/40 hover:text-collar"
+        className="mt-2 rounded-full px-3.5 py-2 text-left font-round text-xs font-semibold uppercase tracking-widest text-bone/85 hover:text-collarlight"
       >
         Log out
       </button>

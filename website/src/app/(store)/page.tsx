@@ -12,7 +12,7 @@ async function getData() {
   try {
     await connectDB();
     const [products, pets] = await Promise.all([
-      Product.find({ active: true }).sort({ createdAt: 1 }).limit(8).lean(),
+      Product.find({ active: true }).sort({ createdAt: 1 }).limit(6).lean(),
       Lead.find({ kind: "adoption", status: "new" }).limit(3).lean(),
     ]);
     return { products: JSON.parse(JSON.stringify(products)), pets: JSON.parse(JSON.stringify(pets)) };
@@ -21,88 +21,67 @@ async function getData() {
   }
 }
 
-const TICKS = [
-  ["Kittens and dogs", "Meet them in person before you decide. Vaccine cards included."],
-  ["Food and accessories", "Bags from 1.5 to 13 kg, litters, leashes, carriers, bowls, beds."],
-  ["Toys", "Ropes, balls, teasers, chews. Cheap enough to lose under the sofa."],
-  ["Clinic counter", "Dewormers, spot-ons, sprays, supplements, and a vet on call 24/7."],
-  ["Delivery", "Inside G-10 same day. Rest of Islamabad and Rawalpindi, next day."],
-];
-
 export default async function HomePage() {
   const { products, pets } = await getData();
+  const shelfCount = products.length;
 
   return (
     <div>
       {/* ------------------------------------------------ hero, fur + swiggle */}
       <section className="fur relative overflow-hidden">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 pb-16 pt-12 lg:grid-cols-[1.05fr_0.95fr] lg:pb-20 lg:pt-16">
-          <div>
-            <p className="caption font-round text-xs uppercase">
-              Pet store and clinic, G-10 Markaz
-            </p>
-            <h1 className="mt-3 font-display text-5xl font-extrabold leading-[1.02] text-night sm:text-6xl">
-              Soft paws.
-              <br />
-              <span className="relative inline-block">
-                Sharp care.
-                <Swiggle className="absolute -bottom-3 left-0 h-6 w-full" color="var(--amber)" />
-              </span>
-              <br />
-              <span className="text-collar">Always open.</span>
-            </h1>
-            <p className="mt-7 max-w-md text-lg text-night/75">
-              Kittens and dogs under one roof, shelves full of food and toys, and a vet who
-              answers at 3 a.m. Wiggle your mouse, the line wags for you.
-            </p>
+        <div className="mx-auto flex min-h-[calc(100svh-130px)] max-w-6xl flex-col justify-center px-4 pb-16 pt-10 lg:pb-20 lg:pt-14">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+            <div>
+              <h1 className="font-display text-5xl font-extrabold leading-[1.02] text-night sm:text-6xl">
+                Soft paws.
+                <br />
+                <span className="relative inline-block">
+                  Sharp care.
+                  <Swiggle className="absolute -bottom-3 left-0 h-6 w-full" color="var(--amber)" />
+                </span>
+                <br />
+                <span className="text-collar">Always open.</span>
+              </h1>
+              <p className="mt-6 max-w-md text-lg leading-relaxed text-night/75">
+                Kittens and dogs under one roof, shelves full of food and toys, and a vet who
+                answers at 3 a.m. Walk in any hour — the kettle is usually on.
+              </p>
 
-            <ul className="mt-7 space-y-1 font-round text-sm">
-              {TICKS.map(([head, sub]) => (
-                <li key={head} className="flex gap-2.5 py-1.5">
-                  <span className="mt-0.5 text-turf" aria-hidden="true">
-                    <PawIcon />
-                  </span>
-                  <span>
-                    <span className="font-bold">{head}</span>
-                    <span className="text-night/65"> · {sub}</span>
-                  </span>
-                </li>
-              ))}
-            </ul>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <Link href="/shop" className="btn-soft bg-collardeep text-bone shadow-soft hover:brightness-110">
+                  Browse the shelves
+                </Link>
+                <a href={telLink()} className="btn-soft bg-night text-bone hover:bg-night/85">
+                  Call {SITE.phone}
+                </a>
+                <a
+                  href={waLink("Hello Happy Tails! I saw your website.")}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="warm-link font-round text-sm font-bold text-night/80"
+                >
+                  or WhatsApp us
+                </a>
+              </div>
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/shop" className="btn-soft bg-collar text-bone shadow-soft hover:bg-collardeep">
-                Browse the shelves
-              </Link>
-              <a href={telLink()} className="btn-soft bg-night text-bone hover:bg-night/85">
-                Call {SITE.phone}
-              </a>
-              <a
-                href={waLink("Hello Happy Tails! I saw your website.")}
-                target="_blank"
-                rel="noreferrer"
-                className="btn-soft bg-turf text-bone hover:brightness-110"
-              >
-                WhatsApp us
-              </a>
+              <p className="mt-5 font-round text-sm font-semibold text-night/80">
+                Open 24/7 · Live stock on this site · Same-day delivery in G-10
+              </p>
             </div>
-          </div>
 
-          <div className="relative flex items-center justify-center">
-            <div className="fur-dark animate-breathe w-full max-w-md rotate-1 rounded-blob p-6 shadow-soft sm:p-8">
-              {/* the client's own logo art, background removed, on a night tile */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/brand/logo-lockup.svg"
-                alt="Happy Tails: leaping dog over the script Tails wordmark"
-                className="w-full"
-              />
-            </div>
-            <div className="absolute -right-1 top-4 rotate-3 rounded-full bg-amber px-3.5 py-1.5 font-round text-xs font-bold text-night shadow-soft">
-              24/7, even on Eid
-            </div>
-            <div className="absolute -bottom-3 left-4 -rotate-2 rounded-full bg-white px-3 py-1 font-round text-[11px] font-semibold text-night/70 shadow-softer">
-              Est. G-10 Markaz
+            <div className="relative flex items-center justify-center py-4">
+              <div className="fur-dark animate-breathe w-full max-w-[270px] rotate-1 rounded-blob p-5 shadow-soft sm:max-w-md sm:p-8">
+                {/* the client's own logo art, background removed, on a night tile */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/brand/logo-lockup.svg"
+                  alt="Happy Tails: leaping dog over the script Tails wordmark"
+                  className="w-full"
+                />
+              </div>
+              <div className="absolute -right-1 top-2 rotate-3 rounded-full bg-amber px-3.5 py-1.5 font-round text-xs font-bold text-night shadow-soft sm:top-4">
+                24/7, even on Eid
+              </div>
             </div>
           </div>
         </div>
@@ -154,7 +133,7 @@ export default async function HomePage() {
             All products
           </Link>
         </div>
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {products.map((p: any) => (
             <ProductCard key={p.slug} p={p} />
           ))}
@@ -198,7 +177,7 @@ export default async function HomePage() {
           <div>
             <h2 className="font-display text-3xl font-bold sm:text-4xl">Ramna Plaza, G-10 Markaz.</h2>
             <p className="mt-4 max-w-md text-night/75">
-              {SITE.address}. The signboard is the one with the leaping cat. Parking right
+              {SITE.addressShort}. The signboard is the one with the leaping cat. Parking right
               outside, milk shop next door.
             </p>
             <div className="mt-6 font-round text-sm">
@@ -209,16 +188,30 @@ export default async function HomePage() {
                 {SITE.phone}
               </a>
             </div>
-            <div className="mt-8 overflow-hidden rounded-blob shadow-soft">
+            <div className="relative mt-8 overflow-hidden rounded-[2rem] shadow-soft">
               <iframe
-                src={SITE.mapEmbed}
+                src={SITE.mapEmbedPlain}
                 width="100%"
-                height="360"
+                height="340"
                 style={{ border: 0 }}
                 loading="lazy"
                 referrerPolicy="strict-origin-when-cross-origin"
                 title="Happy Tails Pet Store on Google Maps"
               />
+              {/* our own address chip — round like everything else */}
+              <a
+                href={SITE.mapsLink}
+                target="_blank"
+                rel="noreferrer"
+                className="absolute left-3 top-3 flex max-w-[85%] items-center gap-2 rounded-full bg-bone/95 px-3.5 py-2 shadow-soft backdrop-blur transition-transform hover:scale-[1.02]"
+              >
+                <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-collar font-round text-[11px] font-bold text-white">
+                  ↗
+                </span>
+                <span className="truncate font-round text-xs font-bold text-night">
+                  {SITE.addressShort}
+                </span>
+              </a>
             </div>
           </div>
           <div className="flex items-center justify-center">
@@ -226,22 +219,11 @@ export default async function HomePage() {
             <img
               src="/brand/cat-leap.svg"
               alt="The leaping cat from the shop signboard"
-              className="w-full max-w-sm rotate-2 drop-shadow-[0_16px_24px_rgba(11,11,12,0.15)]"
+              className="mx-auto w-44 max-w-sm rotate-2 drop-shadow-[0_16px_24px_rgba(11,11,12,0.15)] sm:w-full"
             />
           </div>
         </div>
       </section>
     </div>
-  );
-}
-
-function PawIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true">
-      <ellipse cx="9" cy="8" rx="1.7" ry="2.3" transform="rotate(-14 9 8)" />
-      <ellipse cx="13.2" cy="7" rx="1.7" ry="2.4" transform="rotate(8 13.2 7)" />
-      <ellipse cx="16.9" cy="9.6" rx="1.6" ry="2.2" transform="rotate(24 16.9 9.6)" />
-      <path d="M12.4 11c-2.6 0-5.4 2.2-5.4 4.6 0 1.5 1.1 2.4 2.5 2.4 1 0 1.8-.4 2.9-.4s1.9.4 2.9.4c1.4 0 2.5-.9 2.5-2.4 0-2.4-2.8-4.6-5.4-4.6z" />
-    </svg>
   );
 }

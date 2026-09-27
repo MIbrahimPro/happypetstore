@@ -62,8 +62,8 @@ export default function CartPage() {
       <div className="fur min-h-[60vh]">
         <div className="mx-auto max-w-3xl px-4 py-20 text-center">
           <h1 className="font-display text-4xl font-extrabold">Your basket is empty</h1>
-          <p className="mt-3 font-round text-sm text-smoke">The shelves are full though.</p>
-          <Link href="/shop" className="btn-soft mt-8 bg-collar text-bone shadow-soft hover:bg-collardeep">
+          <p className="mt-3 font-round text-sm text-ink">The shelves are full though.</p>
+          <Link href="/shop" className="btn-soft mt-8 bg-collardeep text-bone shadow-soft hover:brightness-110">
             Go to the shop
           </Link>
         </div>
@@ -85,36 +85,40 @@ export default function CartPage() {
             <span>Qty / Price</span>
           </div>
           {items.map((i) => (
-            <div key={i.slug} className="grid grid-cols-[1fr_auto] items-center gap-3 border-b border-night/10 px-4 py-3 last:border-b-0">
+            <div key={i.slug} className="border-b border-night/10 px-4 py-3 last:border-b-0">
               <div className="flex items-center gap-3">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={i.image} alt={i.name} className="h-14 w-14 rounded-xl object-cover" />
-                <div>
-                  <Link href={`/product/${i.slug}`} className="font-round font-bold hover:text-turf">
+                <img src={i.image} alt={i.name} className="h-14 w-14 shrink-0 rounded-xl object-cover" />
+                <div className="min-w-0 flex-1">
+                  <Link href={`/product/${i.slug}`} className="block truncate font-round font-bold leading-snug hover:text-turfdeep">
                     {i.name}
                   </Link>
-                  <p className="font-round text-xs text-smoke">{i.unit}</p>
+                  <p className="font-round text-xs text-ink">{i.unit}</p>
                 </div>
+                <p className="whitespace-nowrap text-right font-round font-bold">{formatPKR(i.price * i.qty)}</p>
+                <button
+                  onClick={() => remove(i.slug)}
+                  className="shrink-0 rounded-full p-1.5 font-round text-sm font-bold text-ink hover:bg-night/5 hover:text-collar"
+                  aria-label={`Remove ${i.name}`}
+                >
+                  ✕
+                </button>
               </div>
-              <div className="flex items-center gap-4">
+              <div className="mt-2 flex items-center justify-between pl-[68px]">
                 <div className="flex items-center rounded-full bg-night/5">
-                  <button onClick={() => setQty(i.slug, i.qty - 1)} className="rounded-full px-2.5 py-1 font-round font-bold hover:bg-night hover:text-bone" aria-label="Decrease">
+                  <button onClick={() => setQty(i.slug, i.qty - 1)} className="rounded-full px-3 py-1.5 font-round font-bold hover:bg-night hover:text-bone" aria-label="Decrease">
                     −
                   </button>
                   <span className="w-7 text-center font-round text-sm font-bold">{i.qty}</span>
-                  <button onClick={() => setQty(i.slug, i.qty + 1)} className="rounded-full px-2.5 py-1 font-round font-bold hover:bg-night hover:text-bone" aria-label="Increase">
+                  <button onClick={() => setQty(i.slug, i.qty + 1)} className="rounded-full px-3 py-1.5 font-round font-bold hover:bg-night hover:text-bone" aria-label="Increase">
                     +
                   </button>
                 </div>
-                <p className="w-24 text-right font-round font-bold">{formatPKR(i.price * i.qty)}</p>
-                <button onClick={() => remove(i.slug)} className="font-round text-xs font-bold uppercase text-smoke hover:text-collar" aria-label={`Remove ${i.name}`}>
-                  ✕
-                </button>
               </div>
             </div>
           ))}
           <div className="flex items-center justify-between bg-white/60 px-4 py-3">
-            <button onClick={clear} className="font-round text-xs font-bold uppercase text-smoke hover:text-collar">
+            <button onClick={clear} className="font-round text-xs font-bold uppercase text-ink hover:text-collar">
               Empty the basket
             </button>
             <p className="font-display text-2xl font-extrabold">
@@ -154,14 +158,14 @@ export default function CartPage() {
               </label>
             </div>
             {error && (
-              <p className="mt-3 rounded-2xl bg-collar/10 px-3.5 py-2.5 font-round text-sm font-semibold text-collar">
+              <p className="mt-3 rounded-2xl bg-collar/10 px-3.5 py-2.5 font-round text-sm font-semibold text-collardeep">
                 {error}
               </p>
             )}
             <button
               onClick={placeOrder}
               disabled={sending}
-              className="btn-soft mt-5 w-full justify-center bg-turf text-bone hover:brightness-110 disabled:opacity-60"
+              className="btn-soft mt-5 w-full justify-center bg-turfdeep text-bone hover:brightness-110 disabled:opacity-60"
             >
               {sending ? "Placing…" : "Send order on WhatsApp"}
             </button>

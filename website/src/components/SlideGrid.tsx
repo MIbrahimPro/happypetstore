@@ -22,7 +22,7 @@ export default function SlideGrid({ images }: Props) {
             className="h-40 w-full rounded-[1.2rem] object-cover"
           />
           {img.label && (
-            <figcaption className="py-1.5 text-center font-round text-[11px] font-semibold text-night/70">
+            <figcaption className="py-1.5 text-center font-round text-[11px] font-semibold leading-snug text-night/80">
               {img.label}
             </figcaption>
           )}

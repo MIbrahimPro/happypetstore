@@ -16,7 +16,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
             <Link href="/" className="inline-flex items-center gap-2">
               <Wordmark onNight scriptHeight={20} />
             </Link>
-            <p className="mt-1 font-round text-[11px] uppercase tracking-widest text-bone/50">
+            <p className="mt-1 font-round text-[11px] uppercase tracking-widest text-bone/80">
               Back office
             </p>
           </div>

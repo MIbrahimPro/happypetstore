@@ -51,7 +51,7 @@ export default function StoreLayout({ children }: { children: React.ReactNode })
             <div className="flex items-center gap-2">
               <a
                 href={telLink()}
-                className="btn-soft hidden bg-turf text-sm text-bone hover:brightness-110 sm:inline-flex"
+                className="btn-soft hidden bg-turfdeep text-sm text-bone hover:brightness-110 sm:inline-flex"
               >
                 Call any hour
               </a>
@@ -64,7 +64,7 @@ export default function StoreLayout({ children }: { children: React.ReactNode })
               <Link
                 key={item.href}
                 href={item.href}
-                className="whitespace-nowrap rounded-full bg-night/5 px-3 py-1.5 font-round text-xs font-semibold"
+                className="whitespace-nowrap rounded-full bg-night/5 px-3.5 py-2 font-round text-xs font-semibold"
               >
                 {item.label}
               </Link>
@@ -77,7 +77,7 @@ export default function StoreLayout({ children }: { children: React.ReactNode })
         <footer className="fur-dark text-bone">
           <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4">
             <div>
-              <Wordmark onNight scriptHeight={30} />
+              <Wordmark onNight scriptHeight={34} />
               <p className="mt-3 font-round text-sm text-bone/70">
                 Pet store and clinic, open 24/7. The softest ears in G-10.
               </p>

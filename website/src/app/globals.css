@@ -6,9 +6,12 @@
   --night: #0b0b0c;
   --bone: #faf6ee;
   --collar: #e12d20;
+  --collarlight: #ff7a6b;
   --turf: #2fa05a;
+  --turfdeep: #1d7a44;
   --amber: #f2a83b;
   --smoke: #8a8378;
+  --ink: #565046;
 }
 
 html {
@@ -65,24 +68,34 @@ body {
   background-position: 0 0, 13px 9px;
 }
 
+/* Custom classes live in @layer components so Tailwind utilities (text-amber,
+   bg-white, hover:*) keep their authority over them. */
+@layer components {
+
 /* --------------------------------------------------------------- ink ---- */
-/* smoke-on-bone text, captions and labels */
+/* caption: muted label text. --ink passes WCAG AA on bone (6.2:1) and
+   white (6.9:1), unlike raw smoke which only managed 3.5:1. */
 .caption {
-  color: var(--smoke);
+  color: var(--ink);
   letter-spacing: 0.14em;
 }
+
 
 /* soft card: bone surface, night text, rounded, gentle shadow */
 .softcard {
   background: #fffdf8;
   border-radius: 1.5rem;
   box-shadow: 0 12px 32px rgba(11, 11, 12, 0.1);
+  -webkit-tap-highlight-color: transparent;
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .softcard:hover {
   transform: translateY(-4px) rotate(-0.4deg);
   box-shadow: 0 20px 44px rgba(11, 11, 12, 0.14);
+}
+.softcard:active {
+  transform: scale(0.99);
 }
 
 /* pill button, the only shape we ship */
@@ -93,11 +106,13 @@ body {
   border-radius: 9999px;
   padding: 0.7rem 1.6rem;
   font-weight: 700;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
   transition: transform 0.25s ease, background-color 0.25s ease,
-    color 0.25s ease, box-shadow 0.25s ease;
+    color 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
 }
 .btn-soft:active {
-  transform: scale(0.97);
+  transform: scale(0.96);
 }
 
 /* ambery underline that grows from the left on hover */
@@ -113,6 +128,7 @@ body {
 .warm-link:hover {
   background-size: 100% 2px;
 }
+} /* end @layer components */
 
 /* paw-print trail layer (mouse-follow), sits above bg, below content */
 #paw-trail {
@@ -136,6 +152,27 @@ body {
   }
   100% {
     transform: scale(1.05) rotate(var(--paw-rot, 0deg));
+    opacity: 0;
+  }
+}
+
+/* press feedback: a paw pops out of a tap/click and scatters */
+.paw-pop {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  margin: -9px 0 0 -9px;
+  pointer-events: none;
+  animation: pawpop 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes pawpop {
+  0% {
+    transform: translate(0, 0) scale(0.4) rotate(var(--paw-rot, 0deg));
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate(var(--paw-dx, 0px), var(--paw-dy, -26px))
+      scale(1.1) rotate(calc(var(--paw-rot, 0deg) + 40deg));
     opacity: 0;
   }
 }

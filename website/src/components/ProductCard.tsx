@@ -30,9 +30,10 @@ const CAT_LABEL: Record<string, string> = {
 export default function ProductCard({ p }: Props) {
   const out = p.stock <= 0;
   return (
-    <article className="softcard group overflow-hidden">
+    <article className="softcard group flex h-full flex-col overflow-hidden">
       <Link href={`/product/${p.slug}`} className="block">
-        <div className="relative aspect-4/3 overflow-hidden bg-[#efe9dc]">
+        {/* fixed-height photo band: portrait uploads crop, never stretch the card */}
+        <div className="relative h-44 overflow-hidden bg-[#efe9dc]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={p.image}
@@ -51,39 +52,44 @@ export default function ProductCard({ p }: Props) {
         </div>
       </Link>
 
-      <div className="p-4">
+      <div className="flex flex-1 flex-col p-4">
         <p className="caption font-round text-[11px] uppercase">{p.brand}</p>
-        <h3 className="mt-1 font-round text-lg font-bold leading-snug">
-          <Link href={`/product/${p.slug}`} className="hover:text-turf">
+        <h3 className="mt-0.5 font-round text-lg font-bold leading-snug">
+          <Link href={`/product/${p.slug}`} className="hover:text-turfdeep">
             {p.name}
           </Link>
         </h3>
-        {p.blurb && <p className="mt-1 text-sm text-night/65">{p.blurb}</p>}
+        {p.blurb && <p className="mt-1 text-sm leading-snug text-night/65">{p.blurb}</p>}
 
-        <div className="mt-3 flex items-end justify-between gap-2">
-          <div>
-            <p className="font-display text-xl font-bold text-night">
-              {formatPKR(p.price)}
-              <span className="caption ml-1 font-round text-[11px] uppercase">/ {p.unit}</span>
-            </p>
-            {p.oldPrice && p.oldPrice > p.price ? (
-              <p className="font-round text-xs text-smoke line-through">{formatPKR(p.oldPrice)}</p>
-            ) : null}
+        {/* price + stock pinned to the card bottom so rows stay level */}
+        <div className="mt-auto pt-3">
+          <div className="flex items-end justify-between gap-2">
+            <div className="min-w-0">
+              <p className="font-display text-xl font-bold leading-tight text-night">
+                {formatPKR(p.price)}
+                <span className="caption ml-1 font-round text-[11px] uppercase">/ {p.unit}</span>
+              </p>
+              {p.oldPrice && p.oldPrice > p.price ? (
+                <p className="font-round text-xs leading-tight text-ink line-through">
+                  {formatPKR(p.oldPrice)}
+                </p>
+              ) : null}
+            </div>
+            <AddToCart
+              item={{
+                slug: p.slug,
+                name: p.name,
+                price: p.price,
+                image: p.image,
+                unit: p.unit,
+              }}
+              disabled={out}
+            />
           </div>
-          <AddToCart
-            item={{
-              slug: p.slug,
-              name: p.name,
-              price: p.price,
-              image: p.image,
-              unit: p.unit,
-            }}
-            disabled={out}
-          />
+          <p className="caption mt-1.5 font-round text-[11px] uppercase">
+            {out ? "Order on call, lands in 1 day" : p.stock <= 3 ? `Only ${p.stock} left` : `${p.stock} in stock`}
+          </p>
         </div>
-        <p className="caption mt-2 font-round text-[11px] uppercase">
-          {out ? "Order on call, lands in 1 day" : p.stock <= 3 ? `Only ${p.stock} left` : `${p.stock} in stock`}
-        </p>
       </div>
     </article>
   );

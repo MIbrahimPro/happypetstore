@@ -50,15 +50,24 @@ export default function AddToCart({ item, disabled, withQty, maxQty }: Props) {
         onClick={handleAdd}
         disabled={disabled}
         className={
-          "btn-soft px-4 py-1.5 text-sm " +
+          "btn-soft whitespace-nowrap px-4 py-1.5 text-sm " +
           (disabled
-            ? "cursor-not-allowed bg-night/10 text-smoke"
+            ? "cursor-not-allowed bg-night/10 text-ink"
             : done
-            ? "bg-turf text-bone"
+            ? "bg-turfdeep text-bone"
             : "bg-amber text-night hover:brightness-105")
         }
       >
-        {disabled ? "Call" : done ? "Added ✓" : "Add"}
+        {disabled ? "Call" : done ? (
+          <>
+            Added
+            <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={3.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M4 12.5 9.5 18 20 6.5" />
+            </svg>
+          </>
+        ) : (
+          "Add"
+        )}
       </button>
     </div>
   );

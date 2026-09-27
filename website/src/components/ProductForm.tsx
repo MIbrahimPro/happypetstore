@@ -76,7 +76,7 @@ export default function ProductForm({ initial }: { initial: ProductFormValues })
     <form onSubmit={submit} className="max-w-2xl space-y-4 font-round text-sm">
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="block sm:col-span-2">
-          <span className="text-xs uppercase tracking-widest text-bone/60">Name *</span>
+          <span className="text-xs uppercase tracking-widest text-bone/80">Name *</span>
           <input
             value={v.name}
             onChange={(e) => set("name", e.target.value)}
@@ -85,7 +85,7 @@ export default function ProductForm({ initial }: { initial: ProductFormValues })
           />
         </label>
         <label className="block">
-          <span className="text-xs uppercase tracking-widest text-bone/60">Shelf (category) *</span>
+          <span className="text-xs uppercase tracking-widest text-bone/80">Shelf (category) *</span>
           <select
             value={v.category}
             onChange={(e) => set("category", e.target.value)}
@@ -99,7 +99,7 @@ export default function ProductForm({ initial }: { initial: ProductFormValues })
           </select>
         </label>
         <label className="block">
-          <span className="text-xs uppercase tracking-widest text-bone/60">Brand</span>
+          <span className="text-xs uppercase tracking-widest text-bone/80">Brand</span>
           <input
             value={v.brand}
             onChange={(e) => set("brand", e.target.value)}
@@ -107,7 +107,7 @@ export default function ProductForm({ initial }: { initial: ProductFormValues })
           />
         </label>
         <label className="block">
-          <span className="text-xs uppercase tracking-widest text-bone/60">Price (PKR) *</span>
+          <span className="text-xs uppercase tracking-widest text-bone/80">Price (PKR) *</span>
           <input
             type="number"
             min={0}
@@ -118,7 +118,7 @@ export default function ProductForm({ initial }: { initial: ProductFormValues })
           />
         </label>
         <label className="block">
-          <span className="text-xs uppercase tracking-widest text-bone/60">Old price (for strike-through)</span>
+          <span className="text-xs uppercase tracking-widest text-bone/80">Old price (for strike-through)</span>
           <input
             type="number"
             min={0}
@@ -128,7 +128,7 @@ export default function ProductForm({ initial }: { initial: ProductFormValues })
           />
         </label>
         <label className="block">
-          <span className="text-xs uppercase tracking-widest text-bone/60">Unit label</span>
+          <span className="text-xs uppercase tracking-widest text-bone/80">Unit label</span>
           <input
             value={v.unit}
             onChange={(e) => set("unit", e.target.value)}
@@ -137,7 +137,7 @@ export default function ProductForm({ initial }: { initial: ProductFormValues })
           />
         </label>
         <label className="block">
-          <span className="text-xs uppercase tracking-widest text-bone/60">Slug (URL, leave blank to auto)</span>
+          <span className="text-xs uppercase tracking-widest text-bone/80">Slug (URL, leave blank to auto)</span>
           <input
             value={v.slug}
             onChange={(e) => set("slug", e.target.value)}
@@ -145,7 +145,7 @@ export default function ProductForm({ initial }: { initial: ProductFormValues })
           />
         </label>
         <label className="block sm:col-span-2">
-          <span className="text-xs uppercase tracking-widest text-bone/60">One line about it</span>
+          <span className="text-xs uppercase tracking-widest text-bone/80">One line about it</span>
           <input
             value={v.blurb}
             onChange={(e) => set("blurb", e.target.value)}
@@ -153,7 +153,7 @@ export default function ProductForm({ initial }: { initial: ProductFormValues })
           />
         </label>
         <label className="block">
-          <span className="text-xs uppercase tracking-widest text-bone/60">Stock on shelf *</span>
+          <span className="text-xs uppercase tracking-widest text-bone/80">Stock on shelf *</span>
           <input
             type="number"
             min={0}
@@ -162,12 +162,12 @@ export default function ProductForm({ initial }: { initial: ProductFormValues })
             className="mt-1 w-full border-2 border-bone/25 bg-transparent px-3 py-2 text-bone outline-none focus:border-bone"
             required
           />
-          <span className="mt-1 block text-[11px] text-bone/40">
+          <span className="mt-1 block text-[11px] text-bone/75">
             Changes here are logged as a stock movement. Prefer the Stock desk for daily changes.
           </span>
         </label>
         <label className="block">
-          <span className="text-xs uppercase tracking-widest text-bone/60">Low stock alert at</span>
+          <span className="text-xs uppercase tracking-widest text-bone/80">Low stock alert at</span>
           <input
             type="number"
             min={0}
@@ -179,7 +179,7 @@ export default function ProductForm({ initial }: { initial: ProductFormValues })
       </div>
 
       <fieldset>
-        <legend className="text-xs uppercase tracking-widest text-bone/60">For which pets</legend>
+        <legend className="text-xs uppercase tracking-widest text-bone/80">For which pets</legend>
         <div className="mt-2 flex flex-wrap gap-4">
           {PETS.map((pet) => (
             <label key={pet} className="flex items-center gap-2">
@@ -200,13 +200,13 @@ export default function ProductForm({ initial }: { initial: ProductFormValues })
       </fieldset>
 
       <div className="border-2 border-bone/15 p-4">
-        <span className="text-xs uppercase tracking-widest text-bone/60">Photo</span>
+        <span className="text-xs uppercase tracking-widest text-bone/80">Photo</span>
         <div className="mt-2 flex items-center gap-4">
           {v.image ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img src={v.image} alt="" className="h-20 w-20 border-2 border-bone/25 object-cover" />
           ) : (
-            <div className="flex h-20 w-20 items-center justify-center border-2 border-dashed border-bone/25 text-bone/40">
+            <div className="flex h-20 w-20 items-center justify-center border-2 border-dashed border-bone/25 text-bone/75">
               none
             </div>
           )}
@@ -234,7 +234,7 @@ export default function ProductForm({ initial }: { initial: ProductFormValues })
           checked={v.active}
           onChange={(e) => set("active", e.target.checked)}
         />
-        <span className="text-xs uppercase tracking-widest text-bone/60">Visible on the site</span>
+        <span className="text-xs uppercase tracking-widest text-bone/80">Visible on the site</span>
       </label>
 
       {error && <p className="border-2 border-collar px-3 py-2 text-collar">{error}</p>}

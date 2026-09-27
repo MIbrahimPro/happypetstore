@@ -23,7 +23,7 @@ export default async function AdminProductsPage() {
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <h1 className="font-display text-3xl">PRODUCTS</h1>
-          <p className="font-round text-xs uppercase tracking-widest text-bone/50">
+          <p className="font-round text-xs uppercase tracking-widest text-bone/80">
             {products.length} items on the shelves
           </p>
         </div>
@@ -38,7 +38,7 @@ export default async function AdminProductsPage() {
       <div className="mt-6 overflow-x-auto border-2 border-bone/15">
         <table className="w-full font-round text-sm">
           <thead>
-            <tr className="border-b-2 border-bone/15 text-left text-xs uppercase tracking-widest text-bone/50">
+            <tr className="border-b-2 border-bone/15 text-left text-xs uppercase tracking-widest text-bone/80">
               <th className="px-3 py-2">Item</th>
               <th className="px-3 py-2">Shelf</th>
               <th className="px-3 py-2">Price</th>
@@ -55,7 +55,7 @@ export default async function AdminProductsPage() {
                     <img src={p.image} alt="" className="h-9 w-9 border border-bone/15 object-cover" />
                     <div>
                       <p className="font-display">{p.name}</p>
-                      <p className="text-[11px] text-bone/50">{p.brand} / {p.unit}</p>
+                      <p className="text-[11px] text-bone/80">{p.brand} / {p.unit}</p>
                     </div>
                   </div>
                 </td>
@@ -65,7 +65,7 @@ export default async function AdminProductsPage() {
                   <span className={p.stock === 0 ? "font-bold text-collar" : p.stock <= p.lowStockAt ? "text-amber" : ""}>
                     {p.stock}
                     </span>
-                  <span className="text-bone/40"> / {p.lowStockAt}</span>
+                  <span className="text-bone/75"> / {p.lowStockAt}</span>
                 </td>
                 <td className="px-3 py-2">
                   <Link href={`/admin/products/${p._id}`} className="underline hover:text-amber">

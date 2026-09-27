@@ -68,7 +68,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             <div className="mt-6 flex items-end gap-3">
               <p className="font-display text-4xl font-extrabold">{formatPKR(p.price)}</p>
               {p.oldPrice && p.oldPrice > p.price ? (
-                <p className="font-round text-lg text-smoke line-through">{formatPKR(p.oldPrice)}</p>
+                <p className="font-round text-lg text-ink line-through">{formatPKR(p.oldPrice)}</p>
               ) : null}
             </div>
 
@@ -83,7 +83,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               </div>
               <div className="flex justify-between py-2.5">
                 <dt className="caption text-xs uppercase">In stock</dt>
-                <dd className={"font-bold " + (out ? "text-collar" : p.stock <= 3 ? "text-amber" : "text-turf")}>
+                <dd className={"font-bold " + (out ? "text-collardeep" : p.stock <= 3 ? "text-collar" : "text-turfdeep")}>
                   {out ? "0, order on call" : p.stock <= 3 ? `${p.stock}, going fast` : `${p.stock} units`}
                 </dd>
               </div>
@@ -95,7 +95,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               <AddToCart item={{ slug: p.slug, name: p.name, price: p.price, image: p.image, unit: p.unit }} withQty maxQty={out ? 0 : undefined} disabled={out} />
               <a
                 href={waLink(`Assalam o alaikum. Is ${p.name} (${formatPKR(p.price)}) available?`)}
-                className="btn-soft bg-turf text-sm text-bone hover:brightness-110"
+                className="btn-soft bg-turfdeep text-sm text-bone hover:brightness-110"
               >
                 Ask on WhatsApp
               </a>

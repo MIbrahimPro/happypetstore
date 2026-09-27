@@ -9,9 +9,12 @@ const config: Config = {
         bone: "#FAF6EE",
         collar: "#E12D20",
         collardeep: "#B31F14",
+        collarlight: "#FF7A6B",
         turf: "#2FA05A",
+        turfdeep: "#1D7A44",
         amber: "#F2A83B",
         smoke: "#8A8378",
+        ink: "#565046",
       },
       fontFamily: {
         display: ["var(--font-display)", "Trebuchet MS", "sans-serif"],

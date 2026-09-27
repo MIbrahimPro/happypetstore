@@ -33,11 +33,11 @@ export default function AdminLoginPage() {
     <div className="flex min-h-[70vh] items-center justify-center px-4">
       <form onSubmit={submit} className="w-full max-w-sm rounded-blob border border-bone/15 bg-[#141314] p-7">
         <Wordmark onNight scriptHeight={26} />
-        <p className="mt-2 font-round text-xs uppercase tracking-widest text-bone/50">
+        <p className="mt-2 font-round text-xs uppercase tracking-widest text-bone/80">
           Staff login · counter book access
         </p>
         <label className="mt-6 block">
-          <span className="font-round text-xs uppercase tracking-widest text-bone/60">Username</span>
+          <span className="font-round text-xs uppercase tracking-widest text-bone/85">Username</span>
           <input
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -46,7 +46,7 @@ export default function AdminLoginPage() {
           />
         </label>
         <label className="mt-3 block">
-          <span className="font-round text-xs uppercase tracking-widest text-bone/60">Password</span>
+          <span className="font-round text-xs uppercase tracking-widest text-bone/85">Password</span>
           <input
             type="password"
             value={password}
@@ -65,7 +65,7 @@ export default function AdminLoginPage() {
         >
           {busy ? "Checking…" : "Open the book"}
         </button>
-        <p className="mt-4 font-round text-[11px] text-bone/40">
+        <p className="mt-4 font-round text-[11px] text-bone/75">
           Logins are set by the shop in .env (ADMIN_USER, ADMIN_PASS). Ask the owner for yours.
         </p>
       </form>

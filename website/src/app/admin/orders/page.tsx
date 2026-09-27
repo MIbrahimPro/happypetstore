@@ -23,7 +23,7 @@ export default async function AdminOrdersPage() {
   return (
     <div className="px-4 py-6 sm:px-8">
       <h1 className="font-display text-3xl">ORDERS</h1>
-      <p className="font-round text-xs uppercase tracking-widest text-bone/50">
+      <p className="font-round text-xs uppercase tracking-widest text-bone/80">
         WhatsApp baskets land here. Move them left to right, phone the customer at confirmed.
       </p>
 
@@ -37,10 +37,10 @@ export default async function AdminOrdersPage() {
                 <p className="font-round text-xs uppercase tracking-widest text-amber">
                   {status} ({list.length})
                 </p>
-                <p className="font-round text-xs text-bone/60">{formatPKR(value)}</p>
+                <p className="font-round text-xs text-bone/85">{formatPKR(value)}</p>
               </div>
               {list.length === 0 ? (
-                <p className="px-3 py-4 font-round text-xs text-bone/40">Empty</p>
+                <p className="px-3 py-4 font-round text-xs text-bone/75">Empty</p>
               ) : (
                 <ul className="divide-y divide-paper/15">
                   {list.map((o: any) => (
@@ -54,15 +54,15 @@ export default async function AdminOrdersPage() {
                         </p>
                         <p className="font-display">{formatPKR(o.total)}</p>
                       </div>
-                      <ul className="mt-1 font-round text-xs text-bone/60">
+                      <ul className="mt-1 font-round text-xs text-bone/85">
                         {o.items.map((i: any, idx: number) => (
                           <li key={idx}>
                             {i.qty} x {i.name} @ {formatPKR(i.price)}
                           </li>
                         ))}
                       </ul>
-                      {o.address ? <p className="mt-1 font-round text-xs text-bone/50">Addr: {o.address}</p> : null}
-                      {o.note ? <p className="font-round text-xs text-bone/50">Note: {o.note}</p> : null}
+                      {o.address ? <p className="mt-1 font-round text-xs text-bone/80">Addr: {o.address}</p> : null}
+                      {o.note ? <p className="font-round text-xs text-bone/80">Note: {o.note}</p> : null}
                       <OrderStatusControls id={String(o._id)} status={o.status} />
                     </li>
                   ))}

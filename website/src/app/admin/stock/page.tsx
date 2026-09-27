@@ -29,7 +29,7 @@ export default async function AdminStockPage() {
   return (
     <div className="px-4 py-6 sm:px-8">
       <h1 className="font-display text-3xl">STOCK DESK</h1>
-      <p className="font-round text-xs uppercase tracking-widest text-bone/50">
+      <p className="font-round text-xs uppercase tracking-widest text-bone/80">
         Every change is written to the movement log below. Sales deduct automatically at order time.
       </p>
 
@@ -44,7 +44,7 @@ export default async function AdminStockPage() {
                 <li key={String(p._id)} className="flex flex-wrap items-center justify-between gap-2 px-3 py-2.5">
                   <div>
                     <p className="font-display">{p.name}</p>
-                    <p className="font-round text-[11px] uppercase tracking-widest text-bone/50">
+                    <p className="font-round text-[11px] uppercase tracking-widest text-bone/80">
                       {p.category} / alert below {p.lowStockAt + 1}
                     </p>
                   </div>
@@ -64,24 +64,24 @@ export default async function AdminStockPage() {
           <p className="font-round text-xs uppercase tracking-widest text-amber">MOVEMENT LOG (LATEST 30)</p>
           <div className="mt-3 border-2 border-bone/15 bg-black/20">
             <ul className="divide-y divide-paper/10 font-round text-xs">
-              {moves.length === 0 && <li className="px-3 py-3 text-bone/40">No movements yet.</li>}
+              {moves.length === 0 && <li className="px-3 py-3 text-bone/75">No movements yet.</li>}
               {moves.map((m: any) => (
                 <li key={String(m._id)} className="px-3 py-2">
-                  <span className={m.qty >= 0 ? "text-turf" : "text-collar"}>
+                  <span className={m.qty >= 0 ? "text-turf" : "text-collarlight"}>
                     {m.qty >= 0 ? "+" : ""}
                     {m.qty}
                   </span>{" "}
-                  <span className="uppercase tracking-widest text-bone/50">{m.kind}</span>{" "}
+                  <span className="uppercase tracking-widest text-bone/80">{m.kind}</span>{" "}
                   {m.productName}
-                  {m.note ? <span className="text-bone/40"> / {m.note}</span> : null}
-                  <span className="block text-bone/30">
+                  {m.note ? <span className="text-bone/75"> / {m.note}</span> : null}
+                  <span className="block text-bone/70">
                     {new Date(m.createdAt).toLocaleString("en-GB")}
                   </span>
                 </li>
               ))}
             </ul>
           </div>
-          <div className="mt-4 border-2 border-dashed border-bone/15 p-4 font-round text-xs text-bone/60">
+          <div className="mt-4 border-2 border-dashed border-bone/15 p-4 font-round text-xs text-bone/85">
             Shelf value now: {formatPKR(products.reduce((a: number, p: any) => a + p.price * p.stock, 0))}
           </div>
         </section>

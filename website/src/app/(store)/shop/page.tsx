@@ -50,17 +50,17 @@ export default async function ShopPage({
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <h1 className="font-display text-4xl font-extrabold sm:text-5xl">The shelves</h1>
-            <p className="mt-2 max-w-lg text-night/70">
-              Live stock counts. If something shows zero, call us; it usually lands within a day.
+            <p className="mt-2 max-w-lg text-night/75">
+              Live stock counts — if something shows zero, call and it usually lands within a day.
             </p>
           </div>
-          <form action="/shop" className="flex items-center gap-2">
+          <form action="/shop" className="flex w-full items-center gap-2 sm:w-auto">
             <input
               type="search"
               name="q"
               defaultValue={q}
-              placeholder="Search royal canin, leash, litter…"
-              className="w-56 rounded-full border-2 border-night/10 bg-white px-4 py-2.5 font-round text-sm outline-none placeholder:text-smoke/70 focus:border-amber"
+              placeholder="Search food, leash, litter…"
+              className="w-full min-w-0 rounded-full border-2 border-night/10 bg-white px-4 py-2.5 font-round text-sm outline-none placeholder:text-ink focus:border-amber sm:w-56"
             />
             <button className="btn-soft bg-night px-5 py-2.5 text-sm text-bone hover:bg-night/85">
               Find
@@ -96,12 +96,12 @@ export default async function ShopPage({
         {filtered.length === 0 ? (
           <div className="softcard mt-10 p-10 text-center">
             <p className="font-display text-2xl font-bold">Nothing on this shelf yet</p>
-            <p className="mt-2 font-round text-sm text-smoke">
+            <p className="mt-2 font-round text-sm text-ink">
               Try another tab, or call 0313 1495287 and we will find it.
             </p>
           </div>
         ) : (
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
             {filtered.map((p: any) => (
               <ProductCard key={p.slug} p={p} />
             ))}
