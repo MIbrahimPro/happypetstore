@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper: #f5efdf;
+  --ink: #1d1b16;
+  --red: #d6342c;
+  --mustard: #e8a33d;
+  --bone: #eae1c9;
+}
+
+html {
+  background: var(--paper);
+}
+
+body {
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--red);
+  color: var(--paper);
+}
+
+/* no rounded corners anywhere; sharp is the brand */
+* {
+  border-radius: 0 !important;
+}
+
+/* ruled receipt paper, used sparingly */
+.ruled {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0 27px,
+    rgba(29, 27, 22, 0.08) 27px 28px
+  );
+}
+
+/* graph paper block for hero and section backdrops */
+.graph {
+  background-color: var(--paper);
+  background-image: linear-gradient(to right, rgba(29, 27, 22, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(29, 27, 22, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* dashed cut line, like a coupon you can cut out */
+.cutline {
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--ink) 0 8px,
+    transparent 8px 16px
+  );
+  height: 2px;
+}
+
+/* sticker look: white sticker border, no drop-shadow glow */
+.sticker {
+  background: #ffffff;
+  padding: 6px;
+  box-shadow: 3px 3px 0 rgba(29, 27, 22, 0.9);
+}
+
+/* hard offset shadow, print style */
+.hardshadow {
+  box-shadow: 4px 4px 0 var(--ink);
+}
+.hardshadow-red {
+  box-shadow: 4px 4px 0 var(--red);
+}
+
+/* underline links like a felt pen */
+.penlink {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--red);
+}
+.penlink:hover {
+  background: var(--red);
+  color: var(--paper);
+  text-decoration: none;
+}
+
+/* scrollbar, keep it ink */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--paper);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ink);
+  border: 3px solid var(--paper);
+}
