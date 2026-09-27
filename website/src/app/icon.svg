@@ -1,7 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" fill="#D6342C"/>
-  <path d="M14 44 C10 34 16 24 26 24 C32 24 36 28 36 34 C36 39 32 42 28 42" fill="none" stroke="#F5EFDF" stroke-width="5" stroke-linecap="round"/>
-  <path d="M36 18 L42 12 L44 20 C52 22 54 30 50 36 L52 44 C44 50 34 48 30 40 C26 32 30 22 36 18 Z" fill="#F5EFDF"/>
-  <circle cx="41" cy="30" r="2.6" fill="#1D1B16"/>
-  <path d="M44 36 q3 2.5 6 0" fill="none" stroke="#1D1B16" stroke-width="2.2" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Happy Tails">
+  <rect width="64" height="64" rx="16" fill="#0B0B0C"/>
+  <path d="M14 26 C12 16 18 12 24 16 L30 20 C34 18 38 18 42 20 L48 16 C54 12 60 16 58 26 C57 30 54 32 52 32 C54 36 55 40 53 44 C50 52 42 56 36 56 L36 50 L28 50 L28 56 C22 56 14 52 11 44 C9 40 10 36 12 32 C10 32 15 30 14 26 Z" fill="#FAF6EE"/>
+  <rect x="18" y="48" width="28" height="6" rx="3" fill="#E12D20"/>
+  <circle cx="24" cy="34" r="3.2" fill="#0B0B0C"/>
+  <circle cx="40" cy="34" r="3.2" fill="#0B0B0C"/>
+  <path d="M29 41 Q32 44 35 41" stroke="#0B0B0C" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+  <circle cx="31" cy="39.5" r="2.2" fill="#0B0B0C"/>
 </svg>
