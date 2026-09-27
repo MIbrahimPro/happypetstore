@@ -128,6 +128,38 @@ body {
 .warm-link:hover {
   background-size: 100% 2px;
 }
+
+/* nav pill: desktop + mobile share one component. Hover styles only apply
+   where hover actually exists, so taps on phones never stick. Active page
+   gets the night pill. touch-action keeps iOS from eating the first tap. */
+.nav-pill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  background: rgba(11, 11, 12, 0.05);
+  color: var(--night);
+  white-space: nowrap;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+@media (hover: hover) {
+  .nav-pill:hover {
+    background: var(--night);
+    color: var(--bone);
+  }
+}
+.nav-pill:active {
+  transform: scale(0.94);
+  background: var(--night);
+  color: var(--bone);
+}
+.nav-pill.active {
+  background: var(--night);
+  color: var(--amber);
+}
 } /* end @layer components */
 
 /* paw-print trail layer (mouse-follow), sits above bg, below content */

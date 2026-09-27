@@ -5,13 +5,8 @@ import Logo from "@/components/Logo";
 import Wordmark from "@/components/Wordmark";
 import PawTrail from "@/components/PawTrail";
 import { CartProvider } from "@/components/CartProvider";
-
-const NAV = [
-  { href: "/shop", label: "Shop" },
-  { href: "/adopt", label: "Adopt" },
-  { href: "/clinic", label: "Clinic" },
-  { href: "/about", label: "Visit" },
-];
+import { StoreNavDesktop, StoreNavMobile } from "@/components/StoreNav";
+import { NAV } from "@/lib/nav";
 
 export default function StoreLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -36,17 +31,7 @@ export default function StoreLayout({ children }: { children: React.ReactNode })
               <Wordmark scriptHeight={26} />
             </Link>
 
-            <nav className="hidden items-center gap-1 md:flex">
-              {NAV.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="rounded-full px-4 py-2 font-round text-sm font-semibold text-night/80 transition-colors hover:bg-night hover:text-bone"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
+            <StoreNavDesktop />
 
             <div className="flex items-center gap-2">
               <a
@@ -59,17 +44,7 @@ export default function StoreLayout({ children }: { children: React.ReactNode })
             </div>
           </div>
           {/* mobile nav */}
-          <nav className="flex items-center gap-1 overflow-x-auto px-4 pb-2 md:hidden">
-            {NAV.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="whitespace-nowrap rounded-full bg-night/5 px-3.5 py-2 font-round text-xs font-semibold"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
+          <StoreNavMobile />
         </header>
 
         <main className="flex-1">{children}</main>
@@ -96,7 +71,7 @@ export default function StoreLayout({ children }: { children: React.ReactNode })
             <div className="font-round text-sm">
               <p className="caption text-amber">PAGES</p>
               <ul className="mt-1 space-y-1">
-                {NAV.map((n) => (
+                {NAV.filter((n) => n.href !== "/").map((n) => (
                   <li key={n.href}>
                     <Link href={n.href} className="warm-link text-bone/90">
                       {n.label}
@@ -104,7 +79,7 @@ export default function StoreLayout({ children }: { children: React.ReactNode })
                   </li>
                 ))}
                 <li>
-                  <Link href="/admin" className="warm-link text-bone/60">
+                  <Link href="/admin" className="warm-link text-bone/85">
                     Staff login
                   </Link>
                 </li>
