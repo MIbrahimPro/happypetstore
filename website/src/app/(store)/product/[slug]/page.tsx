@@ -39,89 +39,89 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     .lean()) as any[];
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-10">
-      <p className="font-mono text-xs uppercase tracking-widest text-steel">
-        <Link href="/shop" className="penlink">
-          Shelves
-        </Link>{" "}
-        / {CAT_LABEL[p.category] ?? p.category} / {p.brand}
-      </p>
+    <div className="fur min-h-screen">
+      <div className="mx-auto max-w-6xl px-4 py-10">
+        <p className="caption font-round text-xs uppercase">
+          <Link href="/shop" className="warm-link">
+            Shelves
+          </Link>{" "}
+          / {CAT_LABEL[p.category] ?? p.category} / {p.brand}
+        </p>
 
-      <div className="mt-6 grid gap-10 lg:grid-cols-2">
-        <div>
-          <div className="border-2 border-ink bg-white hardshadow">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={p.image} alt={p.name} className="aspect-square w-full object-cover" />
-          </div>
-          <p className="mt-3 font-mono text-[11px] uppercase tracking-widest text-steel">
-            Placeholder photography. The real pack looks better; visit the shop or ask on WhatsApp.
-          </p>
-        </div>
-
-        <div>
-          <h1 className="font-display text-4xl leading-tight">{p.name}</h1>
-          <p className="mt-2 font-mono text-sm uppercase tracking-widest text-steel">
-            {p.brand} / {p.unit}
-          </p>
-
-          <div className="mt-6 flex items-end gap-3">
-            <p className="font-display text-4xl">{formatPKR(p.price)}</p>
-            {p.oldPrice && p.oldPrice > p.price ? (
-              <p className="font-mono text-lg text-steel line-through">{formatPKR(p.oldPrice)}</p>
-            ) : null}
-          </div>
-
-          <div className="mt-6 cutline" />
-
-          <dl className="mt-4 divide-y divide-ink/20 font-mono text-sm">
-            <div className="flex justify-between py-2">
-              <dt className="text-steel uppercase tracking-widest">Shelf</dt>
-              <dd className="font-bold uppercase">{CAT_LABEL[p.category] ?? p.category}</dd>
+        <div className="mt-6 grid gap-10 lg:grid-cols-2">
+          <div>
+            <div className="overflow-hidden rounded-blob bg-white p-2.5 shadow-soft">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={p.image} alt={p.name} className="aspect-square w-full rounded-[1.2rem] object-cover" />
             </div>
-            <div className="flex justify-between py-2">
-              <dt className="text-steel uppercase tracking-widest">For</dt>
-              <dd className="font-bold uppercase">{(p.petTypes ?? []).join(", ") || "all pets"}</dd>
-            </div>
-            <div className="flex justify-between py-2">
-              <dt className="text-steel uppercase tracking-widest">In stock</dt>
-              <dd className="font-bold">
-                {out ? "0, order on call" : p.stock <= 3 ? `${p.stock}, going fast` : `${p.stock} units`}
-              </dd>
-            </div>
-          </dl>
-
-          <p className="mt-4 text-ink/80">{p.blurb}</p>
-
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <AddToCart item={{ slug: p.slug, name: p.name, price: p.price, image: p.image, unit: p.unit }} withQty maxQty={out ? 0 : undefined} disabled={out} />
-            <a
-              href={waLink(`Assalam o alaikum. Is ${p.name} (${formatPKR(p.price)}) available?`)}
-              className="border-2 border-ink bg-sage px-4 py-2 font-display text-sm text-paper hover:bg-sage-dark"
-            >
-              ASK ON WHATSAPP
-            </a>
-          </div>
-
-          <div className="mt-8 border-2 border-ink bg-bone p-4 font-mono text-sm">
-            <p className="font-bold uppercase">How you get it</p>
-            <p className="mt-1 text-ink/80">
-              Same-day delivery inside G-10 and nearby sectors, next day across Islamabad and
-              Rawalpindi. Or pick it up at Ramna Plaza, we are open right now.
+            <p className="caption mt-3 font-round text-[11px] uppercase">
+              Placeholder photography. The real pack looks better; visit the shop or ask on WhatsApp.
             </p>
           </div>
-        </div>
-      </div>
 
-      {related.length > 0 && (
-        <section className="mt-16">
-          <h2 className="font-display text-3xl">SAME SHELF</h2>
-          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {related.map((r) => (
-              <ProductCard key={r.slug} p={r} />
-            ))}
+          <div>
+            <h1 className="font-display text-4xl font-extrabold leading-tight">{p.name}</h1>
+            <p className="caption mt-2 font-round text-sm uppercase">
+              {p.brand} / {p.unit}
+            </p>
+
+            <div className="mt-6 flex items-end gap-3">
+              <p className="font-display text-4xl font-extrabold">{formatPKR(p.price)}</p>
+              {p.oldPrice && p.oldPrice > p.price ? (
+                <p className="font-round text-lg text-smoke line-through">{formatPKR(p.oldPrice)}</p>
+              ) : null}
+            </div>
+
+            <dl className="mt-6 divide-y divide-night/10 rounded-2xl bg-white px-4 font-round text-sm shadow-softer">
+              <div className="flex justify-between py-2.5">
+                <dt className="caption text-xs uppercase">Shelf</dt>
+                <dd className="font-bold uppercase">{CAT_LABEL[p.category] ?? p.category}</dd>
+              </div>
+              <div className="flex justify-between py-2.5">
+                <dt className="caption text-xs uppercase">For</dt>
+                <dd className="font-bold uppercase">{(p.petTypes ?? []).join(", ") || "all pets"}</dd>
+              </div>
+              <div className="flex justify-between py-2.5">
+                <dt className="caption text-xs uppercase">In stock</dt>
+                <dd className={"font-bold " + (out ? "text-collar" : p.stock <= 3 ? "text-amber" : "text-turf")}>
+                  {out ? "0, order on call" : p.stock <= 3 ? `${p.stock}, going fast` : `${p.stock} units`}
+                </dd>
+              </div>
+            </dl>
+
+            <p className="mt-4 text-night/80">{p.blurb}</p>
+
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <AddToCart item={{ slug: p.slug, name: p.name, price: p.price, image: p.image, unit: p.unit }} withQty maxQty={out ? 0 : undefined} disabled={out} />
+              <a
+                href={waLink(`Assalam o alaikum. Is ${p.name} (${formatPKR(p.price)}) available?`)}
+                className="btn-soft bg-turf text-sm text-bone hover:brightness-110"
+              >
+                Ask on WhatsApp
+              </a>
+            </div>
+
+            <div className="mt-8 rounded-2xl bg-night p-4 font-round text-sm text-bone">
+              <p className="font-bold text-amber">How you get it</p>
+              <p className="mt-1 text-bone/85">
+                Same-day delivery inside G-10 and nearby sectors, next day across Islamabad and
+                Rawalpindi. Or pick it up at Ramna Plaza, we are open right now.
+              </p>
+            </div>
           </div>
-        </section>
-      )}
+        </div>
+
+        {related.length > 0 && (
+          <section className="mt-16">
+            <h2 className="font-display text-3xl font-bold">Same shelf</h2>
+            <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {related.map((r) => (
+                <ProductCard key={r.slug} p={r} />
+              ))}
+            </div>
+          </section>
+        )}
+      </div>
     </div>
   );
 }

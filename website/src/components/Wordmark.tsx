@@ -27,7 +27,7 @@ export default function Wordmark({
           src="/brand/script-tails.svg"
           alt="Tails"
           style={{ height: scriptHeight, width: "auto" }}
-          className={onNight ? "" : "invert"}
+          className={onNight ? "invert" : ""}
         />
         <span
           aria-hidden="true"

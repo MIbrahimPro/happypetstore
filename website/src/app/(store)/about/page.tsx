@@ -7,55 +7,52 @@ export default function AboutPage() {
     <div className="mx-auto max-w-6xl px-4 py-10">
       <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
         <div>
-          <h1 className="font-display text-4xl leading-tight sm:text-5xl">
-            THE SIGN ON BELA ROAD
+          <h1 className="font-display text-4xl font-extrabold leading-tight sm:text-5xl">
+            The sign on Bela Road
             <br />
-            <span className="text-red">WITH THE LEAPING CAT.</span>
+            <span className="text-collar">with the leaping cat.</span>
           </h1>
-          <p className="mt-5 max-w-xl text-lg text-ink/80">
+          <p className="mt-5 max-w-xl text-lg text-night/75">
             Happy Tails started as a weekend counter and turned into the shop that never locks.
             Families from G-10 and G-11 come for kittens and puppy food; riders on night duty
             come because the lights are always on and someone always answers.
           </p>
-          <div className="mt-6 cutline max-w-xl" />
-          <p className="mt-6 max-w-xl text-ink/80">
+          <p className="mt-5 max-w-xl text-night/75">
             Three counters, one roof. The store counter sells food, litter, accessories and
             toys. The clinic counter handles medicines, vaccines and the vet. The front window
             belongs to the animals: litters from verified local breeders, plus rescues the
             clinic nurses back and rehomes.
           </p>
         </div>
-        <div className="sticker rotate-1 self-start">
-          <div className="border-2 border-ink">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/shop/storefront.jpg" alt="Happy Tails shopfront at night" className="h-72 w-full object-cover" />
-          </div>
-          <p className="py-2 text-center font-mono text-[11px] uppercase tracking-widest text-ink/70">
+        <div className="animate-sway rotate-1 self-start overflow-hidden rounded-blob bg-white p-2.5 shadow-soft">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/shop/storefront.jpg" alt="Happy Tails shopfront at night" className="h-72 w-full rounded-[1.2rem] object-cover" />
+          <p className="caption py-2 text-center font-round text-[11px] uppercase">
             Ramna Plaza after closing time everywhere else
           </p>
         </div>
       </div>
 
       <section className="mt-16 grid gap-6 md:grid-cols-3">
-        <div className="border-2 border-ink bg-white p-5">
-          <p className="font-mono text-xs uppercase tracking-widest text-steel">Address</p>
-          <p className="mt-2 font-display text-lg leading-snug">{SITE.address}</p>
+        <div className="softcard p-5">
+          <p className="caption font-round text-xs uppercase">Address</p>
+          <p className="mt-2 font-round text-lg font-bold leading-snug">{SITE.address}</p>
         </div>
-        <div className="border-2 border-ink bg-white p-5">
-          <p className="font-mono text-xs uppercase tracking-widest text-steel">Phone and WhatsApp</p>
-          <a href={telLink()} className="penlink mt-2 inline-block font-display text-lg">
+        <div className="softcard p-5">
+          <p className="caption font-round text-xs uppercase">Phone and WhatsApp</p>
+          <a href={telLink()} className="warm-link mt-2 inline-block font-round text-lg font-bold">
             {SITE.phone}
           </a>
-          <p className="mt-1 font-mono text-xs text-steel">Same number on WhatsApp</p>
+          <p className="mt-1 font-round text-xs text-smoke">Same number on WhatsApp</p>
         </div>
-        <div className="border-2 border-ink bg-white p-5">
-          <p className="font-mono text-xs uppercase tracking-widest text-steel">Hours</p>
-          <p className="mt-2 font-display text-lg">Open 24 hours</p>
-          <p className="mt-1 font-mono text-xs text-steel">Every day of the year</p>
+        <div className="softcard p-5">
+          <p className="caption font-round text-xs uppercase">Hours</p>
+          <p className="mt-2 font-round text-lg font-bold">Open 24 hours</p>
+          <p className="mt-1 font-round text-xs text-smoke">Every day of the year</p>
         </div>
       </section>
 
-      <section className="mt-10 border-2 border-ink hardshadow">
+      <section className="mt-10 overflow-hidden rounded-blob shadow-soft">
         <iframe
           src={SITE.mapEmbed}
           width="100%"
@@ -68,26 +65,29 @@ export default function AboutPage() {
       </section>
 
       <section className="mt-10 grid gap-10 lg:grid-cols-2">
-        <div className="border-2 border-ink bg-bone p-6 font-mono text-sm">
-          <p className="font-display text-xl uppercase">Getting here</p>
-          <ul className="mt-3 space-y-2 text-ink/80">
+        <div className="rounded-blob border-2 border-dashed border-night/20 p-6 font-round text-sm">
+          <p className="font-display text-xl font-bold">Getting here</p>
+          <ul className="mt-3 space-y-2 text-night/75">
             <li>• From G-10 Markaz roundabout, take Bela Road toward Ramna Plaza; we are plot 14-B.</li>
             <li>• Parking on the plaza front, the guard waves you in at any hour.</li>
             <li>• Careem and InDrive drop right at the gate; tell them Ramna Plaza, G-10 Markaz.</li>
           </ul>
         </div>
-        <div className="border-2 border-ink bg-ink p-6 text-paper">
-          <p className="font-display text-xl uppercase text-mustard">Before you drive over</p>
-          <p className="mt-3 text-paper/85">
+        <div className="fur-dark rounded-blob p-6 text-bone">
+          <p className="font-display text-xl font-bold text-amber">Before you drive over</p>
+          <p className="mt-3 text-bone/85">
             If you are coming for a specific animal, medicine or food bag, a quick call saves
             the trip. We will confirm it is on the shelf and keep it with your name on it.
           </p>
           <div className="mt-4 flex flex-wrap gap-3">
-            <a href={telLink()} className="border-2 border-paper px-4 py-2 font-display text-sm text-paper hover:bg-paper hover:text-ink">
-              CALL THE SHOP
+            <a href={telLink()} className="btn-soft bg-bone text-sm text-night hover:bg-white">
+              Call the shop
             </a>
-            <a href={waLink("Assalam o alaikum, quick question before I visit: ")} className="border-2 border-paper bg-paper px-4 py-2 font-display text-sm text-ink hover:bg-mustard">
-              WHATSAPP US
+            <a
+              href={waLink("Assalam o alaikum, quick question before I visit: ")}
+              className="btn-soft bg-turf text-sm text-bone hover:brightness-110"
+            >
+              WhatsApp us
             </a>
           </div>
         </div>

@@ -59,128 +59,113 @@ export default function CartPage() {
 
   if (items.length === 0 && !placed) {
     return (
-      <div className="mx-auto max-w-3xl px-4 py-20 text-center">
-        <h1 className="font-display text-4xl">YOUR BASKET IS EMPTY</h1>
-        <p className="mt-3 font-mono text-sm text-steel">
-          The shelves are full though.
-        </p>
-        <Link
-          href="/shop"
-          className="mt-8 inline-block border-2 border-ink bg-red px-6 py-3 font-display text-paper hardshadow hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
-        >
-          GO TO THE SHOP
-        </Link>
+      <div className="fur min-h-[60vh]">
+        <div className="mx-auto max-w-3xl px-4 py-20 text-center">
+          <h1 className="font-display text-4xl font-extrabold">Your basket is empty</h1>
+          <p className="mt-3 font-round text-sm text-smoke">The shelves are full though.</p>
+          <Link href="/shop" className="btn-soft mt-8 bg-collar text-bone shadow-soft hover:bg-collardeep">
+            Go to the shop
+          </Link>
+        </div>
       </div>
     );
   }
 
+  const field =
+    "mt-1 w-full rounded-2xl border-2 border-night/10 bg-white px-3.5 py-2.5 font-round text-sm outline-none transition-colors focus:border-amber";
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
-      <h1 className="font-display text-4xl sm:text-5xl">YOUR BASKET</h1>
+      <h1 className="font-display text-4xl font-extrabold sm:text-5xl">Your basket</h1>
 
       <div className="mt-8 grid gap-10 lg:grid-cols-[1.4fr_1fr]">
-        <div>
-          <div className="border-2 border-ink bg-white">
-            <div className="grid grid-cols-[1fr_auto] gap-2 border-b-2 border-ink bg-bone px-4 py-2 font-mono text-xs uppercase tracking-widest">
-              <span>Item</span>
-              <span>Qty / Price</span>
-            </div>
-            {items.map((i) => (
-              <div key={i.slug} className="grid grid-cols-[1fr_auto] items-center gap-3 border-b border-ink/20 px-4 py-3 last:border-b-0">
-                <div className="flex items-center gap-3">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={i.image} alt={i.name} className="h-14 w-14 border border-ink object-cover" />
-                  <div>
-                    <Link href={`/product/${i.slug}`} className="font-display hover:text-red">
-                      {i.name}
-                    </Link>
-                    <p className="font-mono text-xs text-steel">{i.unit}</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="flex items-center border-2 border-ink">
-                    <button onClick={() => setQty(i.slug, i.qty - 1)} className="px-2 py-1 font-mono hover:bg-ink hover:text-paper" aria-label="Decrease">
-                      −
-                    </button>
-                    <span className="w-8 text-center font-mono text-sm">{i.qty}</span>
-                    <button onClick={() => setQty(i.slug, i.qty + 1)} className="px-2 py-1 font-mono hover:bg-ink hover:text-paper" aria-label="Increase">
-                      +
-                    </button>
-                  </div>
-                  <p className="w-24 text-right font-display">{formatPKR(i.price * i.qty)}</p>
-                  <button onClick={() => remove(i.slug)} className="font-mono text-xs uppercase text-steel hover:text-red" aria-label={`Remove ${i.name}`}>
-                    ✕
-                  </button>
+        <div className="softcard overflow-hidden">
+          <div className="grid grid-cols-[1fr_auto] gap-2 bg-night px-4 py-2.5 font-round text-xs font-bold uppercase tracking-widest text-amber">
+            <span>Item</span>
+            <span>Qty / Price</span>
+          </div>
+          {items.map((i) => (
+            <div key={i.slug} className="grid grid-cols-[1fr_auto] items-center gap-3 border-b border-night/10 px-4 py-3 last:border-b-0">
+              <div className="flex items-center gap-3">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={i.image} alt={i.name} className="h-14 w-14 rounded-xl object-cover" />
+                <div>
+                  <Link href={`/product/${i.slug}`} className="font-round font-bold hover:text-turf">
+                    {i.name}
+                  </Link>
+                  <p className="font-round text-xs text-smoke">{i.unit}</p>
                 </div>
               </div>
-            ))}
-            <div className="flex items-center justify-between border-t-2 border-ink bg-bone px-4 py-3">
-              <button onClick={clear} className="font-mono text-xs uppercase text-steel hover:text-red">
-                Empty the basket
-              </button>
-              <p className="font-display text-2xl">TOTAL {formatPKR(total)}</p>
+              <div className="flex items-center gap-4">
+                <div className="flex items-center rounded-full bg-night/5">
+                  <button onClick={() => setQty(i.slug, i.qty - 1)} className="rounded-full px-2.5 py-1 font-round font-bold hover:bg-night hover:text-bone" aria-label="Decrease">
+                    −
+                  </button>
+                  <span className="w-7 text-center font-round text-sm font-bold">{i.qty}</span>
+                  <button onClick={() => setQty(i.slug, i.qty + 1)} className="rounded-full px-2.5 py-1 font-round font-bold hover:bg-night hover:text-bone" aria-label="Increase">
+                    +
+                  </button>
+                </div>
+                <p className="w-24 text-right font-round font-bold">{formatPKR(i.price * i.qty)}</p>
+                <button onClick={() => remove(i.slug)} className="font-round text-xs font-bold uppercase text-smoke hover:text-collar" aria-label={`Remove ${i.name}`}>
+                  ✕
+                </button>
+              </div>
             </div>
+          ))}
+          <div className="flex items-center justify-between bg-white/60 px-4 py-3">
+            <button onClick={clear} className="font-round text-xs font-bold uppercase text-smoke hover:text-collar">
+              Empty the basket
+            </button>
+            <p className="font-display text-2xl font-extrabold">
+              Total {formatPKR(total)}
+            </p>
           </div>
         </div>
 
         <div>
-          <div className="border-2 border-ink bg-white p-5 hardshadow">
-            <h2 className="font-display text-2xl">DELIVERY DETAILS</h2>
-            <p className="mt-1 font-mono text-xs uppercase tracking-widest text-steel">
+          <div className="rounded-blob bg-white p-6 shadow-soft">
+            <h2 className="font-display text-2xl font-bold">Delivery details</h2>
+            <p className="caption mt-1 font-round text-xs uppercase">
               This opens WhatsApp with your order typed out
             </p>
             <div className="mt-4 space-y-3">
               <label className="block">
-                <span className="font-mono text-xs uppercase tracking-widest">Your name *</span>
-                <input
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="mt-1 w-full border-2 border-ink bg-paper px-3 py-2 font-mono text-sm outline-none focus:bg-mustard/20"
-                  placeholder="Ibrahim"
-                />
+                <span className="caption font-round text-xs uppercase">Your name *</span>
+                <input value={name} onChange={(e) => setName(e.target.value)} className={field} placeholder="Ibrahim" />
               </label>
               <label className="block">
-                <span className="font-mono text-xs uppercase tracking-widest">Phone *</span>
+                <span className="caption font-round text-xs uppercase">Phone *</span>
                 <input
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  className="mt-1 w-full border-2 border-ink bg-paper px-3 py-2 font-mono text-sm outline-none focus:bg-mustard/20"
+                  className={field}
                   placeholder="03001234567"
                   inputMode="tel"
                 />
               </label>
               <label className="block">
-                <span className="font-mono text-xs uppercase tracking-widest">Address for delivery</span>
-                <input
-                  value={address}
-                  onChange={(e) => setAddress(e.target.value)}
-                  className="mt-1 w-full border-2 border-ink bg-paper px-3 py-2 font-mono text-sm outline-none focus:bg-mustard/20"
-                  placeholder="House, street, sector"
-                />
+                <span className="caption font-round text-xs uppercase">Address for delivery</span>
+                <input value={address} onChange={(e) => setAddress(e.target.value)} className={field} placeholder="House, street, sector" />
               </label>
               <label className="block">
-                <span className="font-mono text-xs uppercase tracking-widest">Note for the rider</span>
-                <input
-                  value={note}
-                  onChange={(e) => setNote(e.target.value)}
-                  className="mt-1 w-full border-2 border-ink bg-paper px-3 py-2 font-mono text-sm outline-none focus:bg-mustard/20"
-                  placeholder="Call on arrival, gate code, etc."
-                />
+                <span className="caption font-round text-xs uppercase">Note for the rider</span>
+                <input value={note} onChange={(e) => setNote(e.target.value)} className={field} placeholder="Call on arrival, gate code, etc." />
               </label>
             </div>
             {error && (
-              <p className="mt-3 border-2 border-red-dark bg-red/10 px-3 py-2 font-mono text-sm text-red-dark">
+              <p className="mt-3 rounded-2xl bg-collar/10 px-3.5 py-2.5 font-round text-sm font-semibold text-collar">
                 {error}
               </p>
             )}
             <button
               onClick={placeOrder}
               disabled={sending}
-              className="mt-5 w-full border-2 border-ink bg-sage-dark px-4 py-3 font-display text-paper hover:bg-ink disabled:opacity-60"
+              className="btn-soft mt-5 w-full justify-center bg-turf text-bone hover:brightness-110 disabled:opacity-60"
             >
-              {sending ? "PLACING…" : "SEND ORDER ON WHATSAPP"}
+              {sending ? "Placing…" : "Send order on WhatsApp"}
             </button>
-            <p className="mt-3 font-mono text-[11px] uppercase tracking-widest text-steel">
+            <p className="caption mt-3 font-round text-[11px] uppercase">
               Cash on delivery. The shop confirms stock before dispatch.
             </p>
           </div>

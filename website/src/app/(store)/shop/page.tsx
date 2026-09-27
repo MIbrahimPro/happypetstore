@@ -45,67 +45,69 @@ export default async function ShopPage({
   });
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-10">
-      <div className="flex flex-wrap items-end justify-between gap-4">
-        <div>
-          <h1 className="font-display text-4xl sm:text-5xl">THE SHELVES</h1>
-          <p className="mt-2 max-w-lg text-ink/70">
-            Live stock counts. If something shows zero, call us; it usually lands within a day.
-          </p>
+    <div className="fur min-h-screen">
+      <div className="mx-auto max-w-6xl px-4 py-10">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <h1 className="font-display text-4xl font-extrabold sm:text-5xl">The shelves</h1>
+            <p className="mt-2 max-w-lg text-night/70">
+              Live stock counts. If something shows zero, call us; it usually lands within a day.
+            </p>
+          </div>
+          <form action="/shop" className="flex items-center gap-2">
+            <input
+              type="search"
+              name="q"
+              defaultValue={q}
+              placeholder="Search royal canin, leash, litter…"
+              className="w-56 rounded-full border-2 border-night/10 bg-white px-4 py-2.5 font-round text-sm outline-none placeholder:text-smoke/70 focus:border-amber"
+            />
+            <button className="btn-soft bg-night px-5 py-2.5 text-sm text-bone hover:bg-night/85">
+              Find
+            </button>
+          </form>
         </div>
-        <form action="/shop" className="flex items-stretch">
-          <input
-            type="search"
-            name="q"
-            defaultValue={q}
-            placeholder="Search royal canin, leash, litter…"
-            className="w-56 border-2 border-ink bg-white px-3 py-2 font-mono text-sm outline-none placeholder:text-steel/70 focus:bg-mustard/20"
-          />
-          <button className="border-2 border-l-0 border-ink bg-ink px-4 font-display text-sm text-paper hover:bg-red">
-            FIND
-          </button>
-        </form>
-      </div>
 
-      <div className="mt-8 flex flex-wrap gap-0 border-2 border-ink bg-white">
-        <Link
-          href="/shop"
-          className={`border-r-2 border-ink px-4 py-2 font-mono text-sm uppercase ${
-            cat === "all" ? "bg-ink text-paper" : "hover:bg-bone"
-          }`}
-        >
-          All ({products.length})
-        </Link>
-        {CATS.map((c) => {
-          const n = products.filter((p: any) => p.category === c.id).length;
-          return (
-            <Link
-              key={c.id}
-              href={`/shop?cat=${c.id}`}
-              className={`border-r-2 border-ink px-4 py-2 font-mono text-sm uppercase last:border-r-0 ${
-                cat === c.id ? "bg-ink text-paper" : "hover:bg-bone"
-              }`}
-            >
-              {c.label} ({n})
-            </Link>
-          );
-        })}
-      </div>
+        <div className="mt-8 flex flex-wrap gap-2">
+          <Link
+            href="/shop"
+            className={`rounded-full px-4 py-2 font-round text-sm font-bold transition-colors ${
+              cat === "all" ? "bg-night text-bone" : "bg-white text-night/75 hover:bg-night/10 shadow-softer"
+            }`}
+          >
+            All ({products.length})
+          </Link>
+          {CATS.map((c) => {
+            const n = products.filter((p: any) => p.category === c.id).length;
+            return (
+              <Link
+                key={c.id}
+                href={`/shop?cat=${c.id}`}
+                className={`rounded-full px-4 py-2 font-round text-sm font-bold transition-colors ${
+                  cat === c.id ? "bg-night text-bone" : "bg-white text-night/75 hover:bg-night/10 shadow-softer"
+                }`}
+              >
+                {c.label} ({n})
+              </Link>
+            );
+          })}
+        </div>
 
-      {filtered.length === 0 ? (
-        <div className="mt-10 border-2 border-dashed border-ink p-10 text-center">
-          <p className="font-display text-2xl">NOTHING ON THIS SHELF YET</p>
-          <p className="mt-2 font-mono text-sm text-steel">
-            Try another tab, or call {`0313 1495287`} and we will find it.
-          </p>
-        </div>
-      ) : (
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {filtered.map((p: any) => (
-            <ProductCard key={p.slug} p={p} />
-          ))}
-        </div>
-      )}
+        {filtered.length === 0 ? (
+          <div className="softcard mt-10 p-10 text-center">
+            <p className="font-display text-2xl font-bold">Nothing on this shelf yet</p>
+            <p className="mt-2 font-round text-sm text-smoke">
+              Try another tab, or call 0313 1495287 and we will find it.
+            </p>
+          </div>
+        ) : (
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {filtered.map((p: any) => (
+              <ProductCard key={p.slug} p={p} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

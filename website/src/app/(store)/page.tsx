@@ -89,19 +89,19 @@ export default async function HomePage() {
           </div>
 
           <div className="relative flex items-center justify-center">
-            <div className="animate-breathe">
-              {/* the client's own logo art, background removed */}
+            <div className="fur-dark animate-breathe w-full max-w-md rotate-1 rounded-blob p-6 shadow-soft sm:p-8">
+              {/* the client's own logo art, background removed, on a night tile */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/brand/logo-lockup.svg"
                 alt="Happy Tails: leaping dog over the script Tails wordmark"
-                className="w-full max-w-md rotate-1 drop-shadow-[0_18px_28px_rgba(11,11,12,0.18)]"
+                className="w-full"
               />
             </div>
-            <div className="absolute -right-1 top-2 rotate-3 rounded-full bg-amber px-3.5 py-1.5 font-round text-xs font-bold text-night shadow-soft">
+            <div className="absolute -right-1 top-4 rotate-3 rounded-full bg-amber px-3.5 py-1.5 font-round text-xs font-bold text-night shadow-soft">
               24/7, even on Eid
             </div>
-            <div className="absolute bottom-3 left-2 -rotate-2 rounded-full bg-white px-3 py-1 font-round text-[11px] font-semibold text-night/70 shadow-softer">
+            <div className="absolute -bottom-3 left-4 -rotate-2 rounded-full bg-white px-3 py-1 font-round text-[11px] font-semibold text-night/70 shadow-softer">
               Est. G-10 Markaz
             </div>
           </div>
